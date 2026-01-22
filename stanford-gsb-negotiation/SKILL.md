@@ -1,9 +1,9 @@
 ---
-name: negotiation
+name: stanford-gsb-negotiation
 description: Help users prepare for and navigate negotiations using proven frameworks. Use this skill when the user mentions negotiation, bargaining, making deals, salary discussions, conflict resolution, mediation, or needs help preparing for any situation involving reaching agreement with another party. This skill uses web search to gather relevant market data, industry standards, and contextual information to strengthen negotiation positions.
 ---
 
-# Negotiation Skill
+# Stanford GSB Negotiation Skill
 
 ## Overview
 
