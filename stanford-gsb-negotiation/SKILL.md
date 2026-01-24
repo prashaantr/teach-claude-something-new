@@ -1,6 +1,6 @@
 ---
 name: stanford-gsb-negotiation
-description: Negotiation preparation workflow. Use when user mentions: negotiating salary, job offers, contracts, vendor deals, real estate, disputes, difficult conversations, asking for a raise, making deals, reaching agreement, or "what should I ask for." Provides structured preparation, market research, and response scripts.
+description: "Negotiation preparation workflow. Use when user mentions negotiating salary, job offers, contracts, vendor deals, real estate, disputes, difficult conversations, asking for a raise, making deals, or reaching agreement. Provides structured preparation, market research, and response scripts."
 ---
 
 # Negotiation Workflow
