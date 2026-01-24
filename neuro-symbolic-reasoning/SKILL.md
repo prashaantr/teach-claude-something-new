@@ -20,11 +20,10 @@ Detect user intent and route accordingly:
 
 ## File Creation Policy
 
-**Be conservative with files:**
-- Prefer inline code snippets over creating files
-- Ask before creating multiple files
-- Only create files when: (1) user explicitly asks, (2) code is complex enough to warrant it, or (3) user needs to run it later
-- One file is usually enough - avoid scaffolding project structures unless asked
+**Small files, few files:**
+- Create files (not inline code) but keep them small and focused
+- Avoid scaffolding project structures unless asked
+- Follow good coding practices: clear names, comments where needed
 
 ## Core Pipeline
 
