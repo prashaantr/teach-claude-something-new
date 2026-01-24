@@ -8,8 +8,7 @@ Ask:
 - "What happened from your perspective?"
 - "How are you feeling about this?"
 - "What's at stake for you personally?"
-
-Listen for: Blame, anger, hurt, identity threats ("they don't respect me")
+- "Do you feel disrespected or unheard?"
 
 ## Reframe Their Perspective
 
