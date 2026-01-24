@@ -21,7 +21,7 @@ Help users prepare for and navigate negotiations. You are a coach, not a lecture
 | User signal | Action |
 |-------------|--------|
 | Preparing for negotiation | → Preparation sequence below |
-| "They just said..." / mid-negotiation | → Load `references/tactical-playbook.md`, give response script |
+| "They just said..." / mid-negotiation | → Give them a response script (see examples below) |
 | "What should I ask for?" | → WebSearch using `references/research-templates.md`, give number + justification |
 | High emotion / relationship conflict | → Load `references/three-conversations.md`, help reframe |
 | "How did I do?" | → Debrief: What worked? What would you change? |
@@ -77,19 +77,16 @@ Then tell them: "Your leverage is [X] because [reason]. Here's what you could of
 
 When user is mid-negotiation and asks "they just said X, what do I do?":
 
-1. Load `references/tactical-playbook.md`
-2. Identify the tactic being used
-3. Give them a specific response script
-4. Explain briefly why it works
-
-**Output format:**
+Give them a response script:
 ```
-They're using [tactic name].
-
 Say this: "[exact words]"
-
-Why: [one sentence]
 ```
+
+Common responses:
+- They anchored high → "What range were you thinking?"
+- They said final offer → "If [X] is fixed, what flexibility is there on [Y]?"
+- They got angry → "I can see this is important to you. Help me understand."
+- They went silent → "What would help you decide by [date]?"
 
 ## Difficult Conversations
 
@@ -112,7 +109,6 @@ Try opening with: "[third story script]"
 ## Resources
 
 Load these as needed:
-- `references/tactical-playbook.md` - Response scripts for common moves
 - `references/research-templates.md` - What to search for by negotiation type
 - `references/three-conversations.md` - When emotions/relationships are involved
 - `references/framework-integration.md` - Complex situations needing both
