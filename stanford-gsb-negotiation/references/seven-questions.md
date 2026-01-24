@@ -4,6 +4,10 @@ Use these to analyze the user's situation and give them leverage insights.
 
 ## 1. BATNA Analysis
 
+**BATNA = Best Alternative To a Negotiated Agreement** (what you'll do if this deal fails)
+
+If user doesn't know the term, explain: "Your BATNA is your backup plan - what happens if you walk away from this negotiation."
+
 Ask user:
 - "What will you do if this deal falls through?"
 - "What other options do you have?"

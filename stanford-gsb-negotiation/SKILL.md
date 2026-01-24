@@ -49,6 +49,8 @@ Based on my research:
 
 ### 3. Ask to Understand Leverage
 
+**BATNA = Best Alternative To a Negotiated Agreement** (backup plan if deal fails)
+
 Ask the user:
 - "What will you do if this deal falls through?" (their BATNA)
 - "What are their alternatives if you walk?" (other side's BATNA)
