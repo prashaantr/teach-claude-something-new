@@ -1,6 +1,6 @@
 ---
 name: neuro-symbolic-reasoning
-description: Neuro-symbolic AI combining LLMs with symbolic solvers. Ideation mode for brainstorming and design (no code). Implementation mode for coding and debugging.
+description: Neuro-symbolic AI combining LLMs with symbolic solvers. Use when exploring neuro-symbolic approaches (ideation, no code) or implementing solver integrations (code).
 ---
 
 # Neuro-Symbolic Reasoning
