@@ -47,15 +47,16 @@ Based on my research:
 - Your leverage: [specific points]
 ```
 
-### 3. Analyze (ask yourself internally)
-Use Wheeler's 7 Questions to structure your thinking:
-1. What's their BATNA? What's user's BATNA? (Who has more power?)
-2. Who actually decides? Who influences?
-3. What do they really want? (Interests, not positions)
-4. Where can value be created?
-5. What might block agreement?
-6. What's the power balance?
-7. Any ethical concerns?
+### 3. Ask to Understand Leverage
+
+Ask the user:
+- "What will you do if this deal falls through?" (their BATNA)
+- "What are their alternatives if you walk?" (other side's BATNA)
+- "Who actually makes the final decision?"
+- "What do you think they really care about?"
+- "What could you offer that's easy for you but valuable to them?"
+
+Use their answers to identify leverage and options.
 
 ### 4. Give strategy (output these)
 

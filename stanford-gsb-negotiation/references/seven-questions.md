@@ -7,10 +7,8 @@ Use these to analyze the user's situation and give them leverage insights.
 Ask user:
 - "What will you do if this deal falls through?"
 - "What other options do you have?"
-
-Ask yourself:
-- What's their alternative if user walks?
-- Who needs this deal more?
+- "What do you think their alternatives are if you walk away?"
+- "Who needs this deal more - you or them?"
 
 Output: "Your leverage here is [X] because they [need/don't have alternatives]."
 
@@ -27,10 +25,8 @@ Red flag: If user is negotiating with someone who can't decide, suggest: "Ask th
 Ask user:
 - "Why do you want [that number/outcome]?"
 - "What problem are you trying to solve?"
-
-Ask yourself:
-- What might they really want beyond their stated position?
-- What's cheap for user to give but valuable to them?
+- "What do you think they really want - beyond what they're asking for?"
+- "What could you offer that's easy for you but might be valuable to them?"
 
 Output: "They might care more about [X] than [Y]. You could offer [X] in exchange for [Y]."
 
