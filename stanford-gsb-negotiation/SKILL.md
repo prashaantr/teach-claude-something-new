@@ -28,16 +28,16 @@ User Request
     │       └─► Use Preparation Workflow (below)
     │
     ├─► "I'm in the middle of a negotiation"
-    │       └─► Use Real-Time Guidance (assess current state, suggest next moves)
-    │
-    ├─► "Analyze this negotiation I had"
-    │       └─► Use Reflection Framework (references/self-assessment.md)
+    │       └─► Use Real-Time Guidance + references/tactical-playbook.md
     │
     ├─► "I need information about [market rates/industry standards]"
-    │       └─► Use WebSearch to gather data, then frame for negotiation
+    │       └─► Use references/research-templates.md for search strategies
     │
-    └─► "I'm having a difficult conversation"
-            └─► Use Three Conversations Model (references/three-conversations.md)
+    ├─► "I'm having a difficult conversation"
+    │       └─► Use Three Conversations Model (references/three-conversations.md)
+    │
+    └─► High emotion + strategy needed?
+            └─► Use references/framework-integration.md for combined approach
 ```
 
 ## Preparation Workflow
@@ -149,9 +149,20 @@ Before any negotiation interaction, check:
 ## Resources
 
 Detailed frameworks are available in the references/ directory:
-- `seven-questions.md` - Wheeler's complete 7 Questions analysis framework
+
+**Core Frameworks:**
+- `seven-questions.md` - Wheeler's 7 Questions analysis framework
 - `three-conversations.md` - Handling difficult conversations
+
+**Preparation:**
 - `preparation-checklist.md` - Pre-negotiation preparation guide
+- `research-templates.md` - WebSearch strategies by negotiation type
+
+**Execution:**
+- `tactical-playbook.md` - Responses to common negotiation moves
+- `framework-integration.md` - When to use which framework
+
+**Learning:**
 - `negotiation-examples.md` - Real-world examples with analysis
 
 ## Using Search to Inform Negotiations
