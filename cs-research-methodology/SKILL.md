@@ -1,9 +1,9 @@
 ---
-name: research-methods
+name: cs-research-methodology
 description: Apply systematic research methodology to investigate problems. Use when the user wants to analyze a problem space, identify key assumptions to challenge, structure a research argument, or plan an investigation approach.
 ---
 
-# Research Methods
+# CS Research Methodology
 
 Systematic framework for investigating problems based on Stanford CS197.
 
