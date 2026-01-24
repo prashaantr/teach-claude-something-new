@@ -1,116 +1,56 @@
-# The Three Conversations Model
+# Emotional Situation Scripts
 
-*From "Difficult Conversations" - Harvard Negotiation Project*
+Use when user is dealing with relationship strain or high emotions.
 
-Every difficult conversation is actually three conversations happening simultaneously.
+## Diagnose First
 
----
+Ask:
+- "What happened from your perspective?"
+- "How are you feeling about this?"
+- "What's at stake for you personally?"
 
-## The Three Conversations
+Listen for: Blame, anger, hurt, identity threats ("they don't respect me")
 
-### 1. The "What Happened" Conversation
+## Reframe Their Perspective
 
-**Common Traps:**
-- Assuming you know what they intended
-- Arguing about who's right
-- Focusing on blame instead of contribution
+Help user see the other side:
 
-**Better Approach:**
-- Shift from **certainty to curiosity**
-- Explore their story before telling yours
-- Focus on **contribution** rather than blame
+"Before we strategize, let's consider their view. What might they say happened?"
 
-**Key Questions:**
-- "Help me understand how you see this situation"
-- "What information might I be missing?"
+"What pressures might they be under that you don't see?"
 
----
+"Is it possible they didn't intend to [hurt/disrespect] you?"
 
-### 2. The Feelings Conversation
+## Give Opening Scripts
 
-**Common Traps:**
-- Pretending feelings don't exist
-- Letting feelings leak out as judgments
-- Exploding when emotions build up
+### Third Story Opening
+Instead of accusation, give them a neutral start:
 
-**Better Approach:**
-- **Acknowledge emotions** - yours and theirs
-- Name the feelings without judgment
-- Create space for feelings to be heard
+**User wants to say:** "You went behind my back"
+**Give them:** "We seem to have different expectations about how decisions get made. I'd like to understand your thinking."
 
-**Key Phrases:**
-- "I'm feeling frustrated, and I want to understand your perspective"
-- "It sounds like you're feeling [concerned/disappointed]. Is that right?"
+**User wants to say:** "You're being unreasonable"
+**Give them:** "We're seeing this differently. Help me understand what's driving your position."
 
----
-
-### 3. The Identity Conversation
-
-This is the internal conversation about what this situation means for you.
-
-**Identity Threats:**
-- Am I competent?
-- Am I a good person?
-- Am I worthy of respect?
-
-**Better Approach:**
-- Recognize what's at stake for your identity
-- Accept complexity (you can be good AND have made a mistake)
-- Consider what's at stake for their identity
-
----
-
-## The Learning Conversation
-
-Transform difficult conversations into learning conversations:
-
-| From | To |
-|------|-----|
-| Assume I'm right | Explore both stories |
-| Argue about blame | Focus on contribution |
-| Hide feelings | Acknowledge feelings |
-| Protect identity | Accept complexity |
-
----
-
-## Key Techniques
-
-### The "Third Story" Opening
-
-Start with a neutral description both parties can accept:
-
-**Instead of:** "You were wrong to send that email without consulting me"
-
-**Try:** "We seem to have different views about how decisions should be made. I'd like to understand your thinking and share mine."
+### Acknowledge Feelings Script
+"Try saying: 'I'm feeling [frustrated/concerned], and I want to understand your perspective.'"
 
 ### The "And" Stance
+When user is stuck in either/or:
+"You can acknowledge their intent AND your hurt: 'I know you didn't mean to upset me, and I was still hurt by what happened.'"
 
-Hold two truths simultaneously:
+## De-escalation Scripts
 
-- "I understand you were under pressure AND I was hurt by what happened"
-- "You had good intentions AND the impact was harmful"
+If they describe the other person getting angry:
+- "Say: 'I can see this is really important to you. Help me understand.'"
+- "Say: 'Let's take a break and come back to this in an hour.'"
+- "Say: 'I want to respond thoughtfully. Can I think about this?'"
 
-### Reframing Blame as Contribution
+## When User Is Angry
 
-**Blame:** "This is your fault"
-**Contribution:** "Let's look at how we both contributed to this situation"
+Help them separate before engaging:
+1. "What specifically triggered this feeling?"
+2. "What do you actually need from this conversation?"
+3. "Are you ready to hear their perspective, or do you need more time?"
 
----
-
-## When Emotions Run High
-
-### De-escalation Strategies
-
-1. **Pause:** "I want to respond thoughtfully. Can we take a moment?"
-2. **Acknowledge:** "I can see this is really important to you"
-3. **Take a break:** "Can we pick this up in an hour?"
-
----
-
-## Summary
-
-| From | To |
-|------|-----|
-| Deliver a message | Learn their story |
-| Fight about who's right | Understand two perspectives |
-| Win the argument | Solve the problem together |
+Don't let them negotiate while angry. Help them process first.

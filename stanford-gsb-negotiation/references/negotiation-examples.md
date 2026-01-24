@@ -1,124 +1,66 @@
-# Negotiation Examples
+# Reference Examples
 
-Real-world examples demonstrating frameworks in action.
+Use these to guide users in similar situations.
 
----
+## Salary Negotiation
 
-## Example 1: Salary Negotiation
+**Situation:** Offer $85K, market rate $90-100K
 
-### Situation
-Job candidate received offer of $85,000. Market rate: $90,000-$100,000.
-
-### Analysis
-
-**BATNAs**
-- Candidate: Current job at $75,000, continue job search
-- Company: Other candidates, but this one preferred
-
-**Interests**
-- Candidate: Fair compensation, feeling valued, growth
-- Company: Acquire talent, stay within budget
-
-**Value Creation**
+**What worked:**
+- Researched market rates first
+- Asked about signing bonus (one-time cost easier than ongoing)
+- Asked about title change (free for them, valuable to candidate)
 - Offered flexibility on start date
-- Asked about signing bonus (one-time vs ongoing cost)
-- Discussed title change (low cost, high value)
 
-### Outcome
-$92,000 base + $5,000 signing bonus + 6-month salary review
+**Result:** $92K + $5K signing bonus + 6-month review
 
-### Lessons
-- Research market rates before negotiating
-- Ask about what's flexible, not just salary
-- Consider the full package
+**Key script:** "Based on my research, the market range is $90-100K. I'm excited about this role and want to find something that works for both of us."
 
 ---
 
-## Example 2: Medical Decision
+## Vendor Contract
 
-### Situation
-Family negotiating with hospital about treatment for elderly grandfather.
+**Situation:** Vendor wants 15% price increase
 
-### Three Conversations Applied
+**What worked:**
+- Researched 2 competitor alternatives
+- Showed only using 60% of features
+- Offered 2-year commitment in exchange
 
-**What Happened**
-- Hospital: "This is standard of care"
-- Family: "We're concerned about quality of life"
-- Key: Both perspectives valid
+**Result:** 5% increase instead of 15%, removed unused modules, price protection
 
-**Feelings**
-- Family: Fear, grief, guilt
-- Medical team: Responsibility, desire to help
-
-**Identity**
-- Family: "Are we good children if we don't fight for every treatment?"
-- Reframe: "honoring his wishes" vs "giving up"
-
-### Outcome
-Included palliative care specialist in discussion. Discovered grandfather's documented wishes for comfort care. All parties aligned.
-
-### Lessons
-- Include the right parties
-- Address emotions before problem-solving
-- Reframe identity issues
+**Key script:** "We value the partnership, but we need to justify this spend. We're only using 60% of features - can we right-size this?"
 
 ---
 
-## Example 3: Vendor Contract
+## Home Purchase
 
-### Situation
-Renewing software subscription. Vendor proposed 15% price increase.
+**Situation:** Asking $550K, buyer budget constrained
 
-### Preparation
+**Research found:**
+- 45 days on market (above average = leverage)
+- Price already reduced from $575K
+- Seller relocating for job (motivated)
 
-**Research**
-- Found 2 competitor alternatives
-- Usage data: Team used only 60% of features
-- Similar company contracts for comparison
+**What worked:**
+- Personal letter to seller
+- Quick inspection timeline
+- Flexible closing date
 
-**Strategic Analysis**
-- Company BATNA: Switch (high switching cost)
-- Vendor BATNA: Lose account (significant revenue)
+**Result:** $525K with appliances included
 
-**Value Creation**
-- Offered 2-year commitment
-- Asked about removing unused features
-- Proposed case study participation
-
-### Outcome
-- 5% increase instead of 15%
-- Removed unused modules (-10%)
-- 2-year price protection
-- Net: Lower than current contract
-
-### Lessons
-- Research alternatives even if not planning to switch
-- Pay only for what you use
-- Multi-year commitments are currency
+**Key script:** "We love the home. We can close quickly and be flexible on timing, which we hope is valuable to you."
 
 ---
 
-## Example 4: Home Purchase
+## Emotional Situation (Medical)
 
-### Situation
-First-time buyers. Asking price $550,000. Budget constraints.
+**Situation:** Family vs hospital on treatment
 
-### Research Found
-- Comparable sales: $510,000-$560,000
-- Days on market: 45 (above average)
-- Recent price reduction from $575,000
-- Seller motivation: Job relocation
+**What worked:**
+- Acknowledged everyone wanted what's best
+- Brought in palliative care specialist (right parties)
+- Found grandfather's documented wishes
+- Reframed "giving up" as "honoring wishes"
 
-### Strategy
-**Opening:** $505,000 with personal letter
-
-**Counteroffer received:** $540,000
-
-**Response:** $520,000 + quick inspection + flexible closing
-
-**Final:** $525,000 with appliances included
-
-### Lessons
-- Days on market and seller motivation = power
-- Personal connection matters
-- Non-price terms create value
+**Key script:** "We all want what's best for him. Can we understand what he would want?"

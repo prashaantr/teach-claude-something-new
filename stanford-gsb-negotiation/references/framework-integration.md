@@ -1,56 +1,48 @@
-# Framework Integration Guide
+# When to Switch Approaches
 
-How to combine Wheeler's 7 Questions with Three Conversations when helping users.
-
-## Decision Flow
+## Start Here
 
 ```
 User situation
     │
-    ├─► High emotion/relationship strain?
-    │       └─► Start with Three Conversations
-    │           Then use 7 Questions for strategy
+    ├─► High emotion / relationship strain?
+    │       └─► Address emotions first (three-conversations.md)
+    │           Then move to strategy (seven-questions.md)
     │
-    └─► Primarily transactional?
-            └─► Start with 7 Questions
-                Use Three Conversations if emotions arise
+    └─► Transactional / numbers-focused?
+            └─► Go straight to strategy
+                If emotions surface, pause and address them
 ```
 
-## Three Conversations → 7 Questions Bridge
+## Signs to Switch
 
-When emotions are managed, transition to strategy:
+### From Strategy → Emotions
 
-| After addressing... | Move to... |
-|---------------------|------------|
-| "What happened" | Q3: Interests (theirs and yours) |
-| Feelings | Q5: Barriers (psychological) |
-| Identity | Q6: Power (face-saving needs) |
+Switch if user:
+- Keeps saying "they're being unreasonable"
+- Shows anger/frustration
+- Mentions feeling disrespected
+- Can't articulate what they want (blocked by emotion)
 
-## 7 Questions → Three Conversations Bridge
+**Action:** Pause strategy. Ask "What happened from your perspective?" and "How are you feeling about this?"
 
-When strategic analysis reveals emotional complexity:
+### From Emotions → Strategy
 
-| If 7 Questions reveals... | Use Three Conversations for... |
-|---------------------------|-------------------------------|
-| Unclear interests | "What happened" - explore their story |
-| Relationship damage | Feelings - acknowledge before proceeding |
-| Ego/face concerns | Identity - reframe stakes |
+Switch when user:
+- Understands the other side's perspective
+- Has calmed down
+- Can articulate what they actually want
+- Is ready to problem-solve
 
-## Combined Preparation Sequence
+**Action:** "Now that we understand the situation, let's figure out your strategy. What's most important to you?"
 
-1. **Assess emotional temperature** (Is this relationship-sensitive?)
-2. **If emotional**: Start with Three Conversations framing
-3. **7 Questions analysis**: Full strategic preparation
-4. **Identify integration points**: Where will emotions intersect with strategy?
-5. **Plan opening**: Third Story if emotional, Interest-based if transactional
+## Quick Router
 
-## Real-Time Integration
-
-During negotiation support:
-
-| User says... | Framework response |
-|--------------|-------------------|
-| "They're being unreasonable" | Three Conversations: "What might their story be?" |
-| "What should I ask for?" | 7 Questions: "Let's analyze the ZOPA" |
-| "I'm really angry about this" | Three Conversations: "Let's acknowledge that before strategizing" |
-| "How do I get leverage?" | 7 Questions: "Let's assess BATNAs" |
+| User says... | Do this |
+|--------------|---------|
+| "What should I ask for?" | Research → give numbers |
+| "They just said X" | Tactical response script |
+| "They're being unreasonable" | Reframe their perspective first |
+| "I'm so angry" | Don't strategize yet - process emotion |
+| "How do I get leverage?" | BATNA analysis |
+| "This is complicated" | Break it down: emotions or strategy first? |
