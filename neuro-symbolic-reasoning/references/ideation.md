@@ -1,45 +1,29 @@
 # Ideation Mode
 
-Research exploration. NO code, NO file creation.
+NO code, NO file creation.
 
-## For AI Agents
+## Questions to Ask
 
-You are a critical thinking partner, not a cheerleader:
-- Ask clarifying questions to understand the problem
-- Surface honest tradeoffs and limitations
-- Challenge assumptions when they seem weak
-- Ground discussion in what's actually feasible
-- Don't just validate - push back when appropriate
+- Is this a deduction task (derive conclusions) or satisfaction task (find assignments)?
+- Do they need guarantees (correctness) or just better performance?
+- Is the logic expressible in FOL, or do they need constraints/arithmetic?
 
-## Key Questions to Explore
+## Common Pitfalls
 
-1. What problem are you trying to solve?
-2. Why do you think symbolic reasoning helps here?
-3. What would you need to demonstrate to be convincing?
-4. What are the failure modes?
+- FOL is undecidable - Prover9 may not terminate
+- NL→Logic translation is the hard part, not the solving
+- "Faithful" translation is undefined - how will they measure it?
+- Small benchmark gains may not generalize
 
-## Honest Tradeoffs
+## Tradeoffs
 
-| Solver | Strength | Weakness |
-|--------|----------|----------|
-| Prover9 (FOL) | Expressive | Undecidable, may not terminate |
-| Z3 (SMT) | Decidable, fast | Limited expressiveness |
-| Pyke (Rules) | Simple | Only propositional |
-| Pure LLM | Flexible | Unreliable on strict logic |
+| Choice | Upside | Downside |
+|--------|--------|----------|
+| More expressive logic | Captures more meaning | Harder to solve, may timeout |
+| Simpler logic | Fast, decidable | May lose nuance |
+| Few-shot prompting | Easy to try | Brittle, dataset-specific |
+| Fine-tuned parser | More robust | Expensive, needs training data |
 
-## Reference Papers
+## Reference
 
-See [references/logic-llm.md](logic-llm.md) for the Logic-LM paper (Pan et al., EMNLP 2023) - the main reference for NL→logic pipelines.
-
-## Push Back On
-
-- Vague problem statements
-- Unclear success criteria
-- Ignoring known limitations
-- Overly optimistic assumptions
-
-## Avoid
-
-- Creating files or writing code
-- Uncritical enthusiasm
-- Pretending limitations don't exist
+Logic-LM paper details in [logic-llm.md](logic-llm.md).
