@@ -1,119 +1,86 @@
 ---
 name: stanford-gsb-negotiation
-description: Negotiation preparation and coaching. Use when user mentions negotiating, salary, contracts, deals, disputes, difficult conversations, or reaching agreement with another party.
+description: Negotiation preparation workflow. Use when user mentions: negotiating salary, job offers, contracts, vendor deals, real estate, disputes, difficult conversations, asking for a raise, making deals, reaching agreement, or "what should I ask for." Provides structured preparation, market research, and response scripts.
 ---
 
 # Negotiation Workflow
 
-## Trigger → Route
+## Route by User Intent
 
-| User says | Do this |
-|-----------|---------|
-| "Help me prepare for a negotiation" | → Preparation workflow |
-| "What should I ask for?" | → Research workflow |
-| "They just said X" | → Give response script |
-| High emotion / conflict | → Emotion workflow |
-
----
+| User intent | Action |
+|-------------|--------|
+| Preparing for negotiation | Run preparation workflow |
+| Needs market data | WebSearch → output number with sources |
+| Mid-negotiation ("they said X") | Give response script |
+| Emotional/relationship conflict | Ask about feelings first, then strategize |
 
 ## Preparation Workflow
 
-### Step 1: Ask
+### 1. Ask Context
 
+Ask:
 - "What are you negotiating?"
 - "Who's the other party?"
 - "What's your deadline?"
-- "What would make you happy? What's your minimum?"
+- "What outcome would make you happy?"
+- "What's your minimum acceptable outcome?"
 
-### Step 2: Research (WebSearch)
+### 2. Research Market Data
 
-Search for market data. See `references/research-templates.md` for queries by type.
+WebSearch for relevant data. See `references/research-templates.md` for search queries by negotiation type.
 
-Output:
+Output format:
 ```
-Based on my research:
-- Market range: $X - $Y (median: $Z)
-- Sources: [list]
+Market range: $X - $Y (median: $Z)
+Sources: [list with links]
 ```
 
-### Step 3: Ask About Leverage
+### 3. Ask About Leverage
 
-**BATNA = Best Alternative To a Negotiated Agreement** (backup plan if deal fails)
-
-- "What will you do if this deal falls through?"
-- "What are their alternatives if you walk?"
-- "Who makes the final decision?"
+Ask:
+- "What will you do if this deal falls through?" (their BATNA - backup plan)
+- "What are their alternatives if you walk away?"
+- "Who makes the final decision on their side?"
 - "What do you think they really care about?"
 - "What could you offer that's easy for you but valuable to them?"
 
-### Step 4: Output Strategy
+### 4. Output Strategy
 
 ```
-Target: $X (ambitious but justified)
+Target: $X (justify with market data)
 Walk-away: $Y
 Opening: $Z
 
-Say this: "[specific script]"
+Script: "[what to say]"
 
-If they say [objection], respond: "[script]"
+If they push back, say: "[response]"
 ```
 
----
-
-## Research Workflow
-
-When user asks "what should I ask for?" or "what's fair?":
-
-1. Ask: "What role/item/situation?"
-2. WebSearch using `references/research-templates.md`
-3. Output number + justification + sources
-
----
-
-## Response Scripts
+## Mid-Negotiation Response
 
 When user says "they just said X":
 
-| They said | Tell user to say |
+| Situation | Tell user to say |
 |-----------|------------------|
-| Anchored high/low | "What range were you thinking?" |
+| They anchored high/low | "What range were you thinking?" |
 | "Final offer" | "If [X] is fixed, what flexibility is there on [Y]?" |
-| Got angry | "I can see this is important to you. Help me understand." |
-| Went silent | "What would help you decide by [date]?" |
+| They got angry | "I can see this is important to you. Help me understand." |
+| They went silent | "What would help you decide by [date]?" |
+| They added last-minute asks | "If we're reopening terms, I'd want to revisit [Y] too." |
 
----
+## Emotional Situations
 
-## Emotion Workflow
+When user shows frustration or relationship strain:
 
-When user shows anger, frustration, or relationship strain:
+1. Ask: "What happened?" and "How are you feeling about this?"
+2. Ask: "What might they say happened?" (reframe perspective)
+3. Give opening script: "We seem to see this differently. I'd like to understand your perspective."
 
-### Step 1: Ask
+See `references/emotion-scripts.md` for more scripts.
 
-- "What happened from your perspective?"
-- "How are you feeling about this?"
-- "Do you feel disrespected or unheard?"
+## References
 
-### Step 2: Reframe
-
-- "What might they say happened?"
-- "What pressures might they be under?"
-
-### Step 3: Output Opening Script
-
-```
-Try opening with: "We seem to have different expectations about [X].
-I'd like to understand your thinking."
-```
-
-See `references/three-conversations.md` for more scripts.
-
----
-
-## Resources
-
-- `references/research-templates.md` - Search queries by negotiation type
-- `references/seven-questions.md` - Deep preparation questions
-- `references/three-conversations.md` - Emotional situation scripts
-- `references/framework-integration.md` - When to switch approaches
-- `references/negotiation-examples.md` - Reference examples
-- `references/preparation-checklist.md` - Quick question list
+Load as needed:
+- `references/research-templates.md` - WebSearch queries by negotiation type
+- `references/emotion-scripts.md` - Scripts for difficult conversations
+- `references/examples.md` - Reference outcomes for similar negotiations
