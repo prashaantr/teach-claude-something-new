@@ -63,10 +63,15 @@ When user says "they just said X":
 | Situation | Tell user to say |
 |-----------|------------------|
 | They anchored high/low | "What range were you thinking?" |
-| "Final offer" | "If [X] is fixed, what flexibility is there on [Y]?" |
-| They got angry | "I can see this is important to you. Help me understand." |
+| "Final offer" | "What would need to change for flexibility?" |
+| They got angry | "It seems like this is really important to you." (label emotion) |
 | They went silent | "What would help you decide by [date]?" |
-| They added last-minute asks | "If we're reopening terms, I'd want to revisit [Y] too." |
+| They said something unexpected | Mirror last 2-3 words + pause: "...think about it?" |
+
+**Key techniques** (see `references/tactics.md`):
+- **Mirror**: Repeat last 1-3 words, pause 4 sec
+- **Label**: "It seems like you're concerned about..."
+- **Calibrated questions**: Use "What/How" not "Why"
 
 ## Emotional Situations
 
@@ -81,6 +86,7 @@ See `references/emotion-scripts.md` for more scripts.
 ## References
 
 Load as needed:
+- `references/tactics.md` - Mirroring, labeling, calibrated questions
 - `references/research-templates.md` - WebSearch queries by negotiation type
 - `references/emotion-scripts.md` - Scripts for difficult conversations
 - `references/examples.md` - Reference outcomes for similar negotiations
