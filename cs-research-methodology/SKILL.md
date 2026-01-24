@@ -1,6 +1,6 @@
 ---
 name: cs-research-methodology
-description: Generate computer science research ideas using the "bit flip" framework. Use when asked to find a research angle, identify what assumptions to challenge, propose a novel research direction, or come up with a CS research idea. Triggers include "research idea", "what could I research", "find a gap", "what's everyone missing", "novel contribution".
+description: Conduct a literature review and develop a CS research proposal. Use when asked to review a research area, find gaps in existing work, and propose a novel research contribution. The output is a research proposal identifying an assumption to challenge (the "bit flip") and how to validate it.
 ---
 
 # CS Research Methodology
