@@ -25,19 +25,22 @@ Use this skill when the user:
 User Request
     │
     ├─► "Help me prepare for a negotiation"
-    │       └─► Use Preparation Workflow (below)
+    │       └─► Preparation Workflow → references/seven-questions.md
     │
-    ├─► "I'm in the middle of a negotiation"
-    │       └─► Use Real-Time Guidance + references/tactical-playbook.md
+    ├─► "I'm in the middle of a negotiation" / "They just said X"
+    │       └─► Real-time coaching → references/tactical-playbook.md
     │
-    ├─► "I need information about [market rates/industry standards]"
-    │       └─► Use references/research-templates.md for search strategies
+    ├─► "What should I ask for?" / "What's fair?"
+    │       └─► Research first → references/research-templates.md
     │
-    ├─► "I'm having a difficult conversation"
-    │       └─► Use Three Conversations Model (references/three-conversations.md)
+    ├─► "This is really emotional" / relationship strain
+    │       └─► references/three-conversations.md
     │
-    └─► High emotion + strategy needed?
-            └─► Use references/framework-integration.md for combined approach
+    ├─► "How did I do?" / analyze past negotiation
+    │       └─► Debrief using 7 Questions: What worked? What would you change?
+    │
+    └─► Complex: emotions + strategy needed
+            └─► references/framework-integration.md
 ```
 
 ## Preparation Workflow
@@ -112,39 +115,10 @@ Next step: "Could we [specific action] by [timeline]?"
 
 ## Handling Difficult Conversations
 
-When emotions are high or the relationship is strained, use the Three Conversations Model (full framework in references/three-conversations.md):
-
-1. **The "What Happened" Conversation**
-   - Move from certainty to curiosity
-   - Explore their story, don't just tell yours
-   - Acknowledge contribution (not blame)
-
-2. **The Feelings Conversation**
-   - Acknowledge emotions (yours and theirs)
-   - Don't let feelings be roadblocks
-
-3. **The Identity Conversation**
-   - What's at stake for your self-image?
-   - What's at stake for theirs?
-
-## Quick Reference: Perception/Emotion/Communication Checklist
-
-Before any negotiation interaction, check:
-
-**Perception**
-- [ ] Have I considered their perspective genuinely?
-- [ ] Am I making assumptions I haven't verified?
-- [ ] What might they know that I don't?
-
-**Emotion**
-- [ ] Am I emotionally prepared for this conversation?
-- [ ] Have I identified what might trigger me?
-- [ ] Am I ready to acknowledge their emotions?
-
-**Communication**
-- [ ] Am I prepared to listen more than talk?
-- [ ] Do I have clarifying questions ready?
-- [ ] Can I separate the person from the problem?
+When emotions are high or relationship is strained, load `references/three-conversations.md` and help the user:
+1. Explore "what happened" from both perspectives
+2. Acknowledge feelings before problem-solving
+3. Recognize identity stakes (theirs and the other party's)
 
 ## Resources
 
@@ -165,16 +139,6 @@ Detailed frameworks are available in the references/ directory:
 **Learning:**
 - `negotiation-examples.md` - Real-world examples with analysis
 
-## Using Search to Inform Negotiations
+## Using Search
 
-When preparing proposals or analyzing positions, proactively use WebSearch to find:
-
-| Negotiation Type | Search For |
-|-----------------|------------|
-| Salary | Industry salary ranges, company pay scales, cost of living data |
-| Real Estate | Comparable sales, market trends, days on market |
-| Contract | Standard terms, typical rates, industry benchmarks |
-| Vendor | Alternative suppliers, market pricing, volume discounts |
-| Dispute | Legal precedents, mediation outcomes, settlement ranges |
-
-Always cite your sources when presenting research to the user so they can reference it in their negotiation.
+Proactively use WebSearch to gather market data. See `references/research-templates.md` for search strategies by negotiation type. Always cite sources so users can reference them.
