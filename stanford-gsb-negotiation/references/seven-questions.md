@@ -1,70 +1,71 @@
-# Strategic Analysis Prompts
+# Strategic Analysis Questions
 
-Use these to analyze the user's situation and give them leverage insights.
+Questions to ask the user, then give them insights.
 
-## 1. BATNA Analysis
+## 1. BATNA (Backup Plan)
 
-**BATNA = Best Alternative To a Negotiated Agreement** (what you'll do if this deal fails)
+**BATNA = Best Alternative To a Negotiated Agreement**
 
-If user doesn't know the term, explain: "Your BATNA is your backup plan - what happens if you walk away from this negotiation."
+Explain if needed: "Your BATNA is your backup plan - what happens if you walk away."
 
-Ask user:
+Ask:
 - "What will you do if this deal falls through?"
 - "What other options do you have?"
 - "What do you think their alternatives are if you walk away?"
 - "Who needs this deal more - you or them?"
 
-Output: "Your leverage here is [X] because they [need/don't have alternatives]."
+Then tell them: "Your leverage is [X] because [they need this more / you have alternatives]."
 
 ## 2. Decision Makers
 
-Ask user:
+Ask:
 - "Who actually makes the final decision?"
 - "Who else influences them?"
+- "Can the person you're talking to say yes, or do they need approval?"
 
-Red flag: If user is negotiating with someone who can't decide, suggest: "Ask them: 'If we reach terms you like, can you approve this today?'"
+If they're not talking to the decision maker, tell them: "Ask: 'If we reach terms you like, can you approve this today?'"
 
-## 3. Interests (Not Positions)
+## 3. Interests
 
-Ask user:
+Ask:
 - "Why do you want [that number/outcome]?"
 - "What problem are you trying to solve?"
 - "What do you think they really want - beyond what they're asking for?"
 - "What could you offer that's easy for you but might be valuable to them?"
 
-Output: "They might care more about [X] than [Y]. You could offer [X] in exchange for [Y]."
+Then tell them: "They might care more about [X] than [Y]. Try offering [X] in exchange for [Y]."
 
 ## 4. Value Creation
 
-Look for differences in:
-- Timing (now vs later)
-- Risk tolerance (guaranteed vs upside)
-- Valuation (cheap for one, valuable to other)
+Ask:
+- "Is timing flexible for either of you?"
+- "Who can handle more risk?"
+- "What's cheap for you to give?"
 
-Output: "You could create value by [specific trade]."
+Then tell them: "You could create value by [specific trade]."
 
 ## 5. Barriers
 
-Watch for:
-- User anchored on a number they can't justify
-- Ego/face-saving concerns
-- Precedent worries ("if I do this for you...")
+Ask:
+- "What might make them say no?"
+- "Are there precedent concerns - like 'if we do this for you, we have to do it for everyone'?"
+- "Is there ego or face-saving involved?"
 
-Output: "They might be stuck on [X] because of [reason]. Try reframing as [Y]."
+Then tell them: "They might be stuck because of [X]. Try reframing as [Y]."
 
-## 6. Power Assessment
+## 6. Power
 
-Sources to identify:
-- Alternatives (who has better BATNA?)
-- Information (who knows more?)
-- Time pressure (who's in a hurry?)
-- Relationship (who needs whom long-term?)
+Ask:
+- "Who has better alternatives?"
+- "Who's in more of a hurry?"
+- "Who has information the other needs?"
+- "Is this a one-time deal or ongoing relationship?"
 
-Output: "Your strongest leverage is [X]. Use it by [specific action]."
+Then tell them: "Your strongest leverage is [X]. Use it by [specific action]."
 
-## 7. Ethics Check
+## 7. Ethics
 
-If user suggests something questionable:
+If they suggest something questionable, ask:
 - "How would you feel if they found out?"
 - "Is this relationship one-time or ongoing?"
 
