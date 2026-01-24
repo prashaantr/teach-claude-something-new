@@ -1,100 +1,96 @@
 ---
 name: stanford-gsb-negotiation
-description: "Negotiation preparation using Stanford GSB frameworks. Use when user mentions negotiating salary, job offers, contracts, vendor deals, real estate, disputes, difficult conversations, asking for a raise, making deals, or reaching agreement."
+description: "Negotiation preparation using Stanford GSB frameworks. Use when user mentions negotiating salary, job offers, contracts, vendor deals, real estate, disputes, difficult conversations, asking for a raise, making deals, or reaching agreement. Helps with preparation, market research, response scripts, and handling difficult negotiators."
 ---
 
 # Negotiation Preparation Workflow
 
 **Context:** User will negotiate later. This workflow prepares them with research, strategy, and scripts.
 
-**Key concepts:**
-- BATNA = Best Alternative to Negotiated Agreement (their walkaway power)
-- Leverage = who needs this deal more
-- Value creation = finding things easy for one side but valuable to the other
-
 ## Route by User Intent
 
 | User says | Action |
 |-----------|--------|
-| Preparing for negotiation | Run full preparation workflow below |
+| Preparing for negotiation | Run preparation workflow below |
 | Needs market data | WebSearch → output specific numbers with sources |
-| "They just said X" (mid-negotiation) | Give response script immediately |
-| Frustrated/emotional | Process feelings first → then strategize |
+| "They just said X" (mid-negotiation) | Give response script from `references/tactics.md` |
+| Difficult negotiator / manipulative tactic | See `references/difficult-tactics.md` |
+| Emotional / relationship conflict | See `references/emotion-scripts.md` |
 
 ## Preparation Workflow
 
 ### Step 1: Understand Their Situation
 
-Ask these questions to diagnose:
+Ask:
 - "What are you negotiating?"
 - "Who's the other party?"
 - "What's your deadline?"
 - "What outcome would make you happy?"
 - "What's the minimum you'd accept?"
 
-### Step 2: Research Market Data
+### Step 2: Uncover BATNA and Leverage
 
-Use WebSearch to gather facts. See `references/research-templates.md` for search queries.
+**BATNA** = Best Alternative to Negotiated Agreement (their walkaway power)
 
-Give them a summary:
+Ask:
+- "What will you do if this deal falls through?" ← Their BATNA
+- "Do you have other options? Can you create more?"
+- "What are their alternatives if you walk away?" ← Their BATNA
+- "Who makes the final decision on their side?"
+
+See `references/frameworks.md` for Seven Elements analysis.
+
+### Step 3: Research Market Data
+
+WebSearch for relevant data. See `references/research-templates.md` for search queries.
+
+Output:
 ```
 Market range: $X - $Y (median: $Z)
 Sources: [with links]
 ```
 
-### Step 3: Uncover Leverage
+### Step 4: Find Value Creation Opportunities
 
-Ask about power dynamics:
-- "What will you do if this deal falls through?" ← This is their BATNA. If weak, help them strengthen it.
-- "What are their alternatives if you walk away?" ← If they have few options, user has power.
-- "Who makes the final decision on their side?"
+Ask:
 - "What do you think they really care about?"
-- "What could you offer that's easy for you but valuable to them?" ← Value creation opportunity.
+- "What could you offer that's easy for you but valuable to them?"
+- "Are there differences in timing, preferences, or priorities?"
 
-### Step 4: Give Them a Strategy
+### Step 5: Output Strategy
 
-Output a concrete plan:
 ```
 Target: $X (based on market data)
-Walk-away point: $Y
-Opening offer: $Z
+Walk-away point: $Y (based on BATNA)
+Opening: $Z
 
-Opening script: "[exact words to say]"
+Opening script: "[exact words]"
 
 If they push back: "[response script]"
 ```
 
-## Mid-Negotiation Responses
+## Quick Response Table
 
-When user reports what the other side said, give them a script to use:
+When user reports what the other side said:
 
 | They said | User should say |
-|-----------|----------------------|
-| Anchored high/low | "What range were you thinking?" |
-| "Final offer" | "What would need to change for there to be flexibility?" |
-| Got angry | "It seems like this is really important to you." |
-| Went silent | "What would help you decide by [date]?" |
-| Something unexpected | Mirror their last 2-3 words: "...think about it?" |
-
-**Key techniques** (see `references/tactics.md`):
-- **Mirroring**: Repeat their last few words as a question, then stay quiet
-- **Labeling**: "It seems like you're concerned about..."
-- **Calibrated questions**: Ask "What" and "How" instead of "Why" (Why is accusatory)
-
-## Emotional Situations
-
-When user is frustrated or relationship is strained:
-
-1. Ask: "What happened?" and "How are you feeling about this?"
-2. Reframe: "What might they say happened?"
-3. Give neutral opening script: "We seem to see this differently. I'd like to understand your perspective."
-
-See `references/emotion-scripts.md` for more de-escalation scripts.
+|-----------|-----------------|
+| Anchored high/low | "How did you arrive at that number?" |
+| "Final offer" | "What would need to change for flexibility?" |
+| Got emotional | "It seems like this is really important to you." |
+| Went silent | "What would help you decide?" |
+| Something unexpected | Mirror last 2-3 words: "...think about it?" |
+| Using manipulative tactic | See `references/difficult-tactics.md` |
 
 ## References
 
-Load as needed:
-- `references/tactics.md` - Mirroring, labeling, calibrated questions
-- `references/research-templates.md` - WebSearch queries by negotiation type
-- `references/emotion-scripts.md` - Scripts for difficult/emotional conversations
-- `references/examples.md` - Reference outcomes from similar negotiations
+Load as needed based on situation:
+
+| File | When to load |
+|------|--------------|
+| `references/frameworks.md` | Deep preparation, analyzing complex negotiations, understanding BATNA/interests |
+| `references/tactics.md` | Mid-negotiation responses, specific scripts by situation |
+| `references/difficult-tactics.md` | User facing manipulative tactics, difficult negotiators |
+| `references/emotion-scripts.md` | Relationship strain, difficult conversations, high emotions |
+| `references/research-templates.md` | Need to WebSearch for market data |
+| `references/examples.md` | Looking for reference outcomes from similar negotiations |

@@ -1,32 +1,37 @@
-# Negotiation Tactics
+# Negotiation Tactics by Situation
 
-Scripts and techniques for users to apply in their negotiation.
+Scripts and techniques organized by when to use them.
 
-## Mirroring
+## When They're Not Talking Enough
 
-Tell user: "When they say something, repeat their last 2-3 words as a question, then stay quiet. This gets them to explain more."
+### Mirroring
+Repeat their last 2-3 words as a question, then stay quiet.
 
-**Example to give user:**
-- If they say "We need to think about it"
-- You say: "...think about it?" then wait for them to continue
+**Example:**
+- They say: "We need to think about it"
+- User says: "...think about it?"
+- Then wait. They'll explain more.
 
-## Labeling
+### Labeling
+Name what they seem to be feeling.
 
-Tell user: "Name what they seem to be feeling. This builds trust."
+**Format:** "It seems like..." or "It sounds like..."
 
-**Format to give user:** "It seems like..." or "It sounds like..."
-
-**Examples to give user:**
+**Examples:**
 - "It seems like you're concerned about the timeline."
 - "It sounds like this decision has a lot riding on it."
 
-Goal: Get them to say "That's right" - means they feel understood.
+**Goal:** Get them to say "That's right" - means they feel understood.
 
-## Calibrated Questions
+### Silence
+After making an offer or asking a question, stop talking. Let them respond first.
 
-Tell user: "Ask 'What' and 'How' questions instead of 'Why' - 'Why' makes people defensive."
+---
 
-**Examples to give user:**
+## When They're Being Defensive
+
+### Calibrated Questions
+Ask "What" and "How" instead of "Why" - "Why" sounds accusatory.
 
 | Instead of | Say |
 |------------|-----|
@@ -34,13 +39,95 @@ Tell user: "Ask 'What' and 'How' questions instead of 'Why' - 'Why' makes people
 | "Why is that your policy?" | "How does that policy work?" |
 | "Why can't you do that?" | "What's preventing that?" |
 
-## Accusation Audit
+### Accusation Audit
+List their likely objections upfront to take the sting out.
 
-Tell user: "List their likely objections upfront to take the sting out."
-
-**Example to give user:**
+**Example:**
 "You're probably thinking this is going to be expensive. You might be worried about the timeline. Let me address those..."
 
-## Silence
+---
 
-Tell user: "After you make an offer or ask a question, stop talking. Let them respond first."
+## When Making an Opening
+
+### Third Story Opening
+Start from a neutral perspective, not your side.
+
+| User wants to say | Give them this instead |
+|-------------------|------------------------|
+| "You're being unfair" | "We seem to see this differently. Help me understand your perspective." |
+| "You went behind my back" | "We seem to have different expectations about how decisions get made. I'd like to understand your thinking." |
+| "You're being unreasonable" | "We're seeing this differently. Help me understand what's driving your position." |
+
+### Stating Your Interests
+Use "I" statements to express impact without blame.
+
+| Instead of | Say |
+|------------|-----|
+| "You always ignore me" | "When I don't hear back, I feel uncertain about where we stand." |
+| "You're being unfair" | "I'm concerned this doesn't reflect my contribution." |
+
+---
+
+## When They Anchor High/Low
+
+### Don't Counter-Anchor
+Ask questions instead of making a counter-offer.
+
+**Scripts:**
+- "How did you arrive at that number?"
+- "What's the basis for that?"
+- "Help me understand the reasoning."
+
+### Redirect to Criteria
+- "What market data are you using?"
+- "What standards should we use to evaluate what's fair?"
+
+---
+
+## When They Say "Final Offer"
+
+**Scripts:**
+- "What would need to change for there to be flexibility?"
+- "Help me understand what's driving that constraint."
+- "If we could solve [their concern], would that create room?"
+
+Often "final" is a tactic, not reality.
+
+---
+
+## When They Go Silent
+
+**Scripts:**
+- "What would help you decide?"
+- "What questions do you have?"
+- "What information would be useful?"
+
+Don't fill the silence yourself. Wait.
+
+---
+
+## When They Get Emotional
+
+### Label the Emotion
+- "It seems like this is really important to you."
+- "It sounds like you're frustrated."
+
+### Offer a Break
+- "This is important. Can we take a break and come back to this?"
+- "I want to respond thoughtfully. Can I think about this?"
+
+### Show You're Listening
+- "I can see this matters to you. Help me understand."
+
+---
+
+## When Closing
+
+### Summarize Agreement
+"Let me make sure I understand what we've agreed to..."
+
+### Get Specific Commitment
+"So you'll send the revised offer by Friday?"
+
+### Confirm Next Steps
+"What happens next? Who does what by when?"
