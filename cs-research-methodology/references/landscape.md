@@ -4,39 +4,22 @@ How to understand prior work and find your unique position.
 
 ## The Search Process
 
-### Step 1: Find Nearest Neighbor
-Identify the single paper closest to your idea:
-- Search keywords describing your approach
-- Ask: What has the most similar goal AND method?
+### 1. Find Nearest Neighbor
+The single paper closest to your idea:
+- Most similar goal AND method
+- Extract: What's its assumption (bit)? Its limitations?
 
-For this paper, extract:
-- What assumption does it make? (its bit)
-- What evidence supports it?
-- What are its limitations?
+### 2. Expand
+**Backward**: What does it cite?
+**Forward**: What cites it?
+**Lateral**: Related approaches in the space
 
-### Step 2: Expand (3-5 Rounds)
-
-**Backward** (influences on nearest neighbor):
-- Check its Introduction and Related Work citations
-
-**Forward** (influenced by nearest neighbor):
-- Google Scholar "Cited By"
-- Semantic Scholar similar papers
-
-**Lateral** (related approaches):
-- Connected Papers visualization
-- ArXiv related papers
-- elicit.org, researchrabbit.ai
-
-### Step 3: Filter by Quality
-Prioritize:
-- Top venues in the field
-- High citations relative to age
-- Include industry research and international work
+### 3. Filter
+Prioritize top venues and high citations relative to age.
 
 ## Design Space Mapping
 
-Create a 2D map where:
+Create a 2D map:
 - Axes = key dimensions where approaches differ
 - Each paper = a point
 - Empty regions = potential opportunities
@@ -50,29 +33,22 @@ Your contribution should occupy a distinct position.
 
 ## Reading Strategy
 
-Don't read every paper thoroughly. For each paper, extract:
-1. The assumption it makes (its bit flip)
-2. Key evidence it provides
-3. Where it sits in design space
+For each paper, extract:
+1. Its assumption (bit)
+2. Key evidence
+3. Position in design space
 
 Goal: Map the landscape, not master every paper.
 
 ## Stopping Criteria
 
-Track what you learn per paper:
-- Papers 1-5: Most learning
-- Papers 6-15: Filling gaps
-- 15+: Diminishing returns
+Stop when new papers mostly confirm what you already know. Learning per paper diminishes after ~10-15 papers.
 
-Stop when new papers mostly confirm what you already know.
+## Output
 
-## Output: Related Work Map
-
-Group papers by shared thesis:
+Group papers by shared assumption:
 ```
-[Papers A, B, C] all assume X.
-[Papers D, E] assume Y instead.
+[Papers A, B, C] assume X.
+[Papers D, E] assume Y.
 Our work differs by assuming Z.
 ```
-
-Each group becomes a paragraph in Related Work, organized by argument rather than by listing papers.
