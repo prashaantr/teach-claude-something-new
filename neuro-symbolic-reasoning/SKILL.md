@@ -1,6 +1,6 @@
 ---
 name: neuro-symbolic-reasoning
-description: Neuro-symbolic AI combining LLMs with symbolic solvers. Two modes - IDEATION (research design, exploring tradeoffs - no code/files) and IMPLEMENTATION (solver integration, debugging). Triggers for ideation include "explore", "design experiment", "tradeoffs", "what approach". Triggers for implementation include "implement", "build", "code", "debug".
+description: Neuro-symbolic AI combining LLMs with symbolic solvers. Ideation mode for brainstorming and design (no code). Implementation mode for coding and debugging.
 ---
 
 # Neuro-Symbolic Reasoning
