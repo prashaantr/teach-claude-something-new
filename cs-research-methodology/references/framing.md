@@ -1,6 +1,6 @@
-# Problem Framing
+# Problem Framing (Finding the Bit)
 
-How to identify the assumption worth challenging.
+How to identify the assumption worth challenging—the "bit" you'll flip.
 
 ## Process
 

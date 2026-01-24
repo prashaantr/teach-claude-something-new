@@ -1,54 +1,71 @@
 ---
 name: cs-research-methodology
-description: Framework for investigating research problems by identifying assumptions and proposing alternatives. Use when analyzing why current approaches fail, finding gaps in existing solutions, or structuring a research argument.
+description: Framework for investigating research problems using the "bit flip" method - identifying assumptions and proposing alternatives. Use when analyzing why current approaches fail, finding gaps in existing solutions, or structuring a research argument.
 ---
 
 # CS Research Methodology
 
-A reasoning framework for investigating problems. Core insight: every research contribution identifies an assumption everyone makes and proposes an alternative.
+A reasoning framework for investigating problems based on Stanford CS197.
+
+## Core Concept: The Bit Flip
+
+Every research contribution follows this pattern:
+1. **The Bit**: What does everyone assume?
+2. **The Flip**: What's the alternative?
+3. **The Proof**: Why does the alternative work better?
 
 ## The Investigation Process
 
-### Step 1: Identify the Current Assumption
+### Step 1: Identify the Bit (Current Assumption)
 
 Given a problem, ask:
 - How do existing solutions approach this?
 - What do they all have in common?
 - What do they take for granted?
 
-The assumption is often implicit—look for patterns across approaches rather than what any single approach states.
+The assumption is often implicit—look for patterns across approaches.
 
-### Step 2: Find Where the Assumption Fails
+→ See [references/framing.md](references/framing.md) for detailed process and examples.
+
+### Step 2: Find Where the Bit Fails
 
 Ask:
 - When does this assumption break down?
 - What cases does it handle poorly?
 - What has changed that might invalidate it?
 
-Evidence that the assumption is limiting:
+Evidence of limitation:
 - Edge cases where current approaches fail
 - New capabilities that weren't available when assumption was made
 - Adjacent fields that solve similar problems differently
 
-### Step 3: Propose the Alternative
+→ See [references/landscape.md](references/landscape.md) for mapping existing approaches.
+
+### Step 3: Propose the Flip (Alternative)
 
 Articulate clearly:
 - "Current approaches assume X. Instead, consider Y."
 - The alternative must be specific and testable
-- Explain WHY the alternative addresses the limitation
+- Explain WHY the flip addresses the limitation
 
-### Step 4: Identify Evidence Needed
+→ See [references/prioritization.md](references/prioritization.md) for deciding what to investigate.
 
-What would prove the alternative works?
+### Step 4: Identify Evidence for the Proof
+
+What would prove the flip works?
 - What comparison would be convincing?
 - What would demonstrate improvement?
 - What would show this isn't just different but better?
 
-## Reference Files
+→ See [references/validation.md](references/validation.md) for designing evaluation.
 
-| When you need to... | See... |
-|---------------------|--------|
-| Identify assumptions systematically | [references/framing.md](references/framing.md) |
-| Understand existing approaches | [references/landscape.md](references/landscape.md) |
-| Decide what question to investigate | [references/prioritization.md](references/prioritization.md) |
-| Design validation approach | [references/validation.md](references/validation.md) |
+## Output Template
+
+After investigation, you should have:
+
+```
+THE BIT: Current approaches assume [X].
+THE LIMITATION: This fails when [evidence].
+THE FLIP: Instead, [Y].
+THE PROOF: This works because [mechanism], demonstrated by [evidence type].
+```
