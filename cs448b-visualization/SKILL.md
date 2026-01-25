@@ -1,85 +1,103 @@
 ---
 name: cs448b-visualization
-description: [TODO: Complete and informative explanation of what the skill does and when to use it. Include WHEN to use this skill - specific scenarios, file types, or tasks that trigger it.]
+description: Data visualization design based on Stanford CS448B. Use for: (1) choosing chart types for data, (2) selecting visual encodings (position, color, size, shape), (3) critiquing/improving visualizations, (4) building D3.js visualizations, (5) designing interactions and animations, (6) choosing color palettes, (7) visualizing networks/graphs, (8) visualizing text data. Covers Bertin, Mackinlay, Cleveland & McGill perceptual principles.
 ---
 
-# Cs448b Visualization
+# CS448B Visualization
 
-## Overview
+## Workflows
 
-[TODO: 1-2 sentences explaining what this skill enables]
+### 1. Choose a Chart
+Quick decision tree:
 
-## Structuring This Skill
+**What's your data?**
+- Distribution -> Histogram
+- Categories -> Bar chart
+- X=Time, Y=Quantitative -> Line chart
+- X=Quant, Y=Quant -> Scatterplot
+- Hierarchy -> Treemap or node-link tree
+- Network -> Force-directed or matrix
 
-[TODO: Choose the structure that best fits this skill's purpose. Common patterns:
+For details: See [chart-design.md](references/chart-design.md)
 
-**1. Workflow-Based** (best for sequential processes)
-- Works well when there are clear step-by-step procedures
-- Example: DOCX skill with "Workflow Decision Tree" → "Reading" → "Creating" → "Editing"
-- Structure: ## Overview → ## Workflow Decision Tree → ## Step 1 → ## Step 2...
+### 2. Choose Encodings
+Priority order for quantitative data:
+1. Position (most accurate)
+2. Length
+3. Angle/Slope
+4. Area
+5. Color saturation (least accurate)
 
-**2. Task-Based** (best for tool collections)
-- Works well when the skill offers different operations/capabilities
-- Example: PDF skill with "Quick Start" → "Merge PDFs" → "Split PDFs" → "Extract Text"
-- Structure: ## Overview → ## Quick Start → ## Task Category 1 → ## Task Category 2...
+**Rules:**
+- Position for most important data
+- Hue for categories (~7 max)
+- Size for magnitude
+- Never use area/volume without considering underestimation
 
-**3. Reference/Guidelines** (best for standards or specifications)
-- Works well for brand guidelines, coding standards, or requirements
-- Example: Brand styling with "Brand Guidelines" → "Colors" → "Typography" → "Features"
-- Structure: ## Overview → ## Guidelines → ## Specifications → ## Usage...
+For details: See [encoding-perception.md](references/encoding-perception.md)
 
-**4. Capabilities-Based** (best for integrated systems)
-- Works well when the skill provides multiple interrelated features
-- Example: Product Management with "Core Capabilities" → numbered capability list
-- Structure: ## Overview → ## Core Capabilities → ### 1. Feature → ### 2. Feature...
+### 3. Critique a Visualization
+Checklist:
+- [ ] Expressiveness: Shows all facts? Only facts? No lies?
+- [ ] Effectiveness: Most important data on best encoding (position)?
+- [ ] Zero baseline: Required for bar charts
+- [ ] Color accessibility: Works for colorblind (~8% males)?
+- [ ] Data-ink ratio: Remove unnecessary elements?
+- [ ] Aspect ratio: Line charts banked to ~45deg?
 
-Patterns can be mixed and matched as needed. Most skills combine patterns (e.g., start with task-based, add workflow for complex operations).
+### 4. Build with D3
+Core pattern:
+```javascript
+svg.selectAll("circle")
+  .data(data)
+  .join("circle")
+  .attr("cx", d => xScale(d.x))
+  .attr("cy", d => yScale(d.y))
+  .attr("r", 5);
+```
 
-Delete this entire "Structuring This Skill" section when done - it's just guidance.]
+For scales, axes, transitions: See [d3-patterns.md](references/d3-patterns.md)
 
-## [TODO: Replace with the first main section based on chosen structure]
+### 5. Add Interaction
+Techniques:
+- **Brushing & Linking**: Select in one view, highlight in others
+- **Dynamic Queries**: Filter via sliders
+- **Details on Demand**: Tooltips
 
-[TODO: Add content here. See examples in existing skills:
-- Code samples for technical skills
-- Decision trees for complex workflows
-- Concrete examples with realistic user requests
-- References to scripts/templates/references as needed]
+For animation timing and principles: See [interaction-animation.md](references/interaction-animation.md)
 
-## Resources
+### 6. Choose Colors
+| Data Type | Palette |
+|-----------|---------|
+| Categorical | Distinct hues (~6 max) |
+| Sequential | Single hue, varying lightness |
+| Diverging | Two hues + neutral midpoint |
 
-This skill includes example resource directories that demonstrate how to organize different types of bundled resources:
+Always test for colorblind accessibility.
 
-### scripts/
-Executable code (Python/Bash/etc.) that can be run directly to perform specific operations.
+For details: See [color.md](references/color.md)
 
-**Examples from other skills:**
-- PDF skill: `fill_fillable_fields.py`, `extract_form_field_info.py` - utilities for PDF manipulation
-- DOCX skill: `document.py`, `utilities.py` - Python modules for document processing
+### 7. Visualize Networks
+Layout selection:
+- **Force-directed**: Discover clusters
+- **Sugiyama**: Show hierarchy
+- **Matrix**: Dense networks, no occlusion
 
-**Appropriate for:** Python scripts, shell scripts, or any executable code that performs automation, data processing, or specific operations.
+Centrality measures:
+- Degree = hubs
+- Betweenness = bridges
+- Closeness = central access
 
-**Note:** Scripts may be executed without loading into context, but can still be read by Claude for patching or environment adjustments.
+For details: See [networks-text.md](references/networks-text.md)
 
-### references/
-Documentation and reference material intended to be loaded into context to inform Claude's process and thinking.
+### 8. Visualize Text
+Use TF-IDF weighting: `log(1+tf) * log(N/df)`
 
-**Examples from other skills:**
-- Product management: `communication.md`, `context_building.md` - detailed workflow guides
-- BigQuery: API reference documentation and query examples
-- Finance: Schema documentation, company policies
+Techniques:
+- Word Tree: Context and continuations
+- TileBars: Query distribution in documents
+- Phrase Nets: Word relationships
 
-**Appropriate for:** In-depth documentation, API references, database schemas, comprehensive guides, or any detailed information that Claude should reference while working.
+Avoid word clouds for serious analysis.
 
-### assets/
-Files not intended to be loaded into context, but rather used within the output Claude produces.
-
-**Examples from other skills:**
-- Brand styling: PowerPoint template files (.pptx), logo files
-- Frontend builder: HTML/React boilerplate project directories
-- Typography: Font files (.ttf, .woff2)
-
-**Appropriate for:** Templates, boilerplate code, document templates, images, icons, fonts, or any files meant to be copied or used in the final output.
-
----
-
-**Any unneeded directories can be deleted.** Not every skill requires all three types of resources.
+For details: See [networks-text.md](references/networks-text.md)
