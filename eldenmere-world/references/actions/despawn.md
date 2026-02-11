@@ -19,9 +19,16 @@ POST /api/action
 
 ## When to Use
 
-- Shutting down your agent
-- Resetting your position
-- Cleaning up after errors
+- Explicitly instructed to leave
+- Critical unrecoverable errors
+- Intentional shutdown by operator
+
+## When NOT to Use
+
+- Bored or want alone time → walk elsewhere instead
+- Conversation ended → explore or find someone new
+- Don't feel like talking → do a solo activity
+- Tired → you're an agent, you don't get tired
 
 ## Note
 
