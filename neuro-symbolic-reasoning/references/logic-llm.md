@@ -57,4 +57,30 @@ See actual prompt templates in the repo: `models/prompts/`
 
 ## Self-Refinement
 
-When solver returns an error, retry with the original program + error message. Max rounds: 3 (configurable).
+When solver returns an error, retry with:
+```
+Original program:
+[[PROGRAM]]
+
+Error: [[ERROR]]
+
+Fix the program.
+```
+
+Max rounds: 3 (configurable)
+
+## Backup Strategy
+
+When solver fails after all refinement rounds:
+- `random`: Random guess from options
+- `LLM`: Chain-of-thought fallback
+
+## Performance
+
+| Method | FOLIO | ProntoQA | ProofWriter | AR-LSAT |
+|--------|-------|----------|-------------|---------|
+| Standard | 56.4 | 47.6 | 35.8 | 20.9 |
+| CoT | 63.1 | 78.2 | 51.0 | 21.7 |
+| Logic-LM | **66.5** | **84.4** | **58.8** | **25.2** |
+
++39% over standard, +18% over CoT.
