@@ -13,6 +13,15 @@ description: |
 
 **Auth:** Uses `$LINEAR_API_KEY` environment variable with Bearer token auth.
 
+## Agent Identification
+
+**CRITICAL**: All issues/comments created by agents MUST include identification:
+
+- **Issue descriptions**: End with `Created by $AGENT_NAME`
+- **Comments**: End with `— $AGENT_NAME`
+
+This ensures traceability when multiple agents share the same Linear workspace.
+
 ## Core Concept
 
 ```
@@ -58,31 +67,7 @@ curl -s https://api.linear.app/graphql \
   -d '{"query": "{ issues(first: 20, orderBy: updatedAt) { nodes { identifier title state { name } assignee { name } priority dueDate } } }"}' | jq '.data.issues.nodes'
 ```
 
-### List Issues by Team
-```bash
-curl -s https://api.linear.app/graphql \
-  -H "Authorization: Bearer $LINEAR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"query": "{ team(id: \"TEAM_ID\") { issues(first: 50) { nodes { identifier title state { name } priority } } } }"}' | jq '.data.team.issues.nodes'
-```
-
-### Get Issue Details
-```bash
-curl -s https://api.linear.app/graphql \
-  -H "Authorization: Bearer $LINEAR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"query": "{ issue(id: \"ISSUE_ID\") { identifier title description state { name } assignee { name } priority estimate dueDate project { name } } }"}' | jq '.data.issue'
-```
-
-### Search Issues by Identifier (e.g., ARS-123)
-```bash
-curl -s https://api.linear.app/graphql \
-  -H "Authorization: Bearer $LINEAR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"query": "{ issueSearch(query: \"ARS-123\") { nodes { id identifier title state { name } } } }"}' | jq '.data.issueSearch.nodes'
-```
-
-### Create Issue
+### Create Issue (WITH AGENT TAG)
 ```bash
 curl -s https://api.linear.app/graphql \
   -H "Authorization: Bearer $LINEAR_API_KEY" \
@@ -93,11 +78,27 @@ curl -s https://api.linear.app/graphql \
       "input": {
         "teamId": "TEAM_ID",
         "title": "Issue title",
-        "description": "Issue description",
+        "description": "Issue description\n\nCreated by '"$AGENT_NAME"'",
         "priority": 2
       }
     }
   }' | jq '.data.issueCreate'
+```
+
+### Add Comment (WITH AGENT TAG)
+```bash
+curl -s https://api.linear.app/graphql \
+  -H "Authorization: Bearer $LINEAR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "query": "mutation CreateComment($input: CommentCreateInput!) { commentCreate(input: $input) { success comment { id } } }",
+    "variables": {
+      "input": {
+        "issueId": "ISSUE_ID",
+        "body": "Your comment here.\n\n— '"$AGENT_NAME"'"
+      }
+    }
+  }' | jq '.data.commentCreate'
 ```
 
 ### Update Issue State
@@ -116,6 +117,22 @@ curl -s https://api.linear.app/graphql \
   }' | jq '.data.issueUpdate'
 ```
 
+### Get Issue Details
+```bash
+curl -s https://api.linear.app/graphql \
+  -H "Authorization: Bearer $LINEAR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"query": "{ issue(id: \"ISSUE_ID\") { identifier title description state { name } assignee { name } priority estimate dueDate project { name } } }"}' | jq '.data.issue'
+```
+
+### Search Issues by Identifier (e.g., ARS-123)
+```bash
+curl -s https://api.linear.app/graphql \
+  -H "Authorization: Bearer $LINEAR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"query": "{ issueSearch(query: \"ARS-123\") { nodes { id identifier title state { name } } } }"}' | jq '.data.issueSearch.nodes'
+```
+
 ### Get Workflow States (for a team)
 ```bash
 curl -s https://api.linear.app/graphql \
@@ -132,27 +149,16 @@ curl -s https://api.linear.app/graphql \
   -d '{"query": "{ viewer { assignedIssues(first: 20) { nodes { identifier title state { name } priority dueDate } } } }"}' | jq '.data.viewer.assignedIssues.nodes'
 ```
 
-### Get Current User Info
-```bash
-curl -s https://api.linear.app/graphql \
-  -H "Authorization: Bearer $LINEAR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"query": "{ viewer { id name email } }"}' | jq '.data.viewer'
-```
-
 ## Common Workflows
 
 ### Start Working on an Issue
 1. Get issue ID from search
 2. Update state to "In Progress"
-3. Assign to self if needed
+3. Add comment: `Starting work on this. — $AGENT_NAME`
 
 ### Complete an Issue
 1. Update state to "Done"
-```bash
-# First get the "Done" state ID for the team
-# Then update the issue with that stateId
-```
+2. Add comment: `Completed. — $AGENT_NAME`
 
 ## Priority Values
 - 0 = No priority
@@ -168,3 +174,4 @@ curl -s https://api.linear.app/graphql \
 - Issue identifiers (ARS-123) are different from issue IDs (UUIDs)
 - Use `issueSearch` to find issues by identifier
 - The `viewer` query gets info about the authenticated user
+- **Always tag your work** with `$AGENT_NAME` so others know which agent did it

@@ -7,19 +7,37 @@ description: GitHub CLI (gh) for repos, issues, PRs, Actions, projects, releases
 
 **Auth:** Already configured via `$GITHUB_TOKEN` environment variable.
 
+## Agent Identification
+
+**CRITICAL**: All issues, PRs, and comments created by agents MUST include identification:
+
+- **Issue/PR body**: End with `Created by $AGENT_NAME`
+- **Comments**: End with `— $AGENT_NAME`
+
+This ensures traceability when multiple agents share the same GitHub credentials.
+
 ## Quick Reference
 
 ```bash
 # Issues
 gh issue list --repo OWNER/REPO
 gh issue view 123 --repo OWNER/REPO
-gh issue create --repo OWNER/REPO --title "Title" --body "Body"
+gh issue create --repo OWNER/REPO --title "Title" --body "Description
+
+Created by $AGENT_NAME"
 gh issue close 123 --repo OWNER/REPO
 
 # Pull Requests
 gh pr list --repo OWNER/REPO
 gh pr view 123 --repo OWNER/REPO
-gh pr create --repo OWNER/REPO --title "Title" --body "Body"
+gh pr create --repo OWNER/REPO --title "Title" --body "Description
+
+Created by $AGENT_NAME"
+
+# Comments (always sign)
+gh issue comment 123 --repo OWNER/REPO --body "Comment here.
+
+— $AGENT_NAME"
 
 # Search
 gh search issues "label:bug state:open" --repo OWNER/REPO
@@ -45,10 +63,12 @@ gh issue list --repo OWNER/REPO --assignee @me
 gh issue view 123 --repo OWNER/REPO
 gh issue view 123 --repo OWNER/REPO --comments
 
-# Create issue
+# Create issue (WITH AGENT TAG)
 gh issue create --repo OWNER/REPO \
   --title "Bug: Something broken" \
-  --body "Steps to reproduce..."
+  --body "Steps to reproduce...
+
+Created by $AGENT_NAME"
 
 # Edit issue
 gh issue edit 123 --repo OWNER/REPO --title "New title"
@@ -58,8 +78,10 @@ gh issue edit 123 --repo OWNER/REPO --add-label bug
 gh issue close 123 --repo OWNER/REPO
 gh issue reopen 123 --repo OWNER/REPO
 
-# Comment
-gh issue comment 123 --repo OWNER/REPO --body "Comment here"
+# Comment (WITH AGENT TAG)
+gh issue comment 123 --repo OWNER/REPO --body "Comment here.
+
+— $AGENT_NAME"
 ```
 
 ## Pull Requests
@@ -74,15 +96,21 @@ gh pr list --repo OWNER/REPO --author @me
 gh pr view 123 --repo OWNER/REPO
 gh pr view 123 --repo OWNER/REPO --comments
 
-# Create PR
+# Create PR (WITH AGENT TAG)
 gh pr create --repo OWNER/REPO \
   --title "Feature: New thing" \
-  --body "Description" \
+  --body "Description of the change.
+
+Created by $AGENT_NAME" \
   --base main
 
 # Review
-gh pr review 123 --repo OWNER/REPO --approve
-gh pr review 123 --repo OWNER/REPO --request-changes --body "Fix X"
+gh pr review 123 --repo OWNER/REPO --approve --body "Looks good!
+
+— $AGENT_NAME"
+gh pr review 123 --repo OWNER/REPO --request-changes --body "Please fix X.
+
+— $AGENT_NAME"
 
 # Merge
 gh pr merge 123 --repo OWNER/REPO --squash
@@ -135,6 +163,9 @@ gh issue list --repo OWNER/REPO --json number,title,state,labels
 gh pr list --repo OWNER/REPO --json number,title,author,headRefName
 ```
 
-## Repos You Have Access To
+## Tips
 
+- **Always sign your work** with `$AGENT_NAME` in bodies/comments
+- Use `--repo OWNER/REPO` to specify the repository
+- Add `--json` for machine-readable output
 - Ask Prashaant which repos to check
