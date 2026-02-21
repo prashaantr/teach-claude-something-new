@@ -1,6 +1,24 @@
-# Google Drive Actions
+# Google Drive Actions (Composio)
 
 Connection key: `.google`
+
+## Contents
+
+- [Files](#files)
+- [Folders](#folders)
+- [Sharing](#sharing)
+- [All Actions](#all-actions)
+
+## Setup
+
+```bash
+CONNECTION_ID=$(echo $COMPOSIO_CONNECTIONS | jq -r '.google')
+```
+
+**Required fields for all requests:**
+- `connected_account_id`: from `$COMPOSIO_CONNECTIONS`
+- `entity_id`: from `$COMPOSIO_USER_ID`
+- `arguments`: action-specific parameters
 
 ## Files
 
@@ -8,7 +26,11 @@ Connection key: `.google`
 ```bash
 curl -s "https://backend.composio.dev/api/v3/tools/execute/GOOGLEDRIVE_LIST_FILES" \
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
-  -d '{"connected_account_id": "'$CONNECTION_ID'", "input": {}}' | jq
+  -d '{
+    "connected_account_id": "'$CONNECTION_ID'",
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {}
+  }' | jq
 ```
 
 ### List Files in Folder
@@ -17,7 +39,8 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GOOGLEDRIVE_LIST_FILE
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
   -d '{
     "connected_account_id": "'$CONNECTION_ID'",
-    "input": {"folder_id": "FOLDER_ID"}
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {"folder_id": "FOLDER_ID"}
   }' | jq
 ```
 
@@ -27,7 +50,8 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GOOGLEDRIVE_SEARCH_FI
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
   -d '{
     "connected_account_id": "'$CONNECTION_ID'",
-    "input": {"query": "name contains 'report'"}
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {"query": "name contains 'report'"}
   }' | jq
 ```
 
@@ -39,7 +63,8 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GOOGLEDRIVE_GET_FILE"
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
   -d '{
     "connected_account_id": "'$CONNECTION_ID'",
-    "input": {"file_id": "FILE_ID"}
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {"file_id": "FILE_ID"}
   }' | jq
 ```
 
@@ -49,7 +74,8 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GOOGLEDRIVE_DOWNLOAD_
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
   -d '{
     "connected_account_id": "'$CONNECTION_ID'",
-    "input": {"file_id": "FILE_ID"}
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {"file_id": "FILE_ID"}
   }' | jq
 ```
 
@@ -59,7 +85,8 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GOOGLEDRIVE_UPLOAD_FI
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
   -d '{
     "connected_account_id": "'$CONNECTION_ID'",
-    "input": {
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {
       "name": "filename.pdf",
       "content": "BASE64_ENCODED_CONTENT",
       "mime_type": "application/pdf",
@@ -74,7 +101,8 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GOOGLEDRIVE_DELETE_FI
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
   -d '{
     "connected_account_id": "'$CONNECTION_ID'",
-    "input": {"file_id": "FILE_ID"}
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {"file_id": "FILE_ID"}
   }' | jq
 ```
 
@@ -86,7 +114,8 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GOOGLEDRIVE_CREATE_FO
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
   -d '{
     "connected_account_id": "'$CONNECTION_ID'",
-    "input": {
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {
       "name": "New Folder",
       "parent_folder_id": "PARENT_FOLDER_ID"
     }
@@ -101,7 +130,8 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GOOGLEDRIVE_SHARE_FIL
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
   -d '{
     "connected_account_id": "'$CONNECTION_ID'",
-    "input": {
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {
       "file_id": "FILE_ID",
       "email": "user@example.com",
       "role": "writer"
@@ -111,17 +141,17 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GOOGLEDRIVE_SHARE_FIL
 
 Roles: `reader`, `writer`, `commenter`
 
-## Common Actions
+## All Actions
 
 | Action | Description |
 |--------|-------------|
-| GOOGLEDRIVE_LIST_FILES | List files |
-| GOOGLEDRIVE_SEARCH_FILES | Search files |
-| GOOGLEDRIVE_GET_FILE | Get file metadata |
-| GOOGLEDRIVE_DOWNLOAD_FILE | Download file content |
-| GOOGLEDRIVE_UPLOAD_FILE | Upload new file |
-| GOOGLEDRIVE_CREATE_FOLDER | Create folder |
-| GOOGLEDRIVE_DELETE_FILE | Delete file/folder |
-| GOOGLEDRIVE_SHARE_FILE | Share with user |
-| GOOGLEDRIVE_COPY_FILE | Copy file |
-| GOOGLEDRIVE_MOVE_FILE | Move file |
+| `GOOGLEDRIVE_LIST_FILES` | List files |
+| `GOOGLEDRIVE_SEARCH_FILES` | Search files |
+| `GOOGLEDRIVE_GET_FILE` | Get file metadata |
+| `GOOGLEDRIVE_DOWNLOAD_FILE` | Download file content |
+| `GOOGLEDRIVE_UPLOAD_FILE` | Upload new file |
+| `GOOGLEDRIVE_CREATE_FOLDER` | Create folder |
+| `GOOGLEDRIVE_DELETE_FILE` | Delete file/folder |
+| `GOOGLEDRIVE_SHARE_FILE` | Share with user |
+| `GOOGLEDRIVE_COPY_FILE` | Copy file |
+| `GOOGLEDRIVE_MOVE_FILE` | Move file |

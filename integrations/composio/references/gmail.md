@@ -1,19 +1,38 @@
-# Gmail Actions
+# Gmail Actions (Composio)
 
 Connection key: `.google`
 
+## Contents
+
+- [Messages](#messages)
+- [Labels](#labels)
+- [Drafts](#drafts)
+- [All Actions](#all-actions)
+
+## Setup
+
+```bash
+CONNECTION_ID=$(echo $COMPOSIO_CONNECTIONS | jq -r '.google')
+```
+
+**Required fields for all requests:**
+- `connected_account_id`: from `$COMPOSIO_CONNECTIONS`
+- `entity_id`: from `$COMPOSIO_USER_ID`
+- `arguments`: action-specific parameters
+
 ## Messages
 
-### Send Email
+### Send Email (WITH AGENT TAG)
 ```bash
 curl -s "https://backend.composio.dev/api/v3/tools/execute/GMAIL_SEND_EMAIL" \
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
   -d '{
     "connected_account_id": "'$CONNECTION_ID'",
-    "input": {
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {
       "to": "recipient@example.com",
       "subject": "Subject line",
-      "body": "Email body text"
+      "body": "Email body text\n\n--\nSent by '"$AGENT_NAME"'"
     }
   }' | jq
 ```
@@ -24,12 +43,13 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GMAIL_SEND_EMAIL" \
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
   -d '{
     "connected_account_id": "'$CONNECTION_ID'",
-    "input": {
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {
       "to": "recipient@example.com",
       "cc": "cc@example.com",
       "bcc": "bcc@example.com",
       "subject": "Subject",
-      "body": "Body"
+      "body": "Body\n\n--\nSent by '"$AGENT_NAME"'"
     }
   }' | jq
 ```
@@ -40,7 +60,8 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GMAIL_LIST_MESSAGES" 
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
   -d '{
     "connected_account_id": "'$CONNECTION_ID'",
-    "input": {"max_results": 10}
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {"max_results": 10}
   }' | jq
 ```
 
@@ -50,7 +71,8 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GMAIL_LIST_MESSAGES" 
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
   -d '{
     "connected_account_id": "'$CONNECTION_ID'",
-    "input": {"query": "from:someone@example.com", "max_results": 10}
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {"query": "from:someone@example.com", "max_results": 10}
   }' | jq
 ```
 
@@ -62,19 +84,21 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GMAIL_GET_MESSAGE" \
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
   -d '{
     "connected_account_id": "'$CONNECTION_ID'",
-    "input": {"message_id": "MESSAGE_ID"}
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {"message_id": "MESSAGE_ID"}
   }' | jq
 ```
 
-### Reply to Message
+### Reply to Message (WITH AGENT TAG)
 ```bash
 curl -s "https://backend.composio.dev/api/v3/tools/execute/GMAIL_REPLY_TO_MESSAGE" \
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
   -d '{
     "connected_account_id": "'$CONNECTION_ID'",
-    "input": {
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {
       "message_id": "MESSAGE_ID",
-      "body": "Reply text"
+      "body": "Reply text\n\n--\nSent by '"$AGENT_NAME"'"
     }
   }' | jq
 ```
@@ -85,7 +109,11 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GMAIL_REPLY_TO_MESSAG
 ```bash
 curl -s "https://backend.composio.dev/api/v3/tools/execute/GMAIL_LIST_LABELS" \
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
-  -d '{"connected_account_id": "'$CONNECTION_ID'", "input": {}}' | jq
+  -d '{
+    "connected_account_id": "'$CONNECTION_ID'",
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {}
+  }' | jq
 ```
 
 ### Add Label to Message
@@ -94,7 +122,8 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GMAIL_MODIFY_MESSAGE"
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
   -d '{
     "connected_account_id": "'$CONNECTION_ID'",
-    "input": {
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {
       "message_id": "MESSAGE_ID",
       "add_label_ids": ["LABEL_ID"]
     }
@@ -109,7 +138,8 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GMAIL_CREATE_DRAFT" \
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
   -d '{
     "connected_account_id": "'$CONNECTION_ID'",
-    "input": {
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {
       "to": "recipient@example.com",
       "subject": "Draft subject",
       "body": "Draft body"
@@ -117,16 +147,16 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GMAIL_CREATE_DRAFT" \
   }' | jq
 ```
 
-## Common Actions
+## All Actions
 
 | Action | Description |
 |--------|-------------|
-| GMAIL_SEND_EMAIL | Send email |
-| GMAIL_LIST_MESSAGES | List inbox messages |
-| GMAIL_GET_MESSAGE | Get message by ID |
-| GMAIL_REPLY_TO_MESSAGE | Reply to message |
-| GMAIL_CREATE_DRAFT | Create draft |
-| GMAIL_LIST_LABELS | List all labels |
-| GMAIL_MODIFY_MESSAGE | Add/remove labels |
-| GMAIL_TRASH_MESSAGE | Move to trash |
-| GMAIL_DELETE_MESSAGE | Permanently delete |
+| `GMAIL_SEND_EMAIL` | Send email |
+| `GMAIL_LIST_MESSAGES` | List inbox messages |
+| `GMAIL_GET_MESSAGE` | Get message by ID |
+| `GMAIL_REPLY_TO_MESSAGE` | Reply to message |
+| `GMAIL_CREATE_DRAFT` | Create draft |
+| `GMAIL_LIST_LABELS` | List all labels |
+| `GMAIL_MODIFY_MESSAGE` | Add/remove labels |
+| `GMAIL_TRASH_MESSAGE` | Move to trash |
+| `GMAIL_DELETE_MESSAGE` | Permanently delete |

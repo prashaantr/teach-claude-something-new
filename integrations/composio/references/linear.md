@@ -1,6 +1,22 @@
-# Linear Actions
+# Linear Actions (Composio)
 
 Connection key: `.linear`
+
+## Contents
+
+- [Teams & Users](#teams--users)
+- [Issues](#issues)
+- [Workflow States](#workflow-states)
+- [Projects](#projects)
+- [Comments](#comments)
+- [GraphQL (Advanced)](#graphql-advanced)
+- [All Actions](#all-actions)
+
+## Setup
+
+```bash
+CONNECTION_ID=$(echo $COMPOSIO_CONNECTIONS | jq -r '.linear')
+```
 
 **Required fields for all requests:**
 - `connected_account_id`: from `$COMPOSIO_CONNECTIONS`
