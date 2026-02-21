@@ -1,0 +1,72 @@
+---
+name: composio
+description: |
+  Execute actions on connected services via Composio API. Use when:
+  (1) Working with Linear - list/create/update issues, get teams, search
+  (2) Working with GitHub - list/create issues, manage PRs, repos
+  (3) Working with Gmail - send/list emails
+  (4) Working with Google Drive - list/upload/download files
+  Composio handles OAuth automatically. Check COMPOSIO_CONNECTIONS to see which services are connected.
+---
+
+# Composio
+
+Execute actions on Linear, GitHub, Gmail, and Google Drive via Composio's API.
+
+## Environment
+
+```bash
+COMPOSIO_API_KEY      # API key
+COMPOSIO_CONNECTIONS  # JSON: {"linear":"ca_xxx","github":"ca_yyy","google":"ca_zzz"}
+```
+
+## Core Pattern
+
+```bash
+# 1. Get connection ID for the service
+CONNECTION_ID=$(echo $COMPOSIO_CONNECTIONS | jq -r '.linear')
+
+# 2. Execute action
+curl -s "https://backend.composio.dev/api/v3/tools/execute/ACTION_NAME" \
+  -H "x-api-key: $COMPOSIO_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "connected_account_id": "'$CONNECTION_ID'",
+    "input": {"param": "value"}
+  }' | jq '.data'
+```
+
+## Service References
+
+| Service | Connection Key | Reference |
+|---------|---------------|-----------|
+| Linear | `.linear` | [references/linear.md](references/linear.md) |
+| GitHub | `.github` | [references/github.md](references/github.md) |
+| Gmail | `.google` | [references/gmail.md](references/gmail.md) |
+| Google Drive | `.google` | [references/drive.md](references/drive.md) |
+
+## Quick Examples
+
+### Linear: List Issues
+```bash
+curl -s "https://backend.composio.dev/api/v3/tools/execute/LINEAR_LIST_LINEAR_ISSUES" \
+  -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
+  -d '{"connected_account_id": "'$(echo $COMPOSIO_CONNECTIONS | jq -r '.linear')'", "input": {}}' | jq
+```
+
+### GitHub: List Repo Issues
+```bash
+curl -s "https://backend.composio.dev/api/v3/tools/execute/GITHUB_LIST_REPOSITORY_ISSUES" \
+  -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
+  -d '{"connected_account_id": "'$(echo $COMPOSIO_CONNECTIONS | jq -r '.github')'", "input": {"owner": "OWNER", "repo": "REPO"}}' | jq
+```
+
+## Discover Actions
+
+```bash
+# List all actions for a service
+curl -s "https://backend.composio.dev/api/v2/actions?apps=linear" \
+  -H "x-api-key: $COMPOSIO_API_KEY" | jq '.items[] | {name, description}'
+```
+
+Replace `linear` with: `github`, `gmail`, `googledrive`
