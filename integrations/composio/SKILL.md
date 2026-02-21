@@ -17,6 +17,7 @@ Execute actions on Linear, GitHub, Gmail, and Google Drive via Composio's API.
 
 ```bash
 COMPOSIO_API_KEY      # API key
+COMPOSIO_USER_ID      # Entity ID (required for all requests)
 COMPOSIO_CONNECTIONS  # JSON: {"linear":"ca_xxx","github":"ca_yyy","google":"ca_zzz"}
 ```
 
@@ -26,13 +27,14 @@ COMPOSIO_CONNECTIONS  # JSON: {"linear":"ca_xxx","github":"ca_yyy","google":"ca_
 # 1. Get connection ID for the service
 CONNECTION_ID=$(echo $COMPOSIO_CONNECTIONS | jq -r '.linear')
 
-# 2. Execute action
+# 2. Execute action (note: use "arguments" not "input", and include entity_id)
 curl -s "https://backend.composio.dev/api/v3/tools/execute/ACTION_NAME" \
   -H "x-api-key: $COMPOSIO_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "connected_account_id": "'$CONNECTION_ID'",
-    "input": {"param": "value"}
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {}
   }' | jq '.data'
 ```
 
@@ -47,18 +49,25 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/ACTION_NAME" \
 
 ## Quick Examples
 
+### Linear: Get Teams
+```bash
+curl -s "https://backend.composio.dev/api/v3/tools/execute/LINEAR_GET_ALL_LINEAR_TEAMS" \
+  -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
+  -d '{"connected_account_id": "'$(echo $COMPOSIO_CONNECTIONS | jq -r '.linear')'", "entity_id": "'$COMPOSIO_USER_ID'", "arguments": {}}' | jq
+```
+
 ### Linear: List Issues
 ```bash
 curl -s "https://backend.composio.dev/api/v3/tools/execute/LINEAR_LIST_LINEAR_ISSUES" \
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
-  -d '{"connected_account_id": "'$(echo $COMPOSIO_CONNECTIONS | jq -r '.linear')'", "input": {}}' | jq
+  -d '{"connected_account_id": "'$(echo $COMPOSIO_CONNECTIONS | jq -r '.linear')'", "entity_id": "'$COMPOSIO_USER_ID'", "arguments": {}}' | jq
 ```
 
 ### GitHub: List Repo Issues
 ```bash
 curl -s "https://backend.composio.dev/api/v3/tools/execute/GITHUB_LIST_REPOSITORY_ISSUES" \
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
-  -d '{"connected_account_id": "'$(echo $COMPOSIO_CONNECTIONS | jq -r '.github')'", "input": {"owner": "OWNER", "repo": "REPO"}}' | jq
+  -d '{"connected_account_id": "'$(echo $COMPOSIO_CONNECTIONS | jq -r '.github')'", "entity_id": "'$COMPOSIO_USER_ID'", "arguments": {"owner": "OWNER", "repo": "REPO"}}' | jq
 ```
 
 ## Discover Actions
