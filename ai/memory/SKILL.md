@@ -1,6 +1,15 @@
-# Memory Skill
+---
+name: memory
+description: |
+  Persistent memory via Supabase for logging interactions, facts, preferences, and tasks.
+  Use when: (1) Starting a session - load recent context, (2) After any interaction - log it,
+  (3) Learning new information - store as fact, (4) Tracking tasks - record status,
+  (5) Recalling past conversations - search memories. CRITICAL: Log EVERY interaction.
+---
 
-You have persistent memory stored in Supabase. **You MUST log every interaction** to build context over time.
+# Memory
+
+Persistent memory stored in Supabase. **Log every interaction** to build context over time.
 
 ## Environment Variables
 

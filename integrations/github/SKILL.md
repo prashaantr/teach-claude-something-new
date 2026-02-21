@@ -1,6 +1,12 @@
 ---
 name: github
-description: GitHub CLI (gh) for repos, issues, PRs, Actions, projects, releases. Use $GITHUB_TOKEN for auth.
+description: |
+  GitHub CLI (gh) for repos, issues, PRs, Actions, projects, releases. Use when:
+  (1) Managing issues - list, create, update, close, comment
+  (2) Working with PRs - list, create, review, merge
+  (3) Searching code or issues in repositories
+  (4) Viewing repository info, branches, commits
+  (5) Monitoring GitHub Actions workflow runs
 ---
 
 # GitHub CLI (gh)
