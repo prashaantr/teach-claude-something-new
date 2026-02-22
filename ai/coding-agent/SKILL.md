@@ -1,63 +1,94 @@
 ---
 name: coding-agent
 description: |
-  Delegate coding tasks to external coding agents. Currently not installed.
-  This skill documents how to use them if added in the future.
+  Karpathy-inspired coding guidelines for writing better code. Reduces common LLM
+  coding mistakes through four principles: think before coding, simplicity first,
+  surgical changes, and goal-driven execution. Use when writing or reviewing code.
 ---
 
-# Coding Agents
+# Coding Agent
 
-**Status:** Not currently installed. This documents future capability.
+Behavioral guidelines to reduce common LLM coding mistakes, derived from [Andrej Karpathy's observations](https://x.com/karpathy/status/2015883857489522876) on LLM coding pitfalls.
 
-To add coding agents, they would need to be installed in the Dockerfile and have API keys configured.
+**Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
 
-## If Claude Code Were Installed
+## 1. Think Before Coding
 
-```bash
-# One-shot task
-claude "Add error handling to the login function"
+**Don't assume. Don't hide confusion. Surface tradeoffs.**
 
-# With auto-approval
-claude --dangerously-skip-permissions "Build the authentication module"
+Before implementing:
+- State your assumptions explicitly. If uncertain, ask.
+- If multiple interpretations exist, present them - don't pick silently.
+- If a simpler approach exists, say so. Push back when warranted.
+- If something is unclear, stop. Name what's confusing. Ask.
+
+## 2. Simplicity First
+
+**Minimum code that solves the problem. Nothing speculative.**
+
+- No features beyond what was asked.
+- No abstractions for single-use code.
+- No "flexibility" or "configurability" that wasn't requested.
+- No error handling for impossible scenarios.
+- If you write 200 lines and it could be 50, rewrite it.
+
+Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
+
+## 3. Surgical Changes
+
+**Touch only what you must. Clean up only your own mess.**
+
+When editing existing code:
+- Don't "improve" adjacent code, comments, or formatting.
+- Don't refactor things that aren't broken.
+- Match existing style, even if you'd do it differently.
+- If you notice unrelated dead code, mention it - don't delete it.
+
+When your changes create orphans:
+- Remove imports/variables/functions that YOUR changes made unused.
+- Don't remove pre-existing dead code unless asked.
+
+The test: Every changed line should trace directly to the user's request.
+
+## 4. Goal-Driven Execution
+
+**Define success criteria. Loop until verified.**
+
+Transform tasks into verifiable goals:
+- "Add validation" → "Write tests for invalid inputs, then make them pass"
+- "Fix the bug" → "Write a test that reproduces it, then make it pass"
+- "Refactor X" → "Ensure tests pass before and after"
+
+For multi-step tasks, state a brief plan:
+```
+1. [Step] → verify: [check]
+2. [Step] → verify: [check]
+3. [Step] → verify: [check]
 ```
 
-Requires: `ANTHROPIC_API_KEY` (already configured)
+Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
 
-## If Codex CLI Were Installed
+---
 
-```bash
-# One-shot execution
-codex exec "Your prompt here"
+**These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
 
-# Full auto mode (sandboxed)
-codex exec --full-auto "Build feature X"
-```
+## Anti-Patterns Quick Reference
 
-Requires: `OPENAI_API_KEY` (not configured)
+| Principle | Anti-Pattern | Fix |
+|-----------|-------------|-----|
+| Think Before Coding | Silently assumes file format, fields, scope | List assumptions explicitly, ask for clarification |
+| Simplicity First | Strategy pattern for single discount calculation | One function until complexity is actually needed |
+| Surgical Changes | Reformats quotes, adds type hints while fixing bug | Only change lines that fix the reported issue |
+| Goal-Driven | "I'll review and improve the code" | "Write test for bug X → make it pass → verify no regressions" |
 
-## Alternative: Use OpenClaw's Built-in Capabilities
+## Key Insight
 
-Giuseppe already has coding capabilities via OpenClaw/Claude. For most tasks, just describe what you need and execute bash commands directly:
+Good code is code that solves today's problem simply, not tomorrow's problem prematurely.
 
-```bash
-# Read code
-cat /path/to/file.py
+The "overcomplicated" examples aren't obviously wrong—they follow design patterns and best practices. The problem is **timing**: they add complexity before it's needed, which:
+- Makes code harder to understand
+- Introduces more bugs
+- Takes longer to implement
+- Is harder to test
 
-# Edit code
-# Use the file editing capabilities already available
-
-# Run tests
-pytest /path/to/tests
-```
-
-## Future Installation
-
-To add Claude Code:
-```dockerfile
-RUN npm install -g @anthropic-ai/claude-code
-```
-
-To add Codex:
-```dockerfile
-RUN npm install -g @openai/codex
-```
+See `references/examples.md` for detailed code examples of each principle.
