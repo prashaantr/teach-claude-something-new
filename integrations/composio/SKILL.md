@@ -13,6 +13,18 @@ description: |
 
 Execute actions on Linear, GitHub, Gmail, and Google Drive via Composio's API.
 
+> **⚠️ CRITICAL: NEVER USE CLI TOOLS FOR THESE SERVICES**
+>
+> You MUST use the Composio HTTP API (curl commands below) for ALL operations.
+> **DO NOT** use:
+> - `gh` (GitHub CLI) - will fail with "gh auth login" error
+> - `linear` CLI
+> - `gcloud` or `gsutil`
+> - Any other CLI tools for these services
+>
+> The user connected these services via OAuth. CLI tools don't have access to those tokens.
+> **ALWAYS use the curl-based Composio API patterns shown in this skill.**
+
 ## Environment
 
 ```bash

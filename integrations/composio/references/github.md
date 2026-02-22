@@ -1,5 +1,8 @@
 # GitHub Actions (Composio)
 
+> **⚠️ DO NOT USE `gh` CLI** - It will fail with "gh auth login" error.
+> Use the Composio HTTP API (curl commands) below instead.
+
 Connection key: `.github`
 
 **Note:** All requests must include `entity_id` and use `arguments` (not `input`).
