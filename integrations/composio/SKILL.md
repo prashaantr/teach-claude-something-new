@@ -75,6 +75,13 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/LINEAR_LIST_LINEAR_IS
   -d '{"connected_account_id": "'$(echo $COMPOSIO_CONNECTIONS | jq -r '.linear')'", "entity_id": "'$COMPOSIO_USER_ID'", "arguments": {}}' | jq
 ```
 
+### GitHub: List All Your Repos
+```bash
+curl -s "https://backend.composio.dev/api/v3/tools/execute/GITHUB_LIST_USER_REPOS" \
+  -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
+  -d '{"connected_account_id": "'$(echo $COMPOSIO_CONNECTIONS | jq -r '.github')'", "entity_id": "'$COMPOSIO_USER_ID'", "arguments": {}}' | jq
+```
+
 ### GitHub: List Repo Issues
 ```bash
 curl -s "https://backend.composio.dev/api/v3/tools/execute/GITHUB_LIST_REPOSITORY_ISSUES" \
