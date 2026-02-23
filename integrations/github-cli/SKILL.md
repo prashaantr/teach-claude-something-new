@@ -1,5 +1,5 @@
 ---
-name: github
+name: github-cli
 description: |
   GitHub CLI (gh) for repos, issues, PRs, Actions, projects, releases. Use when:
   (1) Managing issues - list, create, update, close, comment

@@ -19,10 +19,10 @@ Skills transform Claude from a general-purpose AI into a specialized agent equip
 | **ai/** | 4 | Coding agents, memory systems, image generation, LLM fine-tuning |
 | **business/** | 1 | Negotiation preparation and strategy |
 | **creative/** | 2 | World-building, script writing |
-| **data-viz/** | 2 | Visualization design (Stanford CS448B), D3.js |
+| **data-viz/** | 1 | Visualization design (Stanford CS448B), D3.js |
 | **design/** | 1 | Mockup generation |
 | **documents/** | 5 | PDF, DOCX, XLSX, PPTX, assembly instructions |
-| **integrations/** | 8 | GitHub, Linear, Email, Drive, Telegram, Composio, Exa |
+| **integrations/** | 6 | Composio (GitHub/Linear/Gmail/Drive/Exa), CLI tools (gh, rclone, himalaya), Telegram |
 | **meta/** | 1 | Skill creator (for building new skills) |
 | **science/** | 1 | AlphaFold protein structure database |
 

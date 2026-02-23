@@ -1,5 +1,5 @@
 ---
-name: email
+name: email-cli
 description: |
   Read, send, and respond to emails via Himalaya CLI. Use when:
   (1) New email notification arrives (triggered automatically)

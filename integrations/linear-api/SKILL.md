@@ -1,5 +1,5 @@
 ---
-name: linear
+name: linear-api
 description: |
   Project management via Linear GraphQL API. Use when:
   (1) Planning and tracking projects

@@ -1,5 +1,5 @@
 ---
-name: drive
+name: drive-cli
 description: |
   Access Google Drive via rclone CLI. Use when:
   (1) Need to list, search, or find files
