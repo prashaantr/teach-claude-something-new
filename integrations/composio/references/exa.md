@@ -1,15 +1,4 @@
----
-name: exa
-description: |
-  Semantic web search via Exa through Composio. Use when you need to:
-  (1) Research topics with AI-powered semantic search
-  (2) Find relevant web pages by meaning, not just keywords
-  (3) Get citation-backed answers to questions
-  (4) Find similar pages to a given URL
-  Exa understands queries like a human would—ask naturally.
----
-
-# Exa Search via Composio
+# Exa Search
 
 Exa is an AI-native search engine that understands meaning. Unlike keyword search, Exa finds what you're looking for even if your query doesn't match exact words on the page.
 
@@ -24,7 +13,8 @@ curl -X POST "https://backend.composio.dev/api/v3/tools/execute/EXA_SEARCH" \
   -H "x-api-key: $COMPOSIO_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "connected_account_id": "<connection_id>",
+    "connected_account_id": "'$(echo $COMPOSIO_CONNECTIONS | jq -r '.exa')'",
+    "entity_id": "'$COMPOSIO_USER_ID'",
     "arguments": {
       "query": "best practices for building AI agents",
       "numResults": 10,
@@ -52,7 +42,8 @@ curl -X POST "https://backend.composio.dev/api/v3/tools/execute/EXA_ANSWER" \
   -H "x-api-key: $COMPOSIO_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "connected_account_id": "<connection_id>",
+    "connected_account_id": "'$(echo $COMPOSIO_CONNECTIONS | jq -r '.exa')'",
+    "entity_id": "'$COMPOSIO_USER_ID'",
     "arguments": {
       "query": "What are the key differences between RAG and fine-tuning?"
     }
@@ -70,7 +61,8 @@ curl -X POST "https://backend.composio.dev/api/v3/tools/execute/EXA_FIND_SIMILAR
   -H "x-api-key: $COMPOSIO_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "connected_account_id": "<connection_id>",
+    "connected_account_id": "'$(echo $COMPOSIO_CONNECTIONS | jq -r '.exa')'",
+    "entity_id": "'$COMPOSIO_USER_ID'",
     "arguments": {
       "url": "https://example.com/article",
       "numResults": 10
@@ -87,7 +79,8 @@ curl -X POST "https://backend.composio.dev/api/v3/tools/execute/EXA_GET_CONTENTS
   -H "x-api-key: $COMPOSIO_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "connected_account_id": "<connection_id>",
+    "connected_account_id": "'$(echo $COMPOSIO_CONNECTIONS | jq -r '.exa')'",
+    "entity_id": "'$COMPOSIO_USER_ID'",
     "arguments": {
       "ids": ["url1", "url2"]
     }

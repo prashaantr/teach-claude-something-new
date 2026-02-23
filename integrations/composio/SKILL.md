@@ -6,6 +6,7 @@ description: |
   (2) Working with GitHub - list/create issues, manage PRs, repos
   (3) Working with Gmail - send/list emails
   (4) Working with Google Drive - list/upload/download files
+  (5) Working with Exa - semantic web search, citation-backed answers
   Composio handles OAuth automatically. Check COMPOSIO_CONNECTIONS to see which services are connected.
 ---
 
@@ -58,6 +59,7 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/ACTION_NAME" \
 | GitHub | `.github` | [references/github.md](references/github.md) |
 | Gmail | `.google` | [references/gmail.md](references/gmail.md) |
 | Google Drive | `.google` | [references/drive.md](references/drive.md) |
+| Exa | `.exa` | [references/exa.md](references/exa.md) |
 
 ## Quick Examples
 
@@ -99,4 +101,4 @@ curl -s "https://backend.composio.dev/api/v2/actions?apps=linear" \
   -H "x-api-key: $COMPOSIO_API_KEY" | jq '.items[] | {name, description}'
 ```
 
-Replace `linear` with: `github`, `gmail`, `googledrive`
+Replace `linear` with: `github`, `gmail`, `googledrive`, `exa`
