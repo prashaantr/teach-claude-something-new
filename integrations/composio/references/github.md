@@ -160,25 +160,20 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GITHUB_MERGE_PULL_REQ
 
 ## Repositories
 
-### List User Repos
+### List Your Repos (Public + Private)
 ```bash
-# Get your GitHub username first
-USERNAME=$(curl -s "https://backend.composio.dev/api/v3/tools/execute/GITHUB_GET_THE_AUTHENTICATED_USER" \
+# Use GITHUB_LIST_REPOSITORIES_FOR_THE_AUTHENTICATED_USER for ALL repos
+# NOT GITHUB_LIST_REPOSITORIES_FOR_A_USER (that only returns public repos)
+curl -s "https://backend.composio.dev/api/v3/tools/execute/GITHUB_LIST_REPOSITORIES_FOR_THE_AUTHENTICATED_USER" \
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
   -d '{
     "connected_account_id": "'$CONNECTION_ID'",
     "entity_id": "'$COMPOSIO_USER_ID'",
-    "arguments": {}
-  }' | jq -r '.data.response_data.login')
-
-# List repos for that user (includes private repos with proper OAuth scope)
-curl -s "https://backend.composio.dev/api/v3/tools/execute/GITHUB_LIST_REPOSITORIES_FOR_A_USER" \
-  -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
-  -d '{
-    "connected_account_id": "'$CONNECTION_ID'",
-    "entity_id": "'$COMPOSIO_USER_ID'",
-    "arguments": {"username": "'$USERNAME'"}
-  }' | jq
+    "arguments": {
+      "visibility": "all",
+      "affiliation": "owner,collaborator,organization_member"
+    }
+  }' | jq '.data.repositories'
 ```
 
 ### Get Repository Info
@@ -219,8 +214,7 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GITHUB_LIST_BRANCHES"
 | `GITHUB_LIST_PULL_REQUESTS` | List PRs |
 | `GITHUB_CREATE_PULL_REQUEST` | Create PR |
 | `GITHUB_MERGE_PULL_REQUEST` | Merge PR |
-| `GITHUB_LIST_REPOSITORIES_FOR_A_USER` | List user repos (requires username) |
-| `GITHUB_GET_THE_AUTHENTICATED_USER` | Get current user info |
+| `GITHUB_LIST_REPOSITORIES_FOR_THE_AUTHENTICATED_USER` | List ALL repos (public+private) |
 | `GITHUB_GET_REPOSITORY` | Get repo info |
 | `GITHUB_LIST_BRANCHES` | List branches |
 | `GITHUB_LIST_COMMITS` | List commits |
