@@ -77,9 +77,14 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/LINEAR_LIST_LINEAR_IS
 
 ### GitHub: List All Your Repos
 ```bash
-curl -s "https://backend.composio.dev/api/v3/tools/execute/GITHUB_LIST_USER_REPOS" \
+# First get username, then list repos
+USERNAME=$(curl -s "https://backend.composio.dev/api/v3/tools/execute/GITHUB_GET_THE_AUTHENTICATED_USER" \
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
-  -d '{"connected_account_id": "'$(echo $COMPOSIO_CONNECTIONS | jq -r '.github')'", "entity_id": "'$COMPOSIO_USER_ID'", "arguments": {}}' | jq
+  -d '{"connected_account_id": "'$(echo $COMPOSIO_CONNECTIONS | jq -r '.github')'", "entity_id": "'$COMPOSIO_USER_ID'", "arguments": {}}' | jq -r '.data.response_data.login')
+
+curl -s "https://backend.composio.dev/api/v3/tools/execute/GITHUB_LIST_REPOSITORIES_FOR_A_USER" \
+  -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
+  -d '{"connected_account_id": "'$(echo $COMPOSIO_CONNECTIONS | jq -r '.github')'", "entity_id": "'$COMPOSIO_USER_ID'", "arguments": {"username": "'$USERNAME'"}}' | jq
 ```
 
 ### GitHub: List Repo Issues
