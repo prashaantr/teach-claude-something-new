@@ -1,6 +1,12 @@
 ---
 name: cs-research-methodology
-description: Conduct a literature review and develop a CS research proposal. Use when asked to review a research area, find gaps in existing work, and propose a novel research contribution. The output is a research proposal identifying an assumption to challenge (the "bit flip") and how to validate it.
+description: |
+  Conduct literature reviews and develop CS research proposals. Use when:
+  (1) Reviewing a research area systematically
+  (2) Finding gaps in existing work
+  (3) Proposing novel research contributions
+  (4) Identifying assumptions to challenge ("bit flip" methodology)
+  (5) Designing validation strategies for research claims
 ---
 
 # CS Research Methodology

@@ -1,10 +1,12 @@
 ---
 name: xlsx
 description: |
-  Use this skill for Excel/spreadsheet files. This includes: creating,
-  editing, reading .xlsx/.xlsm/.csv/.tsv files, data analysis, formulas,
-  formatting, charts. Trigger when user mentions spreadsheets, Excel,
-  or data tables.
+  Process Excel and spreadsheet files. Use when:
+  (1) Creating or editing .xlsx, .xlsm, .csv, .tsv files
+  (2) Reading spreadsheet data or performing analysis
+  (3) Working with formulas and calculations
+  (4) Formatting cells, rows, or columns
+  (5) Creating charts or visualizations in Excel
 ---
 
 # Excel/Spreadsheet Processing

@@ -1,6 +1,12 @@
 ---
 name: tinker
-description: Fine-tune LLMs using the Tinker API. Covers supervised fine-tuning, reinforcement learning, LoRA training, vision-language models, and both high-level Cookbook patterns and low-level API usage.
+description: |
+  Fine-tune LLMs using the Tinker API. Use when:
+  (1) Training models with supervised fine-tuning (SFT)
+  (2) Implementing reinforcement learning (PPO, GRPO)
+  (3) Using LoRA for parameter-efficient fine-tuning
+  (4) Training vision-language models (Qwen3-VL)
+  (5) Need high-level Cookbook patterns or low-level API control
 ---
 
 # Tinker API - LLM Fine-Tuning

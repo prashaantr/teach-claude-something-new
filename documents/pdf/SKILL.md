@@ -1,10 +1,13 @@
 ---
 name: pdf
 description: |
-  Use this skill for PDF files. This includes: reading/extracting text
-  and tables, merging/splitting PDFs, rotating pages, adding watermarks,
-  creating new PDFs, filling forms, encrypting/decrypting, extracting
-  images, OCR on scanned PDFs. Trigger when user mentions .pdf files.
+  Process PDF files. Use when:
+  (1) Reading or extracting text and tables from PDFs
+  (2) Merging, splitting, or rotating PDF pages
+  (3) Adding watermarks or creating new PDFs
+  (4) Filling forms or extracting images
+  (5) Running OCR on scanned documents
+  (6) Encrypting or decrypting PDF files
 ---
 
 # PDF Processing

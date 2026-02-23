@@ -1,10 +1,12 @@
 ---
 name: pptx
 description: |
-  Use this skill for PowerPoint (.pptx) files. This includes:
-  creating slide decks, reading/extracting text, editing presentations,
-  working with templates, layouts, speaker notes. Trigger when user
-  mentions "deck," "slides," "presentation," or any .pptx file.
+  Process PowerPoint presentations (.pptx). Use when:
+  (1) Creating slide decks or presentations
+  (2) Reading or extracting text from slides
+  (3) Editing existing presentations
+  (4) Working with templates, layouts, or themes
+  (5) Adding or modifying speaker notes
 ---
 
 # PowerPoint Presentations

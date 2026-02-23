@@ -1,6 +1,11 @@
 ---
 name: neuro-symbolic-reasoning
-description: Neuro-symbolic AI combining LLMs with symbolic solvers. Use when implementing NL-to-logic translation, integrating Z3/Prover9/Pyke solvers, building self-refinement loops, or solving logical reasoning tasks.
+description: |
+  Neuro-symbolic AI combining LLMs with symbolic solvers. Use when:
+  (1) Implementing natural language to logic translation
+  (2) Integrating Z3, Prover9, or Pyke solvers
+  (3) Building self-refinement loops for logic programs
+  (4) Solving logical reasoning tasks with formal verification
 ---
 
 # Neuro-Symbolic Reasoning

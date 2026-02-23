@@ -1,9 +1,12 @@
 ---
 name: alphafold-database
-description: Access AlphaFold 200M+ AI-predicted protein structures. Retrieve structures by UniProt ID, download PDB/mmCIF files, analyze confidence metrics (pLDDT, PAE), for drug discovery and structural biology.
-license: Unknown
-metadata:
-    skill-author: K-Dense Inc.
+description: |
+  Access AlphaFold 200M+ AI-predicted protein structures. Use when:
+  (1) Retrieving protein structures by UniProt ID
+  (2) Downloading PDB or mmCIF coordinate files
+  (3) Analyzing prediction confidence (pLDDT, PAE metrics)
+  (4) Accessing bulk proteome datasets via GCP
+  (5) Integrating structures into drug discovery workflows
 ---
 
 # AlphaFold Database
@@ -11,19 +14,6 @@ metadata:
 ## Overview
 
 AlphaFold DB is a public repository of AI-predicted 3D protein structures for over 200 million proteins, maintained by DeepMind and EMBL-EBI. Access structure predictions with confidence metrics, download coordinate files, retrieve bulk datasets, and integrate predictions into computational workflows.
-
-## When to Use This Skill
-
-This skill should be used when working with AI-predicted protein structures in scenarios such as:
-
-- Retrieving protein structure predictions by UniProt ID or protein name
-- Downloading PDB/mmCIF coordinate files for structural analysis
-- Analyzing prediction confidence metrics (pLDDT, PAE) to assess reliability
-- Accessing bulk proteome datasets via Google Cloud Platform
-- Comparing predicted structures with experimental data
-- Performing structure-based drug discovery or protein engineering
-- Building structural models for proteins lacking experimental structures
-- Integrating AlphaFold predictions into computational pipelines
 
 ## Core Capabilities
 

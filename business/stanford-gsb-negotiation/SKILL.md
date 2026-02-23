@@ -1,6 +1,12 @@
 ---
 name: stanford-gsb-negotiation
-description: "Negotiation preparation using Stanford GSB frameworks. Use when user mentions negotiating salary, job offers, contracts, vendor deals, real estate, disputes, difficult conversations, asking for a raise, making deals, or reaching agreement. Helps with preparation, market research, response scripts, and handling difficult negotiators."
+description: |
+  Negotiation preparation using Stanford GSB frameworks. Use when:
+  (1) Preparing for salary or job offer negotiations
+  (2) Negotiating contracts, vendor deals, or real estate
+  (3) Handling disputes or difficult conversations
+  (4) Needing market research and BATNA analysis
+  (5) Getting response scripts for tough negotiators
 ---
 
 # Negotiation Preparation Workflow

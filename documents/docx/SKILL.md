@@ -1,10 +1,12 @@
 ---
 name: docx
 description: |
-  Use this skill for Word documents (.docx). This includes: creating,
-  editing, reading documents, adding tables, headings, formatting,
-  page numbers, headers/footers. Trigger when user mentions Word docs,
-  .docx files, or document creation.
+  Process Word documents (.docx). Use when:
+  (1) Creating or editing Word documents
+  (2) Reading and extracting document content
+  (3) Adding tables, headings, or formatting
+  (4) Working with page numbers, headers, footers
+  (5) Converting or manipulating .docx files
 ---
 
 # Word Document Processing

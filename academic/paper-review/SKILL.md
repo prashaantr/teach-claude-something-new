@@ -1,6 +1,12 @@
 ---
 name: paper-review
-description: Critiques ML conference papers with reviewer-style feedback. This skill should be used when users want to anticipate reviewer concerns, identify weaknesses, check claim-evidence gaps, or find missing citations.
+description: |
+  Critique ML conference papers with reviewer-style feedback. Use when:
+  (1) Anticipating reviewer concerns before submission
+  (2) Identifying weaknesses in paper drafts
+  (3) Checking claim-evidence gaps
+  (4) Finding missing citations or related work
+  (5) Getting structured feedback (strengths, weaknesses, scores)
 ---
 
 # Paper Review

@@ -1,9 +1,22 @@
 ---
 name: paper-writing
-description: Writes and develops ML conference manuscripts. This skill should be used when users want to brainstorm contributions, write paper sections, position work vs prior work, or craft abstracts and arguments.
+description: |
+  Write and develop ML conference manuscripts. Use when:
+  (1) Brainstorming research contributions
+  (2) Writing paper sections (abstract, intro, method, experiments)
+  (3) Positioning work against prior work
+  (4) Crafting abstracts and arguments
+  (5) Improving draft quality and flow
 ---
 
 # Manuscript Writing
+
+## References
+
+| Reference | Use When |
+|-----------|----------|
+| [section-templates.md](references/section-templates.md) | Need detailed templates for abstract, intro, method, experiments |
+| [common-pitfalls.md](references/common-pitfalls.md) | Reviewing draft for common rejection reasons |
 
 ## Paper Section Guidance
 

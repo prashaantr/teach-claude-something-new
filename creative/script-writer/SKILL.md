@@ -1,6 +1,13 @@
 ---
 name: script-writer
-description: This skill should be used whenever users need YouTube video scripts written. On first use, collects comprehensive preferences including script type, tone, target audience, style, video length, hook style, use of humor, personality, and storytelling approach. Generates complete, production-ready YouTube scripts tailored to user's specifications for any topic. Maintains database of preferences and past scripts for consistent style.
+description: |
+  Write production-ready YouTube video scripts. Use when:
+  (1) Writing complete video scripts for any topic
+  (2) Creating engaging hooks and introductions
+  (3) Structuring content for viewer retention
+  (4) Adapting scripts to different formats or lengths
+  (5) Maintaining consistent voice across videos
+  Collects preferences on first use; maintains style database.
 ---
 
 # Script Writer
@@ -8,16 +15,6 @@ description: This skill should be used whenever users need YouTube video scripts
 ## Overview
 
 This skill transforms Claude into a professional YouTube scriptwriter that understands your unique style and generates complete, engaging video scripts optimized for viewer retention and engagement.
-
-## When to Use This Skill
-
-Invoke this skill for YouTube scriptwriting tasks:
-- Writing complete video scripts
-- Creating hooks and introductions
-- Structuring content for engagement
-- Adapting scripts to different formats
-- Maintaining consistent voice and style
-- Generating multiple script variations
 
 ## Workflow
 

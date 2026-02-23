@@ -1,9 +1,11 @@
 ---
 name: coding-agent
 description: |
-  Karpathy-inspired coding guidelines for writing better code. Reduces common LLM
-  coding mistakes through four principles: think before coding, simplicity first,
-  surgical changes, and goal-driven execution. Use when writing or reviewing code.
+  Karpathy-inspired coding guidelines to reduce common LLM mistakes. Use when:
+  (1) Writing new code - apply simplicity-first principles
+  (2) Reviewing code - check for over-engineering
+  (3) Making changes - ensure surgical, minimal edits
+  (4) Debugging - think before coding, surface assumptions
 ---
 
 # Coding Agent

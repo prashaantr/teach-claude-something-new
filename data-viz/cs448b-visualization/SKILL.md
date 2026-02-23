@@ -1,6 +1,15 @@
 ---
 name: cs448b-visualization
-description: "Data visualization design based on Stanford CS448B. Use for: (1) choosing chart types, (2) selecting visual encodings, (3) critiquing visualizations, (4) building D3.js visualizations, (5) designing interactions/animations, (6) choosing colors, (7) visualizing networks, (8) visualizing text. Covers Bertin, Mackinlay, Cleveland & McGill."
+description: |
+  Data visualization design based on Stanford CS448B. Use when:
+  (1) Choosing appropriate chart types for data
+  (2) Selecting visual encodings (position, color, size)
+  (3) Critiquing or improving visualizations
+  (4) Building D3.js visualizations
+  (5) Designing interactions and animations
+  (6) Choosing color palettes for accessibility
+  (7) Visualizing networks or text data
+  Covers Bertin, Mackinlay, Cleveland & McGill principles.
 ---
 
 # CS448B Visualization

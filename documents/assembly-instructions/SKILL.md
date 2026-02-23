@@ -1,29 +1,18 @@
 ---
 name: assembly-instructions
-description: >
-  Generate IKEA-style visual assembly instruction manuals as multi-page PDFs for hardware projects —
-  especially Arduino/electronics builds, IoT devices, 3D-printed enclosures, and maker projects.
-  Use this skill whenever the user wants to create assembly instructions, build guides, wiring diagrams,
-  hardware setup manuals, or step-by-step visual instructions for physical builds. Also trigger when
-  the user mentions "instruction manual", "assembly guide", "build instructions", "wiring guide",
-  "hardware documentation", "maker instructions", or wants to document how to put together any
-  physical project for a non-technical person (like a TaskRabbit worker or field technician).
-  The output is a professional multi-page PDF with wordless IKEA-style illustrations including
-  parts inventories, step-by-step diagrams with callouts, color-coded wiring, and action arrows.
+description: |
+  Generate IKEA-style visual assembly manuals as PDFs. Use when:
+  (1) Creating assembly instructions for hardware projects
+  (2) Making build guides for Arduino, IoT, or electronics
+  (3) Documenting 3D-printed enclosure assembly
+  (4) Writing wiring diagrams or hardware setup manuals
+  (5) Creating step-by-step visual instructions for non-technical users
+  Output: Multi-page PDF with parts inventory, diagrams, callouts, and action arrows.
 ---
 
 # Assembly Instructions Generator
 
 Generate IKEA-style visual assembly manuals for hardware/electronics projects as multi-page PDFs.
-
-## When to Use This Skill
-
-- User wants to document how to build/assemble a physical project
-- User needs wiring instructions for Arduino or electronics
-- User wants a "manual" or "guide" for a hardware build
-- User mentions TaskRabbit, field technician, or non-technical assembler
-- User has a YAML/JSON project description to turn into visual instructions
-- User wants to create setup documentation for an IoT device
 
 ## Quick Start
 

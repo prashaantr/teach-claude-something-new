@@ -1,10 +1,11 @@
 ---
 name: nano-banana-pro
 description: |
-  Base image generation using Gemini API. Requires $GEMINI_API_KEY.
-  Use DIRECTLY when user asks for general image generation/editing.
-  Use INDIRECTLY via mockup skill (for product photos) or ikea-instructions skill (for build guides).
-  Triggers: "generate image", "create image", "edit image", "modify this image".
+  Image generation and editing using Gemini API. Use when:
+  (1) User asks to generate images from text prompts
+  (2) User wants to edit or modify existing images
+  (3) User mentions "create image", "generate image", "edit image"
+  Note: For product mockups use mockup skill; for assembly guides use assembly-instructions skill.
 ---
 
 # Nano Banana Pro Image Generation & Editing
@@ -15,13 +16,13 @@ Generate new images or edit existing ones using Google's Nano Banana Pro API (Ge
 
 **Generate new image:**
 ```bash
-uv run /home/node/.openclaw/workspace/skills/nano-banana-pro/scripts/generate_image.py \
+uv run scripts/generate_image.py \
   --prompt "your image description" --filename "output.png" [--resolution 1K|2K|4K]
 ```
 
 **Edit existing image:**
 ```bash
-uv run /home/node/.openclaw/workspace/skills/nano-banana-pro/scripts/generate_image.py \
+uv run scripts/generate_image.py \
   --prompt "editing instructions" --filename "output.png" --input-image "input.png" [--resolution 1K|2K|4K]
 ```
 
@@ -92,14 +93,14 @@ Preserve user's creative intent in both cases.
 
 **Generate:**
 ```bash
-uv run /home/node/.openclaw/workspace/skills/nano-banana-pro/scripts/generate_image.py \
+uv run scripts/generate_image.py \
   --prompt "A serene Japanese garden with cherry blossoms" \
   --filename "2025-11-23-14-23-05-japanese-garden.png" --resolution 4K
 ```
 
 **Edit:**
 ```bash
-uv run /home/node/.openclaw/workspace/skills/nano-banana-pro/scripts/generate_image.py \
+uv run scripts/generate_image.py \
   --prompt "make the sky more dramatic with storm clouds" \
   --filename "2025-11-23-14-25-30-dramatic-sky.png" --input-image "original.jpg" --resolution 2K
 ```
