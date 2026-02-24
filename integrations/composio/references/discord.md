@@ -1,71 +1,35 @@
-# Discord Actions (Composio)
+# Discord Cross-Channel Messaging
 
-Connection key: `.discordbot` (NOT `.discord` - that's read-only)
+When you need to send Discord messages from another channel (Telegram, Slack, web).
 
-## Contents
+**Native OpenClaw channel commands are SESSION-BOUND.** If you're on Telegram, you'll get "Cross-context messaging denied" trying to use native Discord send.
 
-- [Setup](#setup)
-- [Guilds & Channels](#guilds--channels)
-- [Messages](#messages)
-- [Members](#members)
-- [Mention Format](#mention-format)
-- [All Actions](#all-actions)
+Use direct Discord API instead:
 
-## Setup
+## Send Message
 
 ```bash
-CONNECTION_ID=$(echo $COMPOSIO_CONNECTIONS | jq -r '.discordbot')
+curl -X POST "https://discord.com/api/v10/channels/CHANNEL_ID/messages" \
+  -H "Authorization: Bot $DISCORD_BOT_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"content": "<@USER_ID> your message"}'
 ```
 
-## Guilds & Channels
+## Find Channel ID
 
-### List Guild Channels
 ```bash
-curl -s "https://backend.composio.dev/api/v3/tools/execute/DISCORD_GET_GUILD_CHANNELS" \
-  -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
-  -d '{"connected_account_id": "'$CONNECTION_ID'", "entity_id": "'$COMPOSIO_USER_ID'", "arguments": {"guild_id": "GUILD_ID"}}' | jq
+# List guild channels
+curl "https://discord.com/api/v10/guilds/GUILD_ID/channels" \
+  -H "Authorization: Bot $DISCORD_BOT_TOKEN" | jq '.[] | {id, name}'
 ```
 
-### Get Guild Info
+## Find User ID
+
 ```bash
-curl -s "https://backend.composio.dev/api/v3/tools/execute/DISCORD_GET_GUILD" \
-  -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
-  -d '{"connected_account_id": "'$CONNECTION_ID'", "entity_id": "'$COMPOSIO_USER_ID'", "arguments": {"guild_id": "GUILD_ID"}}' | jq
+# List guild members
+curl "https://discord.com/api/v10/guilds/GUILD_ID/members?limit=100" \
+  -H "Authorization: Bot $DISCORD_BOT_TOKEN" | jq '.[] | {user_id: .user.id, username: .user.username}'
 ```
-
-## Messages
-
-### Send Message
-```bash
-curl -s "https://backend.composio.dev/api/v3/tools/execute/DISCORD_SEND_MESSAGE" \
-  -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
-  -d '{
-    "connected_account_id": "'$CONNECTION_ID'",
-    "entity_id": "'$COMPOSIO_USER_ID'",
-    "arguments": {
-      "channel_id": "CHANNEL_ID",
-      "content": "<@USER_ID> your message"
-    }
-  }' | jq
-```
-
-### Get Channel Messages
-```bash
-curl -s "https://backend.composio.dev/api/v3/tools/execute/DISCORD_GET_CHANNEL_MESSAGES" \
-  -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
-  -d '{"connected_account_id": "'$CONNECTION_ID'", "entity_id": "'$COMPOSIO_USER_ID'", "arguments": {"channel_id": "CHANNEL_ID"}}' | jq
-```
-
-## Members
-
-### List Guild Members
-```bash
-curl -s "https://backend.composio.dev/api/v3/tools/execute/DISCORD_LIST_GUILD_MEMBERS" \
-  -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
-  -d '{"connected_account_id": "'$CONNECTION_ID'", "entity_id": "'$COMPOSIO_USER_ID'", "arguments": {"guild_id": "GUILD_ID"}}' | jq
-```
-
-Use this to find user IDs by username.
 
 ## Mention Format
 
@@ -74,14 +38,8 @@ Use this to find user IDs by username.
 | `<@USER_ID>` | User notified |
 | `@Name` | No notification |
 
-Plain text `@Name` does NOT work. Extract numeric user_id from guild members list.
+## When on Discord Natively
 
-## All Actions
+If you're already in a Discord session (message came from Discord), use OpenClaw's native channel - it's simpler.
 
-| Action | Description |
-|--------|-------------|
-| DISCORD_SEND_MESSAGE | Send message to channel |
-| DISCORD_GET_CHANNEL_MESSAGES | Get messages from channel |
-| DISCORD_GET_GUILD_CHANNELS | List channels in guild |
-| DISCORD_GET_GUILD | Get guild info |
-| DISCORD_LIST_GUILD_MEMBERS | List members (to find user IDs) |
+Only use direct API for **cross-channel** scenarios (Telegram → Discord, etc).
