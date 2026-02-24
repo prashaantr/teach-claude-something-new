@@ -6,7 +6,8 @@ description: |
   (2) Working with GitHub - list/create issues, manage PRs, repos
   (3) Working with Gmail - send/list emails
   (4) Working with Google Drive - list/upload/download files
-  (5) Working with Exa - semantic web search, citation-backed answers
+  (5) Working with Google Calendar - create events, check availability
+  (6) Working with Exa - semantic web search, citation-backed answers
   Composio handles OAuth automatically. For Discord, use the discord skill instead.
 ---
 
@@ -59,6 +60,7 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/ACTION_NAME" \
 | GitHub | `.github` | [references/github.md](references/github.md) |
 | Gmail | `.google` | [references/gmail.md](references/gmail.md) |
 | Google Drive | `.google` | [references/drive.md](references/drive.md) |
+| Google Calendar | `.googlecalendar` | [references/googlecalendar.md](references/googlecalendar.md) |
 | Exa | `.exa` | [references/exa.md](references/exa.md) |
 
 ## Quick Examples
