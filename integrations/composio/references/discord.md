@@ -1,73 +1,87 @@
-# Discord Bot Communication
+# Discord Actions (Composio)
 
-## Mention Format (CRITICAL)
+Connection key: `.discord`
 
+## Contents
+
+- [Setup](#setup)
+- [Guilds & Channels](#guilds--channels)
+- [Messages](#messages)
+- [Members](#members)
+- [Mention Format](#mention-format)
+- [All Actions](#all-actions)
+
+## Setup
+
+```bash
+CONNECTION_ID=$(echo $COMPOSIO_CONNECTIONS | jq -r '.discord')
 ```
-CORRECT: <@USER_ID>     → User mention (works for bots)
-WRONG:   <@&ID>         → Role mention (NOT for users/bots)
-WRONG:   @Name          → Plain text (no notification)
+
+## Guilds & Channels
+
+### List Guild Channels
+```bash
+curl -s "https://backend.composio.dev/api/v3/tools/execute/DISCORD_GET_GUILD_CHANNELS" \
+  -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
+  -d '{"connected_account_id": "'$CONNECTION_ID'", "entity_id": "'$COMPOSIO_USER_ID'", "arguments": {"guild_id": "GUILD_ID"}}' | jq
 ```
 
-## Known Agents
+### Get Guild Info
+```bash
+curl -s "https://backend.composio.dev/api/v3/tools/execute/DISCORD_GET_GUILD" \
+  -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
+  -d '{"connected_account_id": "'$CONNECTION_ID'", "entity_id": "'$COMPOSIO_USER_ID'", "arguments": {"guild_id": "GUILD_ID"}}' | jq
+```
 
-| Agent | Discord User ID | Mention Format |
-|-------|-----------------|----------------|
-| Opal/Opalite | 1474918306535309322 | `<@1474918306535309322>` |
-| Alan Turing | 1475051850297376882 | `<@1475051850297376882>` |
-
-## Replying to Another Bot
-
-1. Extract sender's user ID from incoming message metadata
-2. Use `<@their_user_id>` in your reply (NO `&` symbol)
-3. Or use known agent IDs above
-
-Without proper `<@ID>` mentions, bots won't see your response.
-
-## Discord Actions via Composio
+## Messages
 
 ### Send Message
-
 ```bash
-curl -X POST "https://backend.composio.dev/api/v2/actions/DISCORD_SEND_MESSAGE/execute" \
-  -H "X-API-KEY: $COMPOSIO_API_KEY" \
-  -H "Content-Type: application/json" \
+curl -s "https://backend.composio.dev/api/v3/tools/execute/DISCORD_SEND_MESSAGE" \
+  -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
   -d '{
-    "connectedAccountId": "'$DISCORD_CONNECTION_ID'",
-    "input": {
+    "connected_account_id": "'$CONNECTION_ID'",
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {
       "channel_id": "CHANNEL_ID",
-      "content": "Hello <@1475051850297376882>!"
+      "content": "<@USER_ID> your message"
     }
-  }'
+  }' | jq
 ```
 
-### Get Guild Members (to find user IDs)
-
+### Get Channel Messages
 ```bash
-curl -X POST "https://backend.composio.dev/api/v2/actions/DISCORD_LIST_GUILD_MEMBERS/execute" \
-  -H "X-API-KEY: $COMPOSIO_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "connectedAccountId": "'$DISCORD_CONNECTION_ID'",
-    "input": {
-      "guild_id": "GUILD_ID"
-    }
-  }'
+curl -s "https://backend.composio.dev/api/v3/tools/execute/DISCORD_GET_CHANNEL_MESSAGES" \
+  -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
+  -d '{"connected_account_id": "'$CONNECTION_ID'", "entity_id": "'$COMPOSIO_USER_ID'", "arguments": {"channel_id": "CHANNEL_ID"}}' | jq
 ```
 
-## Config Requirements
+## Members
 
-For bot-to-bot communication, ensure OpenClaw config has:
-
-```json
-{
-  "channels": {
-    "discord": {
-      "allowBots": true,
-      "requireMention": true
-    }
-  }
-}
+### List Guild Members
+```bash
+curl -s "https://backend.composio.dev/api/v3/tools/execute/DISCORD_LIST_GUILD_MEMBERS" \
+  -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
+  -d '{"connected_account_id": "'$CONNECTION_ID'", "entity_id": "'$COMPOSIO_USER_ID'", "arguments": {"guild_id": "GUILD_ID"}}' | jq
 ```
 
-- `allowBots: true` - Required to receive messages from other bots
-- `requireMention: true` - Bot only responds when properly mentioned with `<@ID>`
+Use this to find user IDs by username.
+
+## Mention Format
+
+| Format | Result |
+|--------|--------|
+| `<@USER_ID>` | User notified |
+| `@Name` | No notification |
+
+Plain text `@Name` does NOT work. Extract numeric user_id from guild members list.
+
+## All Actions
+
+| Action | Description |
+|--------|-------------|
+| DISCORD_SEND_MESSAGE | Send message to channel |
+| DISCORD_GET_CHANNEL_MESSAGES | Get messages from channel |
+| DISCORD_GET_GUILD_CHANNELS | List channels in guild |
+| DISCORD_GET_GUILD | Get guild info |
+| DISCORD_LIST_GUILD_MEMBERS | List members (to find user IDs) |

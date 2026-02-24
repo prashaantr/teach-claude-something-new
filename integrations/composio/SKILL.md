@@ -6,8 +6,9 @@ description: |
   (2) Working with GitHub - list/create issues, manage PRs, repos
   (3) Working with Gmail - send/list emails
   (4) Working with Google Drive - list/upload/download files
-  (5) Working with Exa - semantic web search, citation-backed answers
-  Composio handles OAuth automatically. Check COMPOSIO_CONNECTIONS to see which services are connected.
+  (5) Working with Discord - send messages, list channels/members (works from ANY channel)
+  (6) Working with Exa - semantic web search, citation-backed answers
+  Composio handles OAuth automatically. Works cross-channel (Telegram→Discord, etc).
 ---
 
 # Composio
@@ -59,7 +60,10 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/ACTION_NAME" \
 | GitHub | `.github` | [references/github.md](references/github.md) |
 | Gmail | `.google` | [references/gmail.md](references/gmail.md) |
 | Google Drive | `.google` | [references/drive.md](references/drive.md) |
+| Discord | `.discord` | [references/discord.md](references/discord.md) |
 | Exa | `.exa` | [references/exa.md](references/exa.md) |
+
+**Cross-channel**: Composio works from any channel. Telegram → Discord, Discord → Linear, etc.
 
 ## Quick Examples
 
