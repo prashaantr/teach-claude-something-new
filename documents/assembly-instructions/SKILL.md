@@ -1,94 +1,185 @@
 ---
 name: assembly-instructions
 description: |
-  Generate IKEA-style visual assembly manuals with AI-generated illustrations. Use when:
-  (1) Creating assembly instructions for any physical product
-  (2) Making build guides or setup manuals
-  (3) Documenting how to assemble furniture, devices, or kits
-  (4) Creating step-by-step visual instructions for non-technical users
-  Uses Nano Banana Pro (Gemini 3 Pro Image) to generate isometric illustrations.
+  Generate IKEA-style visual assembly manuals as PDFs. Use when:
+  (1) Creating assembly instructions for hardware projects
+  (2) Making build guides for Arduino, IoT, or electronics
+  (3) Documenting 3D-printed enclosure assembly
+  (4) Writing wiring diagrams or hardware setup manuals
+  (5) Creating step-by-step visual instructions for non-technical users
+  (6) Compiling assembly images into multi-page PDFs
+  (7) Merging, splitting, or manipulating assembly manual PDFs
+  Supports two workflows: SVG component rendering (for electronics) or AI-generated images (Nano Banana Pro).
+  Trigger words: "instruction manual", "assembly guide", "build instructions", "wiring guide".
+  Output: Multi-page PDF with parts inventory, diagrams, callouts, and action arrows.
 ---
 
 # Assembly Instructions Generator
 
-Generate IKEA-style visual assembly manuals with AI-generated isometric illustrations.
+Generate IKEA-style visual assembly manuals as multi-page PDFs.
 
-## Core Principle: One Step = One Image
+## Two Workflows
 
-Each assembly step gets its own dedicated image. Generate them sequentially, maintaining visual consistency across all steps.
+1. **SVG Component Workflow** — Best for electronics/Arduino projects with wiring diagrams
+2. **AI Image Workflow** — Best for furniture, general products, custom illustrations
 
-## Workflow
-
-1. **Define Parts** — List all parts with IDs and descriptions
-2. **Generate Part Illustrations** — Create individual reference images for each part
-3. **Generate Step Illustrations** — One image per assembly action, referencing the part images
-4. **Compile** — Assemble into multi-page PDF
-
-## Maintaining Visual Consistency
-
-**CRITICAL:** All images must look like they belong to the same manual.
-
-### Step 1: Establish the Visual Style
-
-First, generate a "style reference" image of the completed product:
+## Quick Start: SVG Workflow (Electronics)
 
 ```bash
-uv run scripts/generate_image.py \
-  --prompt "IKEA-style technical illustration. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Simplified geometric shapes. Subject: [DESCRIBE YOUR COMPLETED PRODUCT]" \
-  --filename "00-style-reference.png" --resolution 2K
+# Install dependencies
+pip install -r requirements.txt
+
+# Validate project YAML
+python3 scripts/validate_project.py project.yaml
+
+# Render and compile to PDF
+python3 scripts/render_manual.py project.yaml --output manual.pdf
 ```
 
-### Step 2: Generate Individual Part Images
-
-Generate each part as a separate image. Use identical style language:
+## Quick Start: AI Image Workflow (General Products)
 
 ```bash
-# Part A
+# Generate images with AI
 uv run scripts/generate_image.py \
-  --prompt "IKEA-style technical illustration. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Simplified geometric shapes. Subject: [PART A DESCRIPTION]. Show part isolated, centered, with label 'A' in corner." \
-  --filename "part-A.png" --resolution 2K
-
-# Part B
-uv run scripts/generate_image.py \
-  --prompt "IKEA-style technical illustration. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Simplified geometric shapes. Subject: [PART B DESCRIPTION]. Show part isolated, centered, with label 'B' in corner." \
-  --filename "part-B.png" --resolution 2K
-
-# Hardware H1 (with quantity)
-uv run scripts/generate_image.py \
-  --prompt "IKEA-style technical illustration. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Simplified geometric shapes. Subject: [HARDWARE DESCRIPTION]. Show single item with '×4' quantity marker." \
-  --filename "part-H1.png" --resolution 2K
-```
-
-### Step 3: Generate Step-by-Step Action Images
-
-Each step shows ONE action. Reference the established part appearances:
-
-```bash
-# Step 1: Place base part
-uv run scripts/generate_image.py \
-  --prompt "IKEA-style assembly instruction. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Subject: [PART A] sitting on work surface. No arrows needed. Part labeled 'A'." \
+  --prompt "IKEA-style technical illustration. Subject: [YOUR PRODUCT]" \
   --filename "step-01.png" --resolution 2K
 
-# Step 2: Attach second part
-uv run scripts/generate_image.py \
-  --prompt "IKEA-style assembly instruction. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Subject: [PART B] floating 3cm above [PART A] with curved arrow showing attachment direction. [PART A] shown as solid grey base. Parts labeled." \
-  --filename "step-02.png" --resolution 2K
-
-# Step 3: Insert hardware
-uv run scripts/generate_image.py \
-  --prompt "IKEA-style assembly instruction. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Subject: Screw floating above hole in assembly with arrow showing insertion. Callout circle magnifying the screw and hole detail. '×4' marker indicating four screws needed." \
-  --filename "step-03.png" --resolution 2K
+# Compile to PDF
+python3 scripts/compile_pdf.py *.png --output manual.pdf
 ```
 
-## Standard Prompt Components
+Requires: `GEMINI_API_KEY` environment variable.
 
-Always include these in every prompt for consistency:
+## References
+
+Read these files when you need detailed information:
+
+| Reference | When to Read |
+|-----------|--------------|
+| `references/yaml-schema.md` | When creating or editing project YAML files for SVG workflow. Contains full schema spec. |
+| `references/design-principles.md` | When making design decisions about step ordering, layout, or diagram style. Contains 16 cognitive principles. |
+| `references/component-catalog.md` | When specifying electronic parts for SVG workflow. Lists components with pin maps. |
+| `references/pdf-generation.md` | When doing advanced PDF manipulation: merging, splitting, adding covers. |
+
+## Scripts
+
+### scripts/validate_project.py
+
+**When to use:** Before SVG rendering, to catch YAML errors early.
+
+```bash
+python3 scripts/validate_project.py project.yaml
+```
+
+Checks: required fields, valid part IDs, component references, wiring consistency.
+
+### scripts/render_manual.py
+
+**When to use:** Main SVG rendering pipeline — YAML to PDF.
+
+```bash
+python3 scripts/render_manual.py project.yaml --output manual.pdf
+python3 scripts/render_manual.py project.yaml --output-dir ./build  # SVG only
+```
+
+### scripts/compile_pdf.py
+
+**When to use:** Compile SVG or PNG files into PDF.
+
+```bash
+python3 scripts/compile_pdf.py ./build --output manual.pdf
+python3 scripts/compile_pdf.py cover.svg parts.svg step1.svg --output manual.pdf
+```
+
+### scripts/components.py
+
+**When to use:** Preview available SVG components or debug rendering.
+
+```bash
+python3 scripts/components.py --list
+python3 scripts/components.py --render arduino_nano
+```
+
+### scripts/generate_image.py
+
+**When to use:** Generate AI illustrations using Nano Banana Pro (Gemini 3 Pro Image).
+
+```bash
+uv run scripts/generate_image.py --prompt "description" --filename "output.png"
+uv run scripts/generate_image.py --prompt "description" --filename "output.png" --resolution 2K
+```
+
+## AI Image Prompt Template
+
+For visual consistency, always include:
 
 ```
-IKEA-style technical illustration. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Simplified geometric shapes.
+IKEA-style technical illustration. Clean black line art on pure white background.
+30-degree isometric view. Minimal shading using only light grey fills.
+No gradients, no textures, no shadows. Thick uniform outlines.
+Simplified geometric shapes. Subject: [YOUR SUBJECT]
 ```
 
-Then add the step-specific subject.
+## Project YAML Schema (SVG Workflow)
+
+Minimal example (see `references/yaml-schema.md` for full spec):
+
+```yaml
+project:
+  name: "Motion-Activated LED Strip"
+
+parts:
+  structural:
+    - id: "A"
+      name: "Mounting bracket"
+      shape: rect
+      dimensions: {w: 100, h: 60}
+  hardware:
+    - id: "H1"
+      name: "M3×8mm screw"
+      quantity: 4
+      type: screw_phillips
+  electronic:
+    - id: "E1"
+      name: "Arduino Nano"
+      component: arduino_nano
+
+wiring:
+  - from: {part: "E1", pin: "D2"}
+    to: {part: "E2", pin: "OUT"}
+    color: yellow
+
+steps:
+  - step: 1
+    action: place
+    parts: ["A"]
+  - step: 2
+    action: attach
+    parts: ["E1", "A"]
+    hardware: ["H1"]
+```
+
+## Component Library (SVG Workflow)
+
+See `references/component-catalog.md` for pin maps and dimensions:
+
+- **Microcontrollers:** arduino_uno, arduino_nano, esp32, raspberry_pi_pico
+- **Sensors:** pir_sensor, ultrasonic_sensor, dht11_temp, photoresistor, button
+- **Output:** led_single, led_rgb, servo_motor, relay_module, buzzer, lcd_16x2
+- **Power:** battery_holder_4aa, usb_cable, dc_barrel_jack
+- **Connectivity:** breadboard_half, breadboard_mini, jumper_wire
+- **Hardware:** screw_phillips, screw_hex, nut, wall_anchor, cable_tie
+
+## Design Principles
+
+Stanford research: action diagrams reduce assembly time 35% and errors 50%.
+
+- **Fixed Viewpoint** — Same 30° isometric angle in every image
+- **Action Diagrams** — New parts float toward destination with arrows
+- **One Step = One Action** — Never combine operations
+- **Wordless** — No text except part labels and quantity markers
+
+See `references/design-principles.md` for all 16 principles.
 
 ## Action Diagram Rules
 
@@ -96,75 +187,47 @@ Then add the step-specific subject.
 |-------------|------------------|
 | Place | Part sitting on surface, no arrows |
 | Attach | New part floating above target with curved arrow |
-| Insert | Hardware floating near hole with straight arrow, callout circle for detail |
-| Rotate | Curved arrow around part showing rotation direction |
+| Insert | Hardware floating near hole with straight arrow |
+| Rotate | Curved arrow around part showing rotation |
 | Flip | Part shown in two positions with flip arrow |
-| Connect | Two parts with line/arrow between connection points |
 
-## Visual Symbols
+## Page Sequence Generated
 
-- **Arrows** — Curved for attachment direction, straight for insertion
-- **Callout circles** — Magnified detail connected by thin line
-- **Quantity markers** — "×4" next to repeated items
-- **Hand icons** — Show grip position when relevant
-- **Checkmark** — Completion indicator
+1. **Cover** — Product name + assembled preview
+2. **Safety/Tips** — ESD warning, power-off-before-wiring
+3. **Hardware Inventory** — Grid of fasteners with IDs
+4. **Parts Inventory** — Components with IDs
+5. **Assembly Steps** — One page per step
+6. **Wiring Diagram** — Color-coded wiring (SVG workflow only)
 
-## Design Principles
+## Working With the User
 
-Stanford research: action diagrams reduce assembly time 35% and errors 50%.
+| Input | Workflow |
+|-------|----------|
+| YAML provided | Validate → Render → Present PDF |
+| Conversational description | Interview → Generate YAML → Validate → Render |
+| Photos/schematics | Analyze → Generate YAML or AI images → Compile |
 
-- **Fixed Viewpoint** — Same 30° isometric angle in every image
-- **Action Diagrams** — New parts float toward destination (not already placed)
-- **One Step = One Action** — Never combine operations
-- **Wordless** — No text except part labels and quantity markers
-- **Consistent Parts** — Same part must look identical across all steps
+## PDF Manipulation
 
-## Example: 4-Step Assembly
+For advanced operations, see `references/pdf-generation.md`:
 
-```bash
-# Style reference
-uv run scripts/generate_image.py \
-  --prompt "IKEA-style technical illustration. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Subject: Simple wooden stool with four legs and round seat, fully assembled." \
-  --filename "00-reference.png" --resolution 2K
+```python
+from pypdf import PdfWriter, PdfReader
 
-# Parts inventory - each part separate
-uv run scripts/generate_image.py \
-  --prompt "IKEA-style technical illustration. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Subject: Round wooden seat, isolated, label 'A'." \
-  --filename "part-A-seat.png" --resolution 2K
-
-uv run scripts/generate_image.py \
-  --prompt "IKEA-style technical illustration. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Subject: Single wooden stool leg, tapered, isolated, label 'B', with '×4' marker." \
-  --filename "part-B-leg.png" --resolution 2K
-
-# Step 1
-uv run scripts/generate_image.py \
-  --prompt "IKEA-style assembly instruction. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Subject: Round wooden seat (A) placed upside-down on work surface, showing four leg holes visible on underside." \
-  --filename "step-01.png" --resolution 2K
-
-# Step 2
-uv run scripts/generate_image.py \
-  --prompt "IKEA-style assembly instruction. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Subject: One wooden leg (B) floating above corner hole of upside-down seat with curved arrow showing insertion. Seat shown in light grey. '×4' marker." \
-  --filename "step-02.png" --resolution 2K
-
-# Step 3
-uv run scripts/generate_image.py \
-  --prompt "IKEA-style assembly instruction. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Subject: All four legs now inserted into upside-down seat. Checkmark indicator." \
-  --filename "step-03.png" --resolution 2K
-
-# Step 4
-uv run scripts/generate_image.py \
-  --prompt "IKEA-style assembly instruction. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Subject: Completed stool being flipped right-side-up, shown with curved flip arrow indicating rotation." \
-  --filename "step-04.png" --resolution 2K
+writer = PdfWriter()
+for section in ["cover.pdf", "parts.pdf", "steps.pdf"]:
+    for page in PdfReader(section).pages:
+        writer.add_page(page)
+with open("complete.pdf", "wb") as f:
+    writer.write(f)
 ```
 
-## API Key
-
-Set `GEMINI_API_KEY` environment variable or pass `--api-key` argument.
-
-## Compiling to PDF
-
-After generating all images:
+## Dependencies
 
 ```bash
-python3 scripts/render_manual.py project.yaml --output manual.pdf
+pip install -r requirements.txt
+# drawsvg, cairosvg, reportlab, pyyaml, pypdf, pdfplumber
 ```
+
+For AI workflow: `GEMINI_API_KEY` environment variable.

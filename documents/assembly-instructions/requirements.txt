@@ -1,0 +1,7 @@
+# Assembly Instructions Generator Dependencies
+drawsvg>=2.0
+cairosvg>=2.7
+reportlab>=4.0
+pyyaml>=6.0
+pypdf>=3.0
+pdfplumber>=0.10
