@@ -1,142 +1,143 @@
 ---
 name: assembly-instructions
 description: |
-  Generate IKEA-style visual assembly manuals as PDFs. Use when:
-  (1) Creating assembly instructions for hardware projects
-  (2) Making build guides for Arduino, IoT, or electronics
-  (3) Documenting 3D-printed enclosure assembly
-  (4) Writing wiring diagrams or hardware setup manuals
-  (5) Creating step-by-step visual instructions for non-technical users
-  Output: Multi-page PDF with parts inventory, diagrams, callouts, and action arrows.
+  Generate IKEA-style visual assembly manuals with AI-generated illustrations. Use when:
+  (1) Creating assembly instructions for any physical product
+  (2) Making build guides or setup manuals
+  (3) Documenting how to assemble furniture, devices, or kits
+  (4) Creating step-by-step visual instructions for non-technical users
+  Uses Nano Banana Pro (Gemini 3 Pro Image) to generate isometric illustrations.
 ---
 
 # Assembly Instructions Generator
 
-Generate IKEA-style visual assembly manuals for hardware/electronics projects as multi-page PDFs.
+Generate IKEA-style visual assembly manuals with AI-generated isometric illustrations.
 
-## Quick Start
+## Workflow
 
-The generation pipeline has 3 phases:
+1. **Define** — Structure the project as YAML (or help user create one interactively)
+2. **Generate Images** — Use Nano Banana Pro to create step illustrations
+3. **Compile** — Assemble into multi-page PDF
 
-1. **Define** — Structure the project as YAML (or help the user create one interactively)
-2. **Render** — Run the rendering pipeline to generate SVG pages
-3. **Compile** — Assemble pages into a multi-page PDF
+## Image Generation with Nano Banana Pro
+
+Generate IKEA-style illustrations using the Gemini 3 Pro Image API:
 
 ```bash
-# Install dependencies
-pip install drawsvg cairosvg reportlab pyyaml --break-system-packages
-
-# Phase 1: If user provides YAML, validate it
-python3 scripts/validate_project.py project.yaml
-
-# Phase 2+3: Render and compile into PDF
-python3 scripts/render_manual.py project.yaml --output manual.pdf
+uv run scripts/generate_image.py \
+  --prompt "<ikea-style prompt>" --filename "step-01.png" --resolution 2K
 ```
 
-If the user describes their project conversationally, help them build the YAML
-interactively by asking about parts, connections, and assembly order.
+### IKEA-Style Illustration Prompt Template
 
-## Design Principles (Why This Works)
+**CRITICAL:** Use this exact template for consistent IKEA-style output:
 
-These manuals follow validated cognitive design principles from Stanford research that
-cut assembly time 35% and errors 50%. The principles are baked into the rendering scripts:
+```
+Create an IKEA-style assembly instruction illustration. Style: clean black line art on white background, 30-degree isometric view, minimal shading (light grey fills only), no gradients or textures, thick outlines, simplified shapes.
 
-- **Fixed Viewpoint** — Same isometric angle in every illustration. Never rotate.
+Subject: [describe the step - e.g., "shelf panel being attached to side panel"]
+
+Show: [new part] floating 2cm above [target location] with a curved arrow indicating insertion direction. Already-assembled parts rendered as solid unit in lighter grey.
+
+Include: [specific details - callout circle for small connections, quantity marker "×4" for repeated parts, hand icon if grip position matters]
+
+Do NOT include: text labels, realistic textures, shadows, decorative elements, photorealistic rendering.
+```
+
+### Step-by-Step Image Generation
+
+**Step 1 (Base):**
+```bash
+uv run scripts/generate_image.py \
+  --prompt "Create an IKEA-style assembly instruction illustration. Style: clean black line art on white background, 30-degree isometric view, minimal shading. Subject: [BASE COMPONENT] sitting on a work surface. Clean, simple, no arrows needed for first step." \
+  --filename "step-01-base.png" --resolution 2K
+```
+
+**Step 2+ (Action diagrams):**
+```bash
+uv run scripts/generate_image.py \
+  --prompt "Create an IKEA-style assembly instruction illustration. Style: clean black line art on white background, 30-degree isometric view, minimal shading. Subject: [NEW PART] floating above [EXISTING ASSEMBLY] with curved arrow showing insertion direction. The [EXISTING ASSEMBLY] is shown as solid grey unit. Include callout circle showing [CONNECTION DETAIL] if needed." \
+  --filename "step-02-attach-part.png" --resolution 2K
+```
+
+### Image Types to Generate
+
+| Page Type | Prompt Focus |
+|-----------|--------------|
+| Cover | Finished assembled product, clean isometric view, product name |
+| Parts Inventory | Grid layout of all parts with ID labels (A, B, H1), quantities |
+| Tools Required | Simple icons of required tools |
+| Assembly Step | Action diagram with floating part + arrow + callout if needed |
+| Final Result | Complete assembly, clean isometric, optional checkmark |
+
+## Design Principles
+
+Stanford research: action diagrams reduce assembly time 35% and errors 50%.
+
+- **Fixed Viewpoint** — Same 30° isometric angle every illustration. Never rotate.
 - **Action Diagrams** — New parts float toward destination with arrows (not already placed).
-- **One Step = One Action** — Never combine multiple operations in a single step.
-- **Progressive Disclosure** — Start with recognizable sub-assemblies. Show progress early.
+- **One Step = One Action** — Never combine multiple operations.
 - **Wordless** — No text in steps. Arrows, callouts, quantity markers (×4), hand icons only.
+- **Minimal Shading** — Black lines, white background, light grey fill for depth.
 
-For the full 12 principles, read `references/design-principles.md`.
+See [references/design-principles.md](references/design-principles.md) for all principles.
 
 ## Project YAML Schema
 
-The input is a YAML file. See `references/yaml-schema.md` for the full spec.
-
 ```yaml
 project:
-  name: "Motion-Activated LED Strip"
+  name: "Product Name"
 
 parts:
   structural:
     - id: "A"
-      name: "Mounting bracket"
-      shape: rect
-      dimensions: {w: 100, h: 60}
+      name: "Main panel"
+    - id: "B"
+      name: "Side panel"
   hardware:
     - id: "H1"
-      name: "M3×8mm screw"
+      name: "Screw"
       quantity: 4
-      type: screw_phillips
-  electronic:
-    - id: "E1"
-      name: "Arduino Nano"
-      component: arduino_nano
-    - id: "E2"
-      name: "PIR Sensor"
-      component: pir_sensor
 
 tools:
-  - phillips_screwdriver
-  - wire_strippers
-
-wiring:
-  - from: {part: "E1", pin: "D2"}
-    to: {part: "E2", pin: "OUT"}
-    color: yellow
+  - screwdriver
 
 steps:
   - step: 1
     action: place
     parts: ["A"]
-    description: "Position bracket"
+    image_prompt: "Main panel sitting on work surface"
   - step: 2
     action: attach
-    parts: ["E1", "A"]
+    parts: ["B", "A"]
     hardware: ["H1"]
-    description: "Mount Arduino with screws"
-    callout: true
-  - step: 3
-    action: wire
-    wiring: all
-    description: "Connect wiring"
+    image_prompt: "Side panel floating above main panel with screws, arrows showing attachment"
 ```
 
-## Component Library
+See [references/yaml-schema.md](references/yaml-schema.md) for full schema.
 
-The skill includes pre-drawn SVG components. See `references/component-catalog.md` for
-the full list with pin maps and dimensions.
+## Complete Workflow Example
 
-**Microcontrollers:** arduino_uno, arduino_nano, esp32, raspberry_pi_pico
-**Sensors:** pir_sensor, ultrasonic_sensor, dht11_temp, photoresistor, button, potentiometer
-**Output:** led_single, led_rgb, servo_motor, relay_module, buzzer, lcd_16x2
-**Power:** battery_holder_4aa, usb_cable, dc_barrel_jack
-**Connectivity:** breadboard_half, breadboard_mini, jumper_wire
-**Structural:** rect, l_bracket, standoff, enclosure_box
-**Hardware:** screw_phillips, screw_hex, nut, wall_anchor, cable_tie
+```bash
+# 1. Generate cover image
+uv run scripts/generate_image.py \
+  --prompt "IKEA-style assembly manual cover. Clean black line art, white background. Show completed product in 30-degree isometric view. Title area at top. Minimal, professional." \
+  --filename "cover.png" --resolution 2K
 
-## Page Sequence Generated
+# 2. Generate parts inventory
+uv run scripts/generate_image.py \
+  --prompt "IKEA-style parts inventory page. Grid layout, black line art on white. Show all parts with ID labels. Quantities shown as ×4 for multiple items." \
+  --filename "parts-inventory.png" --resolution 2K
 
-1. **Cover** — Product name + assembled product illustration
-2. **Safety/Tips** — ESD warning, power-off-before-wiring, two-person if needed
-3. **Hardware Inventory** — Grid of all fasteners with IDs and quantities
-4. **Parts Inventory** — All structural and electronic components with IDs
-5. **Assembly Steps** (1 per page) — Isometric drawing, action arrows, callouts
-6. **Wiring Diagram** — Complete color-coded wiring overview with pin labels
+# 3. Generate each assembly step
+uv run scripts/generate_image.py \
+  --prompt "IKEA-style assembly step. Black line art, 30-degree isometric. Show new part floating above existing assembly with curved arrows indicating attachment. Callout circle magnifying connection detail. Base shown in light grey." \
+  --filename "step-02.png" --resolution 2K
 
-## Rendering Scripts
+# 4. Compile PDF (after all images generated)
+python3 scripts/render_manual.py project.yaml --output manual.pdf
+```
 
-Run in order of the pipeline:
+## API Key
 
-1. `scripts/components.py` — SVG component library (run with `--list` or `--render <name>`)
-2. `scripts/validate_project.py` — Validates YAML input
-3. `scripts/render_manual.py` — Full pipeline: YAML → SVG pages → PDF
-4. `scripts/compile_pdf.py` — Standalone SVG→PDF compiler (used internally)
-
-## Working With the User
-
-1. **YAML provided** → validate, render, present PDF
-2. **Conversational description** → interview for parts/connections/order → generate YAML → render
-3. **Photos or schematics uploaded** → analyze, extract component list → generate YAML → render
-
-Always output final PDF to `/mnt/user-data/outputs/` and present it.
+Set `GEMINI_API_KEY` environment variable or pass `--api-key` argument.
