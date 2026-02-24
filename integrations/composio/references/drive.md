@@ -1,6 +1,6 @@
 # Google Drive Actions (Composio)
 
-Connection key: `.google`
+Connection key: `.googledrive`
 
 ## Contents
 
@@ -12,7 +12,7 @@ Connection key: `.google`
 ## Setup
 
 ```bash
-CONNECTION_ID=$(echo $COMPOSIO_CONNECTIONS | jq -r '.google')
+CONNECTION_ID=$(echo $COMPOSIO_CONNECTIONS | jq -r '.googledrive')
 ```
 
 **Required fields for all requests:**
