@@ -15,17 +15,17 @@ description: |
 
 Execute actions on Linear, GitHub, Gmail, and Google Drive via Composio's API.
 
-> **⚠️ CRITICAL: NEVER USE CLI TOOLS FOR THESE SERVICES**
+> **⚠️ CRITICAL: USE COMPOSIO HTTP API ONLY**
 >
-> You MUST use the Composio HTTP API (curl commands below) for ALL operations.
 > **DO NOT** use:
-> - `gh` (GitHub CLI) - will fail with "gh auth login" error
+> - `gh` CLI → "gh auth login" error
 > - `linear` CLI
-> - `gcloud` or `gsutil`
-> - Any other CLI tools for these services
+> - `gcloud` / `gsutil`
+> - **OpenClaw native channel commands** → "Cross-context messaging denied" error
 >
-> The user connected these services via OAuth. CLI tools don't have access to those tokens.
-> **ALWAYS use the curl-based Composio API patterns shown in this skill.**
+> Native channel commands (like `send discord`) are **session-bound**. If you're on Telegram, you CANNOT use native Discord send.
+>
+> **ALWAYS use Composio curl commands** - they work from ANY channel.
 
 ## Environment
 
