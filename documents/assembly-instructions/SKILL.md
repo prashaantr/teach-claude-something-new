@@ -58,7 +58,7 @@ Read these files when you need detailed information:
 |-----------|--------------|
 | `references/yaml-schema.md` | When creating or editing project YAML files for SVG workflow. Contains full schema spec. |
 | `references/design-principles.md` | When making design decisions about step ordering, layout, or diagram style. Contains 16 cognitive principles. |
-| `references/component-catalog.md` | When specifying electronic parts for SVG workflow. Lists components with pin maps. |
+| `references/component-catalog.md` | When defining parts for any project. Provides patterns for describing components consistently (not a fixed list). |
 | `references/pdf-generation.md` | When doing advanced PDF manipulation: merging, splitting, adding covers. |
 
 ## Scripts
@@ -159,16 +159,17 @@ steps:
     hardware: ["H1"]
 ```
 
-## Component Library (SVG Workflow)
+## Defining Components
 
-See `references/component-catalog.md` for pin maps and dimensions:
+Any component can be used — see `references/component-catalog.md` for patterns:
 
-- **Microcontrollers:** arduino_uno, arduino_nano, esp32, raspberry_pi_pico
-- **Sensors:** pir_sensor, ultrasonic_sensor, dht11_temp, photoresistor, button
-- **Output:** led_single, led_rgb, servo_motor, relay_module, buzzer, lcd_16x2
-- **Power:** battery_holder_4aa, usb_cable, dc_barrel_jack
-- **Connectivity:** breadboard_half, breadboard_mini, jumper_wire
-- **Hardware:** screw_phillips, screw_hex, nut, wall_anchor, cable_tie
+- **Structural:** plates, brackets, enclosures, standoffs (shape + dimensions)
+- **Hardware:** screws, nuts, anchors, clips (type + quantity)
+- **Electronic:** boards, sensors, modules (form factor + pins)
+- **Power:** batteries, cables, jacks (voltage + polarity)
+- **Connectivity:** breadboards, wires, connectors (capacity + features)
+
+Define components by describing their attributes, not by choosing from a fixed list.
 
 ## Design Principles
 

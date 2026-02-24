@@ -1,173 +1,145 @@
-# Component Catalog
+# Component Definition Guide
 
-All available SVG components with pin maps and dimensions.
+How to define any component for assembly instructions — not a fixed catalog, but patterns for consistency.
 
-## Microcontrollers
+## Defining a Component
 
-### arduino_uno
-- Dimensions: 69×53mm board
-- Pins: D0-D13, A0-A5, 5V, 3.3V, GND, VIN, RESET
-- USB: Type-B connector at top
-- Power: barrel jack at bottom-left
+Every component needs these attributes for consistent rendering:
 
-### arduino_nano
-- Dimensions: 45×18mm board
-- Pins: D0-D13, A0-A7, 5V, 3.3V, GND, VIN, RESET
-- USB: Mini-USB at top
-- Breadboard compatible (dual-row DIP)
+```yaml
+- id: "A"              # Unique identifier (A-Z for structural, H1-Hn for hardware, E1-En for electronic)
+  name: "string"       # Human-readable name
+  category: string     # structural | hardware | electronic | power | connectivity
+  dimensions: string   # Approximate size for scale reference
+  connection_points: [] # Where it connects to other parts (pins, holes, terminals)
+```
 
-### esp32
-- Dimensions: 51×26mm module
-- Pins: GPIO0-GPIO39 (selected), 3.3V, GND, VIN, EN
-- USB: Micro-USB at bottom
-- Breadboard compatible
+## Component Categories
 
-### raspberry_pi_pico
-- Dimensions: 51×21mm board
-- Pins: GP0-GP28, 3.3V, GND, VSYS, VBUS
-- USB: Micro-USB at top
-- Breadboard compatible
+### Structural
+Physical parts that provide mounting, enclosure, or support.
 
-## Sensors
+**Pattern:** Describe shape, material, and mounting features.
 
-### pir_sensor
-- Dimensions: 32×24mm module (with dome lens)
-- Pins: VCC, OUT, GND
-- Operating voltage: 5V
-- Detection angle shown as arc in diagrams
+```yaml
+- id: "A"
+  name: "Mounting plate"
+  shape: rect | l_bracket | enclosure | custom
+  dimensions: {w: 100, h: 60, d: 3}
+  features: ["4x M3 holes at corners", "centered cutout"]
+```
 
-### ultrasonic_sensor (HC-SR04)
-- Dimensions: 45×20mm module
-- Pins: VCC, TRIG, ECHO, GND
-- Two cylindrical transducers visible
+### Hardware
+Fasteners and mechanical connectors.
 
-### dht11_temp
-- Dimensions: 16×12mm module (on breakout: 32×14mm)
-- Pins: VCC(+), DATA, GND(-)
-- Blue housing distinctive
+**Pattern:** Describe type, size, and quantity.
 
-### photoresistor (LDR module)
-- Dimensions: 32×14mm breakout
-- Pins: VCC, OUT/AO, GND
-- Or raw component: 2 legs, no polarity
+```yaml
+- id: "H1"
+  name: "M3×8mm screw"
+  type: screw | nut | bolt | anchor | clip | tie
+  quantity: 4
+  head: phillips | hex | flat
+```
 
-### button (tactile switch module)
-- Dimensions: 12×12mm switch (on breakout: 32×14mm)
-- Pins: VCC, OUT, GND (module) or 2-pin/4-pin (raw)
+### Electronic
+Circuit boards, sensors, actuators, modules.
 
-### potentiometer
-- Dimensions: 16mm diameter knob
-- Pins: VCC, WIPER/OUT, GND
-- Rotary knob visible in diagrams
+**Pattern:** Describe form factor and connection interface.
 
-## Output Devices
+```yaml
+- id: "E1"
+  name: "Microcontroller board"
+  form_factor: "breadboard-compatible" | "module" | "breakout"
+  interface: ["USB", "GPIO pins", "power terminals"]
+  pins: ["5V", "GND", "D0-D13", "A0-A5"]  # List key pins for wiring
+```
 
-### led_single
-- Dimensions: 5mm dome
-- Pins: + (anode/long), - (cathode/short)
-- Polarity indicator (flat edge on cathode side)
-- Optional: on breakout module with resistor
+### Power
+Power sources and distribution.
 
-### led_rgb
-- Dimensions: 5mm dome (4 pins)
-- Pins: R, GND (common cathode), G, B
-- Or common anode: R, VCC, G, B
+**Pattern:** Describe voltage, polarity, and connector type.
 
-### servo_motor (SG90)
-- Dimensions: 23×12×22mm body
-- Wires: Orange(signal), Red(VCC), Brown(GND)
-- Horn attachment shown
+```yaml
+- id: "P1"
+  name: "Battery pack"
+  output: "6V"
+  connector: "bare wires" | "barrel jack" | "USB"
+  polarity: ["Red (+)", "Black (-)"]
+```
 
-### relay_module
-- Dimensions: 50×26mm board
-- Pins: VCC, GND, IN (signal)
-- Screw terminals: COM, NO, NC
-- LED indicator visible
+### Connectivity
+Wires, cables, breadboards, connectors.
 
-### buzzer (piezo)
-- Dimensions: 12mm diameter
-- Pins: + (long), - (short)
-- Or module: VCC, I/O, GND
+**Pattern:** Describe connection method and capacity.
 
-### lcd_16x2 (with I2C backpack)
-- Dimensions: 80×36mm display
-- Pins: VCC, GND, SDA, SCL (I2C)
-- Or 16-pin parallel (without backpack)
+```yaml
+- id: "C1"
+  name: "Breadboard"
+  capacity: "400 tie points"
+  features: ["power rails", "center divider"]
+```
 
-## Power
+## Illustration Conventions
 
-### battery_holder_4aa
-- Dimensions: 62×58mm holder
-- Wires: Red(+), Black(-)
-- Output: ~6V
+When rendering components, apply these conventions:
 
-### usb_cable
-- Types: Mini-USB, Micro-USB, USB-C
-- Drawn as cable with connector shape visible
+| Attribute | Convention |
+|-----------|------------|
+| Scale | Show relative sizes accurately |
+| Labels | ID in corner (A, B, H1, E1) |
+| Pins/terminals | Label key connection points |
+| Polarity | Red=positive, Black=negative |
+| Quantities | "×4" marker for multiples |
 
-### dc_barrel_jack
-- Dimensions: 14×9mm connector
-- Center-positive indicator
-- Wires: Red(+), Black(-)
+## Wiring Color Standards
 
-## Connectivity
+```
+Red    = Power positive (VCC, 5V, 3.3V)
+Black  = Ground (GND)
+Yellow = Signal / Data
+Green  = Signal / Data (alternate)
+Blue   = Signal / Data (alternate)
+Orange = PWM / Control
+White  = I2C SDA or misc
+Purple = I2C SCL or misc
+```
 
-### breadboard_half
-- Dimensions: 83×55mm (400 tie points)
-- Power rails: 2 per side (red +, blue -)
-- 30 rows × 5 columns per side
-- Center divider visible
+## Example: Defining a Custom Project
 
-### breadboard_mini
-- Dimensions: 47×35mm (170 tie points)
-- 17 rows × 5 columns per side
-- No power rails
+```yaml
+parts:
+  structural:
+    - id: "A"
+      name: "Base plate"
+      shape: rect
+      dimensions: {w: 150, h: 100}
+      material: "3D printed PLA"
 
-### jumper_wire
-- Types: male-male, male-female, female-female
-- Colors: red, black, yellow, green, blue, white, orange, purple
-- Drawn as colored paths between connection points
+  hardware:
+    - id: "H1"
+      name: "M3×10mm Phillips screw"
+      quantity: 4
+      type: screw
 
-## Structural
+  electronic:
+    - id: "E1"
+      name: "Controller board"
+      form_factor: "module"
+      pins: ["VIN", "GND", "D1", "D2", "D3"]
 
-### rect (parametric)
-- Configurable width, height, depth
-- Rendered as isometric rectangle with optional mounting holes
+    - id: "E2"
+      name: "Motion sensor"
+      pins: ["VCC", "OUT", "GND"]
+```
 
-### l_bracket
-- Configurable arm lengths
-- Standard mounting holes at ends
+## Adding New Components
 
-### standoff (hex)
-- Configurable height
-- M3 thread shown at both ends
+Don't limit to predefined parts. Define any component using the patterns above:
 
-### enclosure_box (parametric)
-- Configurable width, height, depth
-- Open-top view for showing internal components
+1. Assign a category and ID
+2. Describe physical attributes (size, shape, form factor)
+3. List connection points (pins, holes, terminals)
+4. Note any special rendering needs (polarity, color coding)
 
-## Hardware / Fasteners
-
-### screw_phillips
-- Drawn at actual scale in inventory
-- Cross-head detail visible in callouts
-
-### screw_hex
-- Hex socket head detail
-- Wrench icon in callout
-
-### nut
-- Hex outline
-- Shown on screw in callouts
-
-### wall_anchor
-- Expansion anchor shape
-- Shown being inserted into wall in steps
-
-### cable_tie
-- Zip-tie shape
-- Drawn securing cable bundles
-
-### adhesive_strip
-- Double-sided tape
-- Peel-and-stick action in steps
+Claude can render any component described this way — the patterns ensure consistency, not the specific catalog entries.
