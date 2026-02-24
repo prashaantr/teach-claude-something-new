@@ -13,131 +13,158 @@ description: |
 
 Generate IKEA-style visual assembly manuals with AI-generated isometric illustrations.
 
+## Core Principle: One Step = One Image
+
+Each assembly step gets its own dedicated image. Generate them sequentially, maintaining visual consistency across all steps.
+
 ## Workflow
 
-1. **Define** — Structure the project as YAML (or help user create one interactively)
-2. **Generate Images** — Use Nano Banana Pro to create step illustrations
-3. **Compile** — Assemble into multi-page PDF
+1. **Define Parts** — List all parts with IDs and descriptions
+2. **Generate Part Illustrations** — Create individual reference images for each part
+3. **Generate Step Illustrations** — One image per assembly action, referencing the part images
+4. **Compile** — Assemble into multi-page PDF
 
-## Image Generation with Nano Banana Pro
+## Maintaining Visual Consistency
 
-Generate IKEA-style illustrations using the Gemini 3 Pro Image API:
+**CRITICAL:** All images must look like they belong to the same manual.
+
+### Step 1: Establish the Visual Style
+
+First, generate a "style reference" image of the completed product:
 
 ```bash
 uv run scripts/generate_image.py \
-  --prompt "<ikea-style prompt>" --filename "step-01.png" --resolution 2K
+  --prompt "IKEA-style technical illustration. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Simplified geometric shapes. Subject: [DESCRIBE YOUR COMPLETED PRODUCT]" \
+  --filename "00-style-reference.png" --resolution 2K
 ```
 
-### IKEA-Style Illustration Prompt Template
+### Step 2: Generate Individual Part Images
 
-**CRITICAL:** Use this exact template for consistent IKEA-style output:
+Generate each part as a separate image. Use identical style language:
 
-```
-Create an IKEA-style assembly instruction illustration. Style: clean black line art on white background, 30-degree isometric view, minimal shading (light grey fills only), no gradients or textures, thick outlines, simplified shapes.
-
-Subject: [describe the step - e.g., "shelf panel being attached to side panel"]
-
-Show: [new part] floating 2cm above [target location] with a curved arrow indicating insertion direction. Already-assembled parts rendered as solid unit in lighter grey.
-
-Include: [specific details - callout circle for small connections, quantity marker "×4" for repeated parts, hand icon if grip position matters]
-
-Do NOT include: text labels, realistic textures, shadows, decorative elements, photorealistic rendering.
-```
-
-### Step-by-Step Image Generation
-
-**Step 1 (Base):**
 ```bash
+# Part A
 uv run scripts/generate_image.py \
-  --prompt "Create an IKEA-style assembly instruction illustration. Style: clean black line art on white background, 30-degree isometric view, minimal shading. Subject: [BASE COMPONENT] sitting on a work surface. Clean, simple, no arrows needed for first step." \
-  --filename "step-01-base.png" --resolution 2K
+  --prompt "IKEA-style technical illustration. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Simplified geometric shapes. Subject: [PART A DESCRIPTION]. Show part isolated, centered, with label 'A' in corner." \
+  --filename "part-A.png" --resolution 2K
+
+# Part B
+uv run scripts/generate_image.py \
+  --prompt "IKEA-style technical illustration. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Simplified geometric shapes. Subject: [PART B DESCRIPTION]. Show part isolated, centered, with label 'B' in corner." \
+  --filename "part-B.png" --resolution 2K
+
+# Hardware H1 (with quantity)
+uv run scripts/generate_image.py \
+  --prompt "IKEA-style technical illustration. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Simplified geometric shapes. Subject: [HARDWARE DESCRIPTION]. Show single item with '×4' quantity marker." \
+  --filename "part-H1.png" --resolution 2K
 ```
 
-**Step 2+ (Action diagrams):**
+### Step 3: Generate Step-by-Step Action Images
+
+Each step shows ONE action. Reference the established part appearances:
+
 ```bash
+# Step 1: Place base part
 uv run scripts/generate_image.py \
-  --prompt "Create an IKEA-style assembly instruction illustration. Style: clean black line art on white background, 30-degree isometric view, minimal shading. Subject: [NEW PART] floating above [EXISTING ASSEMBLY] with curved arrow showing insertion direction. The [EXISTING ASSEMBLY] is shown as solid grey unit. Include callout circle showing [CONNECTION DETAIL] if needed." \
-  --filename "step-02-attach-part.png" --resolution 2K
+  --prompt "IKEA-style assembly instruction. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Subject: [PART A] sitting on work surface. No arrows needed. Part labeled 'A'." \
+  --filename "step-01.png" --resolution 2K
+
+# Step 2: Attach second part
+uv run scripts/generate_image.py \
+  --prompt "IKEA-style assembly instruction. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Subject: [PART B] floating 3cm above [PART A] with curved arrow showing attachment direction. [PART A] shown as solid grey base. Parts labeled." \
+  --filename "step-02.png" --resolution 2K
+
+# Step 3: Insert hardware
+uv run scripts/generate_image.py \
+  --prompt "IKEA-style assembly instruction. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Subject: Screw floating above hole in assembly with arrow showing insertion. Callout circle magnifying the screw and hole detail. '×4' marker indicating four screws needed." \
+  --filename "step-03.png" --resolution 2K
 ```
 
-### Image Types to Generate
+## Standard Prompt Components
 
-| Page Type | Prompt Focus |
-|-----------|--------------|
-| Cover | Finished assembled product, clean isometric view, product name |
-| Parts Inventory | Grid layout of all parts with ID labels (A, B, H1), quantities |
-| Tools Required | Simple icons of required tools |
-| Assembly Step | Action diagram with floating part + arrow + callout if needed |
-| Final Result | Complete assembly, clean isometric, optional checkmark |
+Always include these in every prompt for consistency:
+
+```
+IKEA-style technical illustration. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Simplified geometric shapes.
+```
+
+Then add the step-specific subject.
+
+## Action Diagram Rules
+
+| Action Type | Visual Treatment |
+|-------------|------------------|
+| Place | Part sitting on surface, no arrows |
+| Attach | New part floating above target with curved arrow |
+| Insert | Hardware floating near hole with straight arrow, callout circle for detail |
+| Rotate | Curved arrow around part showing rotation direction |
+| Flip | Part shown in two positions with flip arrow |
+| Connect | Two parts with line/arrow between connection points |
+
+## Visual Symbols
+
+- **Arrows** — Curved for attachment direction, straight for insertion
+- **Callout circles** — Magnified detail connected by thin line
+- **Quantity markers** — "×4" next to repeated items
+- **Hand icons** — Show grip position when relevant
+- **Checkmark** — Completion indicator
 
 ## Design Principles
 
 Stanford research: action diagrams reduce assembly time 35% and errors 50%.
 
-- **Fixed Viewpoint** — Same 30° isometric angle every illustration. Never rotate.
-- **Action Diagrams** — New parts float toward destination with arrows (not already placed).
-- **One Step = One Action** — Never combine multiple operations.
-- **Wordless** — No text in steps. Arrows, callouts, quantity markers (×4), hand icons only.
-- **Minimal Shading** — Black lines, white background, light grey fill for depth.
+- **Fixed Viewpoint** — Same 30° isometric angle in every image
+- **Action Diagrams** — New parts float toward destination (not already placed)
+- **One Step = One Action** — Never combine operations
+- **Wordless** — No text except part labels and quantity markers
+- **Consistent Parts** — Same part must look identical across all steps
 
-See [references/design-principles.md](references/design-principles.md) for all principles.
-
-## Project YAML Schema
-
-```yaml
-project:
-  name: "Product Name"
-
-parts:
-  structural:
-    - id: "A"
-      name: "Main panel"
-    - id: "B"
-      name: "Side panel"
-  hardware:
-    - id: "H1"
-      name: "Screw"
-      quantity: 4
-
-tools:
-  - screwdriver
-
-steps:
-  - step: 1
-    action: place
-    parts: ["A"]
-    image_prompt: "Main panel sitting on work surface"
-  - step: 2
-    action: attach
-    parts: ["B", "A"]
-    hardware: ["H1"]
-    image_prompt: "Side panel floating above main panel with screws, arrows showing attachment"
-```
-
-See [references/yaml-schema.md](references/yaml-schema.md) for full schema.
-
-## Complete Workflow Example
+## Example: 4-Step Assembly
 
 ```bash
-# 1. Generate cover image
+# Style reference
 uv run scripts/generate_image.py \
-  --prompt "IKEA-style assembly manual cover. Clean black line art, white background. Show completed product in 30-degree isometric view. Title area at top. Minimal, professional." \
-  --filename "cover.png" --resolution 2K
+  --prompt "IKEA-style technical illustration. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Subject: Simple wooden stool with four legs and round seat, fully assembled." \
+  --filename "00-reference.png" --resolution 2K
 
-# 2. Generate parts inventory
+# Parts inventory - each part separate
 uv run scripts/generate_image.py \
-  --prompt "IKEA-style parts inventory page. Grid layout, black line art on white. Show all parts with ID labels. Quantities shown as ×4 for multiple items." \
-  --filename "parts-inventory.png" --resolution 2K
+  --prompt "IKEA-style technical illustration. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Subject: Round wooden seat, isolated, label 'A'." \
+  --filename "part-A-seat.png" --resolution 2K
 
-# 3. Generate each assembly step
 uv run scripts/generate_image.py \
-  --prompt "IKEA-style assembly step. Black line art, 30-degree isometric. Show new part floating above existing assembly with curved arrows indicating attachment. Callout circle magnifying connection detail. Base shown in light grey." \
+  --prompt "IKEA-style technical illustration. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Subject: Single wooden stool leg, tapered, isolated, label 'B', with '×4' marker." \
+  --filename "part-B-leg.png" --resolution 2K
+
+# Step 1
+uv run scripts/generate_image.py \
+  --prompt "IKEA-style assembly instruction. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Subject: Round wooden seat (A) placed upside-down on work surface, showing four leg holes visible on underside." \
+  --filename "step-01.png" --resolution 2K
+
+# Step 2
+uv run scripts/generate_image.py \
+  --prompt "IKEA-style assembly instruction. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Subject: One wooden leg (B) floating above corner hole of upside-down seat with curved arrow showing insertion. Seat shown in light grey. '×4' marker." \
   --filename "step-02.png" --resolution 2K
 
-# 4. Compile PDF (after all images generated)
-python3 scripts/render_manual.py project.yaml --output manual.pdf
+# Step 3
+uv run scripts/generate_image.py \
+  --prompt "IKEA-style assembly instruction. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Subject: All four legs now inserted into upside-down seat. Checkmark indicator." \
+  --filename "step-03.png" --resolution 2K
+
+# Step 4
+uv run scripts/generate_image.py \
+  --prompt "IKEA-style assembly instruction. Clean black line art on pure white background. 30-degree isometric view. Minimal shading using only light grey fills. No gradients, no textures, no shadows. Thick uniform outlines. Subject: Completed stool being flipped right-side-up, shown with curved flip arrow indicating rotation." \
+  --filename "step-04.png" --resolution 2K
 ```
 
 ## API Key
 
 Set `GEMINI_API_KEY` environment variable or pass `--api-key` argument.
+
+## Compiling to PDF
+
+After generating all images:
+
+```bash
+python3 scripts/render_manual.py project.yaml --output manual.pdf
+```
