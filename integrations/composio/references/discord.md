@@ -1,6 +1,6 @@
 # Discord Actions (Composio)
 
-Connection key: `.discord`
+Connection key: `.discordbot` (NOT `.discord` - that's read-only)
 
 ## Contents
 
@@ -14,7 +14,7 @@ Connection key: `.discord`
 ## Setup
 
 ```bash
-CONNECTION_ID=$(echo $COMPOSIO_CONNECTIONS | jq -r '.discord')
+CONNECTION_ID=$(echo $COMPOSIO_CONNECTIONS | jq -r '.discordbot')
 ```
 
 ## Guilds & Channels

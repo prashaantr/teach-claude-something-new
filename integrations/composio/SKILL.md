@@ -60,7 +60,7 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/ACTION_NAME" \
 | GitHub | `.github` | [references/github.md](references/github.md) |
 | Gmail | `.google` | [references/gmail.md](references/gmail.md) |
 | Google Drive | `.google` | [references/drive.md](references/drive.md) |
-| Discord | `.discord` | [references/discord.md](references/discord.md) |
+| Discord | `.discordbot` | [references/discord.md](references/discord.md) |
 | Exa | `.exa` | [references/exa.md](references/exa.md) |
 
 **Cross-channel**: Composio works from any channel. Telegram → Discord, Discord → Linear, etc.
