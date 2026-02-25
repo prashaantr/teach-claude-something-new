@@ -1,17 +1,15 @@
 ---
-name: assembly-instructions
+name: ikea-assembly-instructions
 description: |
-  Generate IKEA-style visual assembly manuals as PDFs. Use when:
-  (1) Creating assembly instructions for hardware projects
-  (2) Making build guides for Arduino, IoT, or electronics
-  (3) Documenting 3D-printed enclosure assembly
-  (4) Writing wiring diagrams or hardware setup manuals
-  (5) Creating step-by-step visual instructions for non-technical users
-  (6) Compiling assembly images into multi-page PDFs
-  (7) Merging, splitting, or manipulating assembly manual PDFs
-  Supports two workflows: SVG component rendering (for electronics) or AI-generated images (Nano Banana Pro).
-  Trigger words: "instruction manual", "assembly guide", "build instructions", "wiring guide".
-  Output: Multi-page PDF with parts inventory, diagrams, callouts, and action arrows.
+  IKEA Assembly Instructions / Swedish Furniture Company Assembly Manual Generation.
+  Generate IKEA-style visual assembly manuals as PDFs. The iconic wordless instruction manual format.
+  Use when: (1) Creating assembly instructions for any product (2) Making build guides for Arduino, IoT, electronics
+  (3) Documenting furniture or 3D-printed assembly (4) Writing wiring diagrams or hardware setup manuals
+  (5) Creating step-by-step visual instructions for non-technical users (6) Making satirical/humorous instruction manuals
+  (7) Compiling assembly images into multi-page PDFs (8) Merging, splitting, or manipulating PDFs.
+  Supports two workflows: SVG component rendering (electronics) or AI-generated images (general products).
+  Trigger words: "IKEA manual", "assembly instructions", "Swedish furniture manual", "instruction manual", "build guide", "wiring guide", "wordless instructions".
+  Output: Multi-page PDF with parts inventory, isometric diagrams, callouts, and action arrows in authentic IKEA style.
 ---
 
 # Assembly Instructions Generator
