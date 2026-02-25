@@ -56,8 +56,9 @@ Read these files when you need detailed information:
 
 | Reference | When to Read |
 |-----------|--------------|
-| `references/yaml-schema.md` | When creating or editing project YAML files for SVG workflow. Contains full schema spec. |
+| `references/ikea-visual-spec.md` | **CRITICAL for AI workflow.** Exact IKEA visual specifications: line weights, perspective, layout templates, common mistakes. Read BEFORE generating any images. |
 | `references/design-principles.md` | When making design decisions about step ordering, layout, or diagram style. Contains 16 cognitive principles. |
+| `references/yaml-schema.md` | When creating or editing project YAML files for SVG workflow. Contains full schema spec. |
 | `references/component-catalog.md` | When defining parts for any project. Provides patterns for describing components consistently (not a fixed list). |
 | `references/pdf-generation.md` | When doing advanced PDF manipulation: merging, splitting, adding covers. |
 
@@ -111,14 +112,27 @@ uv run scripts/generate_image.py --prompt "description" --filename "output.png" 
 
 ## AI Image Prompt Template
 
-For visual consistency, always include:
+**CRITICAL:** Read `references/ikea-visual-spec.md` before generating images. Key rules:
 
+- **WORDLESS** — No text except step numbers, quantities ("4x"), part codes (6-digit)
+- **Line art** — 2pt black lines on pure white, light grey fills only
+- **30° isometric** — Same angle for every page, never changes
+- **Parts float** — No boxes, frames, or containers
+
+### Base Prompt (prepend to all image prompts):
 ```
-IKEA-style technical illustration. Clean black line art on pure white background.
-30-degree isometric view. Minimal shading using only light grey fills.
-No gradients, no textures, no shadows. Thick uniform outlines.
-Simplified geometric shapes. Subject: [YOUR SUBJECT]
+Authentic IKEA assembly manual. Pure black line art, white background, 30° isometric.
+2pt uniform lines. NO text except step numbers or quantities. NO gradients, textures, shadows.
+Simple human figures if needed: oval head, dot eyes, light grey fill.
 ```
+
+### Page Types:
+- **Cover:** Product name huge at top, isometric finished product centered, IKEA logo bottom-right
+- **Parts inventory:** Parts floating on white, part codes below, quantities to right
+- **Assembly step:** Large step number top-left, one action shown, callout circles for details
+- **Do/Don't:** Side-by-side panels, X overlay on wrong action
+
+See `references/ikea-visual-spec.md` for complete templates and common mistakes.
 
 ## Project YAML Schema (SVG Workflow)
 
