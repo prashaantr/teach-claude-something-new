@@ -35,6 +35,8 @@ Before interpretation, assess image quality:
 
 If quality inadequate, flag it explicitly before proceeding.
 
+> **Need more detail?** Read `references/radiologist-workflow.md` for complete RIPE assessment criteria and how to handle suboptimal images.
+
 ### Stage 2: Systematic Observation (ABCDE)
 
 Catalog findings by region. **NO DIAGNOSIS YET** - only observe.
@@ -52,6 +54,8 @@ Catalog findings by region. **NO DIAGNOSIS YET** - only observe.
 - [ ] Hilar regions
 - [ ] Behind clavicles
 
+> **Need more detail?** Read `references/radiologist-workflow.md` for complete ABCDE breakdown, what to look for in each region, and how to evaluate blind spots.
+
 ### Stage 3: Pneumonia Sign Identification
 
 For each finding, check against the 6 pneumonia signs:
@@ -65,7 +69,11 @@ For each finding, check against the 6 pneumonia signs:
 | **Interstitial pattern** | Reticular/reticulonodular | Atypical organisms |
 | **Pleural effusion** | Blunted costophrenic angle | Present in 20-57% bacterial |
 
-See `references/pneumonia-signs.md` for detailed descriptions.
+> **Need more detail?** Read `references/pneumonia-signs.md` when:
+> - You see an opacity but aren't sure if it qualifies as consolidation vs ground-glass
+> - You need the silhouette sign localization map (which border loss = which lobe)
+> - You want to identify pneumonia subtype (lobar vs bronchopneumonia vs interstitial)
+> - You're evaluating atypical patterns (COVID, PCP, TB)
 
 ### Stage 4: Differential Diagnosis
 
@@ -83,7 +91,12 @@ If opacity found, apply discriminators:
 - Mass: well-defined round borders, NO air bronchograms
 - Non-resolving "pneumonia" >6 weeks = investigate for malignancy
 
-See `references/differential-diagnosis.md` for complete decision trees.
+> **Need more detail?** Read `references/differential-diagnosis.md` when:
+> - You found an opacity and need to rule out atelectasis (check volume loss signs)
+> - Bilateral findings make you unsure between pneumonia vs pulmonary edema
+> - Well-defined borders make you consider mass vs round pneumonia
+> - You need the quick reference discriminator table
+> - Clinical context is provided and you want to integrate it
 
 ### Stage 5: Confidence Calibration
 
@@ -155,11 +168,13 @@ Integrate age, symptoms, fever, WBC, immunocompromise status into Stage 4 reason
 
 ## References
 
-| File | When to read |
-|------|--------------|
-| `references/radiologist-workflow.md` | Full RIPE + ABCDE details |
-| `references/pneumonia-signs.md` | Detailed sign descriptions |
-| `references/differential-diagnosis.md` | Complete decision trees |
+Load these files **only when needed** to preserve context:
+
+| File | Load when... |
+|------|-------------|
+| `references/radiologist-workflow.md` | Image quality is borderline, need detailed RIPE criteria; blind spots need thorough evaluation; want complete ABCDE checklist |
+| `references/pneumonia-signs.md` | Opacity found but sign type unclear; need silhouette sign localization map; evaluating atypical pneumonia patterns (COVID/PCP/TB) |
+| `references/differential-diagnosis.md` | Opacity present and need to differentiate pneumonia from atelectasis, edema, or mass; bilateral findings; well-defined borders seen |
 
 ## Research Basis
 
