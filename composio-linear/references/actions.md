@@ -150,7 +150,9 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/LINEAR_CREATE_LINEAR_
 
 ## GraphQL (Advanced)
 
-Run any Linear GraphQL query:
+Use `LINEAR_RUN_QUERY_OR_MUTATION` for operations not covered by standard actions.
+
+### Query Example
 ```bash
 curl -s "https://backend.composio.dev/api/v3/tools/execute/LINEAR_RUN_QUERY_OR_MUTATION" \
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
@@ -158,6 +160,59 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/LINEAR_RUN_QUERY_OR_M
     "connected_account_id": "'$CONNECTION_ID'",
     "entity_id": "'$COMPOSIO_USER_ID'",
     "arguments": {"query": "{ teams { nodes { id name key } } }"}
+  }' | jq
+```
+
+### Create Custom View (filter by label)
+```bash
+# First get label IDs
+curl -s "https://backend.composio.dev/api/v3/tools/execute/LINEAR_RUN_QUERY_OR_MUTATION" \
+  -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
+  -d '{
+    "connected_account_id": "'$CONNECTION_ID'",
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {"query": "{ issueLabels { nodes { id name } } }"}
+  }' | jq
+
+# Create custom view with label filter
+curl -s "https://backend.composio.dev/api/v3/tools/execute/LINEAR_RUN_QUERY_OR_MUTATION" \
+  -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
+  -d '{
+    "connected_account_id": "'$CONNECTION_ID'",
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {
+      "query": "mutation CreateView($input: CustomViewCreateInput!) { customViewCreate(input: $input) { success customView { id name } } }",
+      "variables": {
+        "input": {
+          "name": "Opalite Issues",
+          "filterData": {
+            "filters": [{"label": {"id": {"in": ["LABEL_UUID_HERE"]}}}]
+          }
+        }
+      }
+    }
+  }' | jq
+```
+
+### List Custom Views
+```bash
+curl -s "https://backend.composio.dev/api/v3/tools/execute/LINEAR_RUN_QUERY_OR_MUTATION" \
+  -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
+  -d '{
+    "connected_account_id": "'$CONNECTION_ID'",
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {"query": "{ customViews { nodes { id name filterData } } }"}
+  }' | jq
+```
+
+### Get Labels (for filtering)
+```bash
+curl -s "https://backend.composio.dev/api/v3/tools/execute/LINEAR_RUN_QUERY_OR_MUTATION" \
+  -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
+  -d '{
+    "connected_account_id": "'$CONNECTION_ID'",
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {"query": "{ issueLabels { nodes { id name color } } }"}
   }' | jq
 ```
 

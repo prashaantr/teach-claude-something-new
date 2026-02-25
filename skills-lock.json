@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "composio-gmail": {
+      "source": "prashaantr/teach-claude-something-new",
+      "sourceType": "github",
+      "computedHash": "a4013fa2b8b4cbe34bd38ebe2c9f30f4142c06f3287e8c14ffc115f57bc5da47"
+    }
+  }
+}

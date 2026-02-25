@@ -5,7 +5,8 @@ description: |
   (1) Listing, creating, or updating Linear issues
   (2) Getting teams, users, or workflow states
   (3) Managing projects or adding comments
-  (4) Running custom GraphQL queries
+  (4) Creating custom views with label/assignee filters
+  (5) Running custom GraphQL queries/mutations
   DO NOT use `linear` CLI - use Composio HTTP API only.
 ---
 
@@ -57,7 +58,9 @@ See [references/actions.md](references/actions.md) for complete API reference in
 - Teams & Users: list teams, list users, get current user
 - Projects: list, create
 - Comments: create
-- GraphQL: run custom queries
+- Custom Views: create views with label/assignee filters (via GraphQL)
+- Labels: list all labels (via GraphQL)
+- GraphQL: run any query or mutation
 
 ## Discover Actions
 
