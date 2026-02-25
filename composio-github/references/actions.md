@@ -1,18 +1,29 @@
-# GitHub Actions (Composio)
+# GitHub Actions Reference
 
-> **⚠️ DO NOT USE `gh` CLI** - It will fail with "gh auth login" error.
-> Use the Composio HTTP API (curl commands) below instead.
+## Contents
 
-Connection key: `.github`
+- [Repository Contents](#repository-contents)
+- [Issues](#issues)
+- [Pull Requests](#pull-requests)
+- [Repositories](#repositories)
+- [Branches](#branches)
+- [All Actions](#all-actions)
 
-**Note:** All requests must include `entity_id` and use `arguments` (not `input`).
+## Setup
+
+```bash
+CONNECTION_ID=$(echo $COMPOSIO_CONNECTIONS | jq -r '.github')
+```
+
+**Required fields for all requests:**
+- `connected_account_id`: from `$COMPOSIO_CONNECTIONS`
+- `entity_id`: from `$COMPOSIO_USER_ID`
+- `arguments`: action-specific parameters
 
 ## Repository Contents
 
 ### Get File/Directory Contents (BASE64 encoded)
 ```bash
-CONNECTION_ID=$(echo $COMPOSIO_CONNECTIONS | jq -r '.github')
-
 curl -s "https://backend.composio.dev/api/v3/tools/execute/GITHUB_GET_REPOSITORY_CONTENT" \
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
   -d '{
@@ -24,7 +35,6 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GITHUB_GET_REPOSITORY
 
 **Note:** Content is base64 encoded. To decode:
 ```bash
-# Extract and decode content
 echo "BASE64_CONTENT" | base64 -d
 ```
 
@@ -200,24 +210,24 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GITHUB_LIST_BRANCHES"
   }' | jq
 ```
 
-## Common Actions Reference
+## All Actions
 
 | Action | Description |
 |--------|-------------|
-| `GITHUB_GET_REPOSITORY_CONTENT` | Get file/dir contents (base64) |
-| `GITHUB_GET_A_REPOSITORY_README` | Get repo README |
-| `GITHUB_DOWNLOAD_A_REPOSITORY_ARCHIVE_ZIP` | Download repo as ZIP |
-| `GITHUB_LIST_REPOSITORY_ISSUES` | List repo issues |
-| `GITHUB_CREATE_ISSUE` | Create issue |
-| `GITHUB_UPDATE_ISSUE` | Update issue |
-| `GITHUB_CREATE_ISSUE_COMMENT` | Add comment |
-| `GITHUB_LIST_PULL_REQUESTS` | List PRs |
-| `GITHUB_CREATE_PULL_REQUEST` | Create PR |
-| `GITHUB_MERGE_PULL_REQUEST` | Merge PR |
-| `GITHUB_LIST_REPOSITORIES_FOR_THE_AUTHENTICATED_USER` | List ALL repos (public+private) |
-| `GITHUB_GET_REPOSITORY` | Get repo info |
-| `GITHUB_LIST_BRANCHES` | List branches |
-| `GITHUB_LIST_COMMITS` | List commits |
+| GITHUB_GET_REPOSITORY_CONTENT | Get file/dir contents (base64) |
+| GITHUB_GET_A_REPOSITORY_README | Get repo README |
+| GITHUB_DOWNLOAD_A_REPOSITORY_ARCHIVE_ZIP | Download repo as ZIP |
+| GITHUB_LIST_REPOSITORY_ISSUES | List repo issues |
+| GITHUB_CREATE_ISSUE | Create issue |
+| GITHUB_UPDATE_ISSUE | Update issue |
+| GITHUB_CREATE_ISSUE_COMMENT | Add comment |
+| GITHUB_LIST_PULL_REQUESTS | List PRs |
+| GITHUB_CREATE_PULL_REQUEST | Create PR |
+| GITHUB_MERGE_PULL_REQUEST | Merge PR |
+| GITHUB_LIST_REPOSITORIES_FOR_THE_AUTHENTICATED_USER | List ALL repos (public+private) |
+| GITHUB_GET_REPOSITORY | Get repo info |
+| GITHUB_LIST_BRANCHES | List branches |
+| GITHUB_LIST_COMMITS | List commits |
 
 ## Troubleshooting
 

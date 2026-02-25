@@ -1,6 +1,4 @@
-# Linear Actions (Composio)
-
-Connection key: `.linear`
+# Linear Actions Reference
 
 ## Contents
 

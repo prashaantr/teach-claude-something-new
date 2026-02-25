@@ -1,6 +1,4 @@
-# Gmail Actions (Composio)
-
-Connection key: `.gmail`
+# Gmail Actions Reference
 
 ## Contents
 
@@ -151,12 +149,12 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/GMAIL_CREATE_DRAFT" \
 
 | Action | Description |
 |--------|-------------|
-| `GMAIL_SEND_EMAIL` | Send email |
-| `GMAIL_LIST_MESSAGES` | List inbox messages |
-| `GMAIL_GET_MESSAGE` | Get message by ID |
-| `GMAIL_REPLY_TO_MESSAGE` | Reply to message |
-| `GMAIL_CREATE_DRAFT` | Create draft |
-| `GMAIL_LIST_LABELS` | List all labels |
-| `GMAIL_MODIFY_MESSAGE` | Add/remove labels |
-| `GMAIL_TRASH_MESSAGE` | Move to trash |
-| `GMAIL_DELETE_MESSAGE` | Permanently delete |
+| GMAIL_SEND_EMAIL | Send email |
+| GMAIL_LIST_MESSAGES | List inbox messages |
+| GMAIL_GET_MESSAGE | Get message by ID |
+| GMAIL_REPLY_TO_MESSAGE | Reply to message |
+| GMAIL_CREATE_DRAFT | Create draft |
+| GMAIL_LIST_LABELS | List all labels |
+| GMAIL_MODIFY_MESSAGE | Add/remove labels |
+| GMAIL_TRASH_MESSAGE | Move to trash |
+| GMAIL_DELETE_MESSAGE | Permanently delete |

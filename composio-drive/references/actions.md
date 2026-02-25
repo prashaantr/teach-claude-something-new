@@ -1,6 +1,4 @@
-# Google Drive Actions (Composio)
-
-Connection key: `.googledrive`
+# Google Drive Actions Reference
 
 ## Contents
 
@@ -145,13 +143,13 @@ Roles: `reader`, `writer`, `commenter`
 
 | Action | Description |
 |--------|-------------|
-| `GOOGLEDRIVE_LIST_FILES` | List files |
-| `GOOGLEDRIVE_SEARCH_FILES` | Search files |
-| `GOOGLEDRIVE_GET_FILE` | Get file metadata |
-| `GOOGLEDRIVE_DOWNLOAD_FILE` | Download file content |
-| `GOOGLEDRIVE_UPLOAD_FILE` | Upload new file |
-| `GOOGLEDRIVE_CREATE_FOLDER` | Create folder |
-| `GOOGLEDRIVE_DELETE_FILE` | Delete file/folder |
-| `GOOGLEDRIVE_SHARE_FILE` | Share with user |
-| `GOOGLEDRIVE_COPY_FILE` | Copy file |
-| `GOOGLEDRIVE_MOVE_FILE` | Move file |
+| GOOGLEDRIVE_LIST_FILES | List files |
+| GOOGLEDRIVE_SEARCH_FILES | Search files |
+| GOOGLEDRIVE_GET_FILE | Get file metadata |
+| GOOGLEDRIVE_DOWNLOAD_FILE | Download file content |
+| GOOGLEDRIVE_UPLOAD_FILE | Upload new file |
+| GOOGLEDRIVE_CREATE_FOLDER | Create folder |
+| GOOGLEDRIVE_DELETE_FILE | Delete file/folder |
+| GOOGLEDRIVE_SHARE_FILE | Share with user |
+| GOOGLEDRIVE_COPY_FILE | Copy file |
+| GOOGLEDRIVE_MOVE_FILE | Move file |
