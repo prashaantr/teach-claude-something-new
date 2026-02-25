@@ -36,8 +36,25 @@ curl -s "https://backend.composio.dev/api/v3/tools/execute/ACTION_NAME" \
 
 ## Quick Start
 
+**IMPORTANT: Choose the right action!**
+- User says "draft" or "prepare" → Use `GMAIL_CREATE_DRAFT` (saves to Drafts folder)
+- User says "send" → Use `GMAIL_SEND_EMAIL` (sends immediately)
+
 ```bash
-# Send email (always include agent tag)
+# CREATE DRAFT (saves to Drafts folder for user to review/send)
+curl -s "https://backend.composio.dev/api/v3/tools/execute/GMAIL_CREATE_DRAFT" \
+  -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
+  -d '{
+    "connected_account_id": "'$CONNECTION_ID'",
+    "entity_id": "'$COMPOSIO_USER_ID'",
+    "arguments": {
+      "to": "recipient@example.com",
+      "subject": "Subject line",
+      "body": "Email body text"
+    }
+  }' | jq
+
+# SEND EMAIL (sends immediately - always include agent tag)
 curl -s "https://backend.composio.dev/api/v3/tools/execute/GMAIL_SEND_EMAIL" \
   -H "x-api-key: $COMPOSIO_API_KEY" -H "Content-Type: application/json" \
   -d '{
