@@ -1,106 +1,105 @@
-# Stanford GSB Negotiation Frameworks
+# Core Negotiation Frameworks
 
-## What Makes a Good Outcome
+## Evaluate the Outcome
 
-A good agreement:
-- **Better than your BATNA** - Your best alternative if this deal fails
-- **Satisfies interests** - Yours well, theirs acceptably, others' tolerably
-- **No waste** - On the Pareto frontier (can't improve one side without hurting another)
-- **Uses objective criteria** - External standards, not just power
-- **Well-planned commitment** - Clear, realistic, implementable
-- **Good two-way communication** - Both sides feel heard
-- **Improves (or doesn't damage) relationship**
+A sound agreement should:
 
-## BATNA (Best Alternative to Negotiated Agreement)
+- Beat the user's best available alternative after accounting for risk and cost.
+- Address the user's important interests and be acceptable to relevant stakeholders.
+- Avoid leaving obvious joint value unclaimed.
+- Be defensible using standards credible to both sides.
+- Define clear, authorized, and implementable commitments.
+- Preserve the relationship to the degree the user values it.
 
-**What it is:** What you'll do if this negotiation fails.
+Agreement is not always the best outcome. A deliberate pause or no-deal decision can be successful.
 
-**Why it matters:** Your BATNA is your source of power. A strong BATNA means you can walk away.
+## Seven Elements
 
-**Questions to ask user:**
-- "What will you do if this deal falls through?"
-- "Do you have other options?"
-- "Can you create more alternatives before negotiating?"
+| Element | Coaching questions |
+|---------|--------------------|
+| Interests | What does each side need, fear, value, or need to explain internally? |
+| Alternatives | What will each side do without agreement? How credible are those options? |
+| Options | What possible packages could address both sides' interests? |
+| Legitimacy | Which external criteria or fair processes could justify an outcome? |
+| Communication | What needs to be learned, disclosed, asked, or summarized? |
+| Relationship | What level of trust, reputation, and future cooperation matters? |
+| Commitment | Who will do what, by when, under which conditions, with what authority? |
 
-**Questions about their BATNA:**
-- "What are their alternatives if you walk away?"
-- "How much do they need this deal?"
+Use the elements as a diagnostic, not a rigid script. A gap in one element often explains an impasse elsewhere.
 
-**Key insight:** If their BATNA is weak and yours is strong, you have leverage.
+## BATNA, Reservation Point, and Aspiration
 
-## Seven Elements Framework
+### BATNA
 
-Use to analyze any negotiation:
+The best course of action available if no agreement is reached. It is an action, not a desired bargaining result.
 
-| Element | Question to ask |
-|---------|-----------------|
-| **Interests** | What do you really need? What do they really need? |
-| **Options** | What are possible agreements that could satisfy both? |
-| **Alternatives** | What's your BATNA? What's theirs? |
-| **Legitimacy** | What objective standards could justify outcomes? |
-| **Communication** | How will you listen and share information? |
-| **Relationship** | How do you want to treat each other? |
-| **Commitment** | What exactly will each side do? |
+Assess:
 
-## Negotiation Rules of Thumb
+- What alternatives actually exist?
+- What is the expected value, probability, time, cost, and risk of each?
+- What can the user do before negotiating to improve those alternatives?
+- What evidence exists about the counterpart's alternatives?
 
-### On Preparation
-- Develop your BATNA before negotiating
-- Consider their BATNA too
-- CCBD: Consider Consulting Before Deciding
+Treat the counterpart's BATNA as an estimate unless verified.
 
-### On People vs Problem
-- Gentle with the people, firm on the problem
-- Distinguish their worth as a person from the correctness of their views
-- Speak for yourself, not for them ("I feel..." not "You always...")
+### Reservation point
 
-### On Interests
-- Clarify interests, not positions
-- Ask "Why?" and "Why not?" to uncover underlying interests
-- Look for interests behind their position
+The least favorable complete package the user would accept before choosing the BATNA. It may include money, time, risk, scope, status, and relationship costs. Keep it private by default.
 
-### On Options
-- Separate inventing from deciding
-- Brainstorm before evaluating
-- Invent options for mutual gain
-- Give them an answer, not a problem
+### Aspiration
 
-### On Legitimacy
-- Use external standards (market rates, precedent, industry norms)
-- Pass the test of reciprocity (would this work if roles reversed?)
-- Be open to persuasion - if you can't be persuaded, you're just bargaining
+A strong but supportable result the user will actively pursue. It should not be confused with either the opening proposal or the reservation point.
 
-### On Communication
-- Listen and show that you have heard
-- Good two-way communication throughout
+### Bargaining range
 
-### On Commitment
-- Commit with care, after learning all you can
-- Make commitments clear and implementable
+A possible agreement zone exists only if compatible packages can beat both sides' reservation points. The range is often unknown and may change as information or alternatives change.
 
-## Interests vs Positions
+## Interests and Positions
 
-| Position | Interest |
-|----------|----------|
-| "I want $100K" | Financial security, feeling valued, market rate |
-| "I need it by Friday" | Making a deadline, avoiding consequences |
-| "I won't accept less" | Saving face, not appearing weak |
+A position states a requested outcome. An interest explains why it matters.
 
-**How to uncover interests:**
-- Ask "Why is that important to you?"
-- Ask "What would that give you?"
-- Ask "What are you trying to accomplish?"
+| Position | Possible interests to test, not assume |
+|----------|----------------------------------------|
+| "I need $100,000" | Market alignment, security, recognition, internal equity |
+| "It must be done Friday" | Customer promise, dependency, reporting deadline |
+| "We cannot change the contract" | Approval cost, precedent, risk, system constraint |
 
-## Value Creation vs Value Claiming
+Useful questions:
 
-**Value Creation:** Finding things that are cheap for one side to give but valuable for the other to receive.
+- "What is most important about that outcome?"
+- "What problem does that term solve for you?"
+- "What would an acceptable alternative need to accomplish?"
+- "Which part is hardest to change?"
 
-**Questions to identify value creation opportunities:**
-- "What could you offer that's easy for you but valuable to them?"
-- "What might they easily give that you'd really value?"
-- "Are there differences in preferences, priorities, or timing?"
+## Create and Claim Value
 
-**Examples:**
-- Flexible start date (cheap for employer, valuable for candidate)
-- Extended payment terms (cheap for buyer, valuable for seller under cash pressure)
-- Title change (free for company, valuable for employee's career)
+Create value by trading across differences in priority, timing, forecasts, risk tolerance, or cost. Claim value by using credible alternatives, objective criteria, disciplined openings, and reciprocal concessions.
+
+Potential trade dimensions include:
+
+- Price versus volume
+- Base compensation versus bonus, equity, title, or review timing
+- Delivery speed versus scope
+- Commitment length versus price protection
+- Certainty versus upside sharing
+- Public recognition versus private flexibility
+
+Do not assume a term is cheap for the other side. Test it.
+
+## Objective Criteria
+
+Useful criteria may include market evidence, precedent, policy, expert standards, comparable transactions, replacement cost, or an agreed fair process. Evaluate:
+
+- Relevance to the actual decision
+- Source quality and freshness
+- Whether the comparison is truly comparable
+- Whether the standard would still seem fair if roles were reversed
+- Whether multiple credible standards point in different directions
+
+## Communication and Commitment
+
+- Balance advocacy with inquiry: explain the user's reasoning, then invite correction.
+- Summarize to test understanding, not to manufacture agreement.
+- Separate brainstorming from commitment.
+- Confirm decision authority before relying on a promise.
+- Make commitments specific about scope, owner, timing, contingencies, and documentation.

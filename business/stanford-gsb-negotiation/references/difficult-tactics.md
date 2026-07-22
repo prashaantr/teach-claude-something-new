@@ -1,61 +1,60 @@
-# Dealing with Difficult Negotiators
+# Pressure and Difficult Tactics
 
-## Common Manipulative Tactics
+Do not diagnose bad faith from one phrase. Describe the observable behavior, test alternative explanations, and protect the user's ability to choose.
 
-Recognize these tactics so user can respond appropriately:
+## Pause, Diagnose, Choose
 
-| Tactic | What it looks like | How to respond |
-|--------|-------------------|----------------|
-| **You Commit First** | "Make me an offer" | "I'd like to understand your constraints first. What range works for you?" |
-| **Salami** | Small concessions that add up | "Let's discuss the full package together rather than piece by piece." |
-| **Split the Difference** | "Let's meet in the middle" | "What's the basis for the midpoint? Let's look at objective criteria." |
-| **Idle Threats** | "Take it or leave it" | "Help me understand what's driving that constraint." (Often a bluff) |
-| **Favors & Ledgers** | "After all I've done for you..." | "I appreciate that. Let's focus on what makes sense for this situation." |
-| **Extortion** | "If you don't agree, our relationship is over" | "I value our relationship. That's why I want us to find something fair." |
-| **Manipulation** | Using "objective" criteria that only support their position | "That's one standard. What other standards might apply here?" |
-| **Good Cop/Bad Cop** | One person is tough, another is "reasonable" | Address both: "I'd like to hear both of your perspectives directly." |
-| **Artificial Deadlines** | "This offer expires today" | "Why that deadline? What happens if we need more time?" |
-| **Anchoring Extreme** | Starting with an outrageous position | Don't counter-anchor. Ask: "How did you arrive at that number?" |
+1. **Pause:** Avoid an automatic concession or emotional response.
+2. **Describe:** What was actually said or done?
+3. **Diagnose:** Could this be a real constraint, misunderstanding, habit, pressure tactic, or bad faith?
+4. **Protect:** Check authority, alternatives, time, documentation, and safety.
+5. **Choose:** Continue, reframe, name the process, add a party, pause, or exit.
 
-## The Don't React Framework
+## Common Patterns
 
-When facing difficult tactics:
+| Observable pattern | Test | Possible response |
+|--------------------|------|-------------------|
+| Demands that the user offer first | Ask what information is needed to make a proposal | "Before proposing, I'd like to understand the scope and range you have in mind." |
+| Repeated small requests | Review the complete package | "Let's collect the remaining issues and evaluate them together." |
+| Automatic split-the-difference request | Ask why the midpoint is fair | "Let's compare the underlying criteria before choosing a midpoint." |
+| Take-it-or-leave-it language | Test the constraint and authority | "What makes that the only available structure?" |
+| Favor or loyalty pressure | Acknowledge the relationship, return to present terms | "I value what we've done together. I also need this agreement to work on its own terms." |
+| Extreme anchor | Ask for assumptions and present relevant criteria | "That is outside the range I expected. What supports it?" |
+| Artificial or unexplained deadline | Ask what drives it and propose a review time | "What changes after that deadline? I can give a considered answer by [time]." |
+| Inconsistent messages from a team | Clarify roles and decision process | "Could we confirm who owns the decision and which terms are authorized?" |
+| Selective use of standards | Compare multiple relevant standards | "That is one reference point. How should we weigh [other criterion]?" |
 
-### Step 1: Don't React
-- Take a breath
-- Put things in perspective
-- Don't respond emotionally
+## Process Responses
 
-### Step 2: Diagnose
-Ask yourself (to help user think through):
-- **3rd Position:** What game are they playing? What tactic is this?
-- **2nd Position:** What is driving them? Are they anxious? Unaware? Acting strategically?
-- **1st Position:** What is driving you? Are you anxious? Emotional? How might you be contributing?
+### Reframe the discussion
 
-### Step 3: Choose Your Response
+> "We are trading positions without learning much. Could we step back and compare the interests and criteria behind them?"
 
-| Option | When to use | Script |
-|--------|-------------|--------|
-| **Quit the Game** | When deal isn't worth it | "I don't think we're going to reach agreement. Let me know if circumstances change." |
-| **Change the Game** | When relationship matters | "I notice we're going back and forth. Can we step back and talk about what we're both trying to accomplish?" |
-| **Name the Game** | When tactic is obvious | "It seems like you're using a take-it-or-leave-it approach. I'd prefer we problem-solve together." |
-| **Just Play Your Game** | When you're confident | Continue with principled negotiation. Be firm about your approach. Don't engage with tactics. |
+### Name the behavior neutrally
 
-## Reframing Techniques
+> "The proposal has been described as final, but two terms have changed since then. I need one complete, stable package before deciding."
 
-When they're stuck on positions:
+### Set a boundary
 
-| From | To | Script |
-|------|----|----|
-| **Positions → Interests** | "You want $X" | "What's driving that number? What would that give you?" |
-| **Positions → Options** | "My way or highway" | "That's one option. What other approaches might work?" |
-| **Positions → Criteria** | "This is my final offer" | "What standards are you using? Let's look at what's fair." |
+> "I am willing to continue if we can discuss the terms without personal threats. Otherwise I will pause the conversation."
 
-## Changing the Players
+### Change the participants or process
 
-Sometimes the person you're negotiating with isn't the right person:
+- Add a decision-maker, technical expert, HR partner, counsel, mediator, or neutral facilitator when appropriate.
+- Move from an improvised call to a written term sheet.
+- Separate technical fact-finding from commercial bargaining.
+- Use a cooling-off period or scheduled follow-up.
 
-- **Add a party:** Bring in someone with more authority or different perspective
-- **Subtract a party:** Remove someone who's blocking progress
-- **Replace yourself:** "Let me have my colleague follow up on this"
-- **Introduce a third party:** Mediator, advisor, or mutual contact
+### Exit
+
+> "This package and process do not work for me, so I am not agreeing today. If the terms or process change, I am open to reviewing a new proposal."
+
+## Coercion, Threats, and Safety
+
+When conduct involves threats, retaliation, discrimination, blackmail, fraud, physical danger, or pressure to break the law:
+
+- Prioritize immediate safety and preservation of choice over bargaining technique.
+- Do not advise retaliation, deception, or unlawful evidence gathering.
+- Preserve relevant written records lawfully.
+- Recommend an appropriate qualified resource, such as counsel, HR, a regulator, emergency services, or a trusted support person, based on the situation.
+- Do not encourage the user to remain in a dangerous interaction to obtain a better deal.

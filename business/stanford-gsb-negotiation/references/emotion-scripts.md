@@ -1,109 +1,83 @@
-# Difficult Conversations
+# Emotion and Difficult Conversations
 
-Use when user is dealing with relationship strain, high emotions, or interpersonal conflict.
+Use this guidance when identity, trust, hurt, anger, status, or an ongoing relationship is central to the negotiation.
 
-## The Three Conversations Framework
+## Three Layers
 
-Every difficult conversation has three layers:
+| Layer | Coaching shift |
+|-------|----------------|
+| What happened | From one correct story to multiple perceptions and testable facts |
+| Feelings | From arguing about intent to naming impact and emotion carefully |
+| Identity | From all-or-nothing self-judgment to a more stable, complex view |
 
-| Conversation | What it's about | Key shift |
-|--------------|-----------------|-----------|
-| **What Happened?** | Facts, who's right, who's to blame | Truth → Perceptions |
-| **Feelings** | Emotions involved, whether to share them | Intent → Impact |
-| **Identity** | What this says about me | Blame → Joint Contribution |
+## Open from the Third Story
 
-### Truth → Perceptions
-Difficult conversations are not about facts. They're about different perceptions.
+Describe the difference as a neutral observer might, then invite their view.
 
-**Script for user:** "We seem to see this differently. Help me understand how you see it."
+Instead of:
 
-### Intent → Impact
-Speak to the impact on you, not their intentions.
+> "You went behind my back."
 
-| Instead of | Say |
-|------------|-----|
-| "You meant to hurt me" | "When that happened, I felt hurt" |
-| "You were trying to undermine me" | "The impact on me was that I felt undermined" |
+Try:
 
-### Blame → Joint Contribution
-Take responsibility for your part without accepting all blame.
+> "We seem to have different expectations about when we consult each other. I'd like to understand how you saw the decision and explain its impact on me."
 
-**Script:** "I think we both contributed to this. On my end, I could have [X]. I'm curious what you see."
+## Separate Intent from Impact
 
----
+Do not claim to know intent without evidence.
 
-## Diagnosing the Situation
+- "I don't know what you intended. The impact on me was [impact]."
+- "When [specific behavior] happened, I felt [emotion] because [interest]."
+- "Is that how you expected it to land?"
 
-Before strategizing, ask:
-- "What happened from your perspective?"
-- "How are you feeling about this?"
-- "What's at stake for you personally?"
-- "Do you feel disrespected or unheard?"
+## Replace Blame with Contribution
 
-Then help them see the other side:
-- "Before we strategize, what might they say happened?"
-- "What pressures might they be under that you don't see?"
-- "Is it possible they didn't intend to hurt you?"
+Contribution asks how each side helped create the situation without erasing responsibility or excusing harm.
 
----
+> "I can see that I contributed by [specific action]. I also need us to address [their specific action]. How do you see each part?"
 
-## Opening Scripts
+Do not push joint-contribution language when it would minimize abuse, coercion, discrimination, or a serious power imbalance.
 
-### Third Story Opening
-Start from a neutral observer's perspective, not your side.
+## Balance Advocacy and Inquiry
 
-**User wants to say:** "You went behind my back"
-**Give them:** "We seem to have different expectations about how decisions get made. I'd like to understand your thinking."
+Advocate with observable data and reasoning:
 
-**User wants to say:** "You're being unreasonable"
-**Give them:** "We're seeing this differently. Help me understand what's driving your position."
+> "I saw [observation]. I interpreted it as [meaning], which led me to [concern]. What am I missing?"
 
-### Acknowledge Feelings Script
-"I'm feeling [frustrated/concerned], and I want to understand your perspective."
+Inquire without surrendering the user's position:
 
-### The "And" Stance
-When user is stuck in either/or, help them hold both:
+- "What led you to see it that way?"
+- "Which facts are most important to your view?"
+- "What would change your assessment?"
+- "What do you think I am not understanding?"
 
-"You can acknowledge their intent AND your hurt: 'I know you didn't mean to upset me, and I was still hurt by what happened.'"
+## De-escalate
 
----
+When the other person is activated:
 
-## De-escalation Scripts
+- "I can see this matters. I want to understand before responding."
+- "I don't think either of us is processing this well right now. Can we pause until [time]?"
+- "Let me reflect back what I heard before I answer."
 
-If the other person gets angry:
-- "I can see this is really important to you. Help me understand."
-- "Let's take a break and come back to this in an hour."
-- "I want to respond thoughtfully. Can I think about this?"
+When the user is activated, help them regain choice:
 
----
+1. Name the trigger and physical or emotional state.
+2. Separate the immediate impulse from the desired outcome.
+3. Decide whether to continue, use a holding line, or pause.
+4. Return only when the user can listen and choose deliberately.
 
-## When User Is Angry
+Do not order the user to suppress emotion. Emotion can signal an important interest or boundary; it should inform the decision without controlling it.
 
-Help them separate before engaging:
+## Repair and Apology
 
-1. "What specifically triggered this feeling?"
-2. "What do you actually need from this conversation?"
-3. "Are you ready to hear their perspective, or do you need more time?"
+A useful apology identifies the action, impact, responsibility, and change:
 
-Don't let them negotiate while angry. Help them process first.
+> "I interrupted you repeatedly, which made it harder for you to explain your concern. That was my responsibility. In the next discussion, I will let you finish and summarize before responding."
 
----
+Avoid apologies that demand forgiveness or use "if" to deny the impact.
 
-## Advocacy and Inquiry Balance
+## Preserve Boundaries
 
-Good conversations balance advocating your view and inquiring into theirs.
+Empathy does not require agreement. The user can acknowledge the other person's perspective while declining a term:
 
-### How to Inquire
-- "What leads you to that conclusion?"
-- "What am I missing?"
-- "What data, if we discovered it, would change your mind?"
-- "Help me understand your reasoning."
-
-### How to Advocate
-Share your data and reasoning, not just conclusions:
-- "Here's what I observed: [specific data]. That led me to think [conclusion]."
-- "When you said X, I heard it as Y. Is that what you meant?"
-
-Then invite them to challenge:
-- "What about my view raises doubts for you?"
-- "How might I be contributing to this problem?"
+> "I understand why certainty matters to you, and I cannot accept that risk allocation. I can offer [alternative]."

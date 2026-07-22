@@ -17,7 +17,7 @@ Skills transform Claude from a general-purpose AI into a specialized agent equip
 |----------|--------|-------------|
 | **academic/** | 4 | Research methodology, paper writing/review, neuro-symbolic reasoning |
 | **ai/** | 4 | Coding agents, memory systems, image generation, LLM fine-tuning |
-| **business/** | 1 | Negotiation preparation and strategy |
+| **business/** | 1 | Negotiation coaching before, during, and after the conversation |
 | **creative/** | 2 | World-building, script writing |
 | **data-viz/** | 1 | Visualization design (Stanford CS448B), D3.js |
 | **design/** | 1 | Mockup generation |

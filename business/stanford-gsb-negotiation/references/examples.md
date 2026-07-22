@@ -1,66 +1,77 @@
-# Reference Examples
+# Illustrative Examples
 
-Use these to guide users in similar situations.
+These are fictional process examples, not evidence that a tactic guarantees an outcome.
 
-## Salary Negotiation
+## Prepare: Job Offer
 
-**Situation:** Offer $85K, market rate $90-100K
+**Known:** The user has an offer, a response deadline, and a current job they can keep.
 
-**What worked:**
-- Researched market rates first
-- Asked about signing bonus (one-time cost easier than ongoing)
-- Asked about title change (free for them, valuable to candidate)
-- Offered flexibility on start date
+**Unknown:** The employer's flexibility on base, start date, and level.
 
-**Result:** $92K + $5K signing bonus + 6-month review
+**Coach approach:**
 
-**Key script:** "Based on my research, the market range is $90-100K. I'm excited about this role and want to find something that works for both of us."
+1. Compare the full offer with the user's BATNA.
+2. Research the exact role, level, and location.
+3. Rank base, level, signing bonus, start date, equity, and review timing.
+4. Build two equivalent packages.
+5. Rehearse the recruiter's likely budget objection.
 
----
+**Possible opening:**
 
-## Vendor Contract
+> "I'm excited about the role. Based on the scope and comparable positions, I'd like to discuss a package closer to [supported target]. I see a few ways to structure it depending on which constraints are firm."
 
-**Situation:** Vendor wants 15% price increase
+## Live: Vendor Announces an Increase
 
-**What worked:**
-- Researched 2 competitor alternatives
-- Showed only using 60% of features
-- Offered 2-year commitment in exchange
+**User update:** "They said the renewal price is 15% higher and expires today."
 
-**Result:** 5% increase instead of 15%, removed unused modules, price protection
+**Coach response:**
 
-**Key script:** "We value the partnership, but we need to justify this spend. We're only using 60% of features - can we right-size this?"
+```text
+Say: "Before I can respond, please explain what changed in the package and what drives today's deadline."
+Then: Ask for the complete renewal terms and approval path.
+Avoid: Offering a smaller increase before they explain the basis.
+```
 
----
+The coach records the 15% proposal and deadline as reported facts. Whether the deadline is artificial remains a hypothesis.
 
-## Home Purchase
+## Live: Ambiguous "Final" Offer
 
-**Situation:** Asking $550K, buyer budget constrained
+**User update:** "They said this is final. I don't know whether the manager approved it."
 
-**Research found:**
-- 45 days on market (above average = leverage)
-- Price already reduced from $575K
-- Seller relocating for job (motivated)
+**Coach response:**
 
-**What worked:**
-- Personal letter to seller
-- Quick inspection timeline
-- Flexible closing date
+```text
+Say: "Help me understand what makes it final and who approved the complete package."
+Then: If authority is unclear, request time to review rather than countering.
+```
 
-**Result:** $525K with appliances included
+## Rehearse: Difficult Counterpart
 
-**Key script:** "We love the home. We can close quickly and be flexible on timing, which we hope is valuable to you."
+The agent says:
 
----
+> **Simulation - Counterpart:** "We have three other candidates. If you want the role, accept today."
 
-## Emotional Situation (Medical)
+The user answers. On `coach`, the agent leaves the role and says:
 
-**Situation:** Family vs hospital on treatment
+> You preserved enthusiasm, but you accepted the deadline without testing it. Try: "I'm very interested, and I make commitments after reviewing the complete terms. What changes if I respond tomorrow at noon?"
 
-**What worked:**
-- Acknowledged everyone wanted what's best
-- Brought in palliative care specialist (right parties)
-- Found grandfather's documented wishes
-- Reframed "giving up" as "honoring wishes"
+## Written: Scope Dispute
 
-**Key script:** "We all want what's best for him. Can we understand what he would want?"
+**Objective:** Correct a scope expansion without accusing the client of bad faith.
+
+**Draft:**
+
+> "The signed scope covers A and B. The new request adds C, which changes the effort and delivery date. I can either deliver A and B under the current agreement, or add C with the attached change in price and timing. Please let me know which option you prefer."
+
+The draft separates facts, impact, and options while keeping the commitment explicit.
+
+## Debrief: Tentative Agreement
+
+**Discussion:** Price and delivery were discussed; liability and payment timing were not.
+
+**Coach conclusion:** Do not describe the deal as complete. Draft a recap with:
+
+- Tentative price and delivery terms
+- Liability and payment timing marked open
+- Named owners for revisions
+- Date for the next review

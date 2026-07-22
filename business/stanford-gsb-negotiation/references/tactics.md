@@ -1,133 +1,115 @@
-# Negotiation Tactics by Situation
+# Response Strategies
 
-Scripts and techniques organized by when to use them.
+Treat every script as adaptable language. Match it to the user's voice, culture, leverage, relationship, and channel.
 
-## When They're Not Talking Enough
+## Opening
 
-### Mirroring
-Repeat their last 2-3 words as a question, then stay quiet.
+Start with shared purpose, process, and questions before arguing terms.
 
-**Example:**
-- They say: "We need to think about it"
-- User says: "...think about it?"
-- Then wait. They'll explain more.
+> "I'd like to understand what matters most on both sides, then see whether we can build a package that works. Could we start with your priorities?"
 
-### Labeling
-Name what they seem to be feeling.
+For a difficult conversation, use a neutral third-story opening:
 
-**Format:** "It seems like..." or "It sounds like..."
+> "We seem to have different expectations about how this decision would be made. I'd like to understand what happened and agree on a better process."
 
-**Examples:**
-- "It seems like you're concerned about the timeline."
-- "It sounds like this decision has a lot riding on it."
+## Learn More
 
-**Goal:** Get them to say "That's right" - means they feel understood.
+Use open questions to uncover interests and constraints:
 
-### Silence
-After making an offer or asking a question, stop talking. Let them respond first.
+- "What is driving that requirement?"
+- "Which part is most important to you?"
+- "How would that work in practice?"
+- "What authority or approval would be needed?"
+- "What would a workable package need to accomplish?"
 
----
+Reflect or summarize when accuracy matters:
 
-## When They're Being Defensive
+> "Let me check that I understood: timing matters more than contract length, and budget is fixed this quarter. Is that right?"
 
-### Calibrated Questions
-Ask "What" and "How" instead of "Why" - "Why" sounds accusatory.
+## Respond to an Anchor
 
-| Instead of | Say |
-|------------|-----|
-| "Why won't you go higher?" | "What would make it possible to go higher?" |
-| "Why is that your policy?" | "How does that policy work?" |
-| "Why can't you do that?" | "What's preventing that?" |
+First diagnose the basis and avoid letting an unsupported number define the entire conversation.
 
-### Accusation Audit
-List their likely objections upfront to take the sting out.
+> "That is different from the range I expected. What assumptions and comparisons led to it?"
 
-**Example:**
-"You're probably thinking this is going to be expensive. You might be worried about the timeline. Let me address those..."
+Then choose among:
 
----
+- Re-anchor with stronger, relevant criteria.
+- Move to the package rather than one number.
+- Pause to verify data.
+- Decline if it falls outside the user's viable range.
 
-## When Making an Opening
+Do not automatically assume an extreme anchor is malicious or answer it with an unsupported counter-anchor.
 
-### Third Story Opening
-Start from a neutral perspective, not your side.
+## Make a Proposal
 
-| User wants to say | Give them this instead |
-|-------------------|------------------------|
-| "You're being unfair" | "We seem to see this differently. Help me understand your perspective." |
-| "You went behind my back" | "We seem to have different expectations about how decisions get made. I'd like to understand your thinking." |
-| "You're being unreasonable" | "We're seeing this differently. Help me understand what's driving your position." |
+Connect the proposal to interests and criteria:
 
-### Stating Your Interests
-Use "I" statements to express impact without blame.
+> "Given the scope, comparable roles, and the results expected in the first year, I propose [term]."
 
-| Instead of | Say |
-|------------|-----|
-| "You always ignore me" | "When I don't hear back, I feel uncertain about where we stand." |
-| "You're being unfair" | "I'm concerned this doesn't reflect my contribution." |
+Where useful, offer multiple equivalent packages:
 
----
+> "I see two workable structures: [A], which prioritizes certainty, or [B], which trades some certainty for upside. Which fits your constraints better?"
 
-## When They Anchor High/Low
+## Handle "No"
 
-### Don't Counter-Anchor
-Ask questions instead of making a counter-offer.
+Treat rejection as information, not necessarily the end:
 
-**Scripts:**
-- "How did you arrive at that number?"
-- "What's the basis for that?"
-- "Help me understand the reasoning."
+- "Which part does not work?"
+- "What would need to be different for this to become workable?"
+- "Is the constraint the amount, structure, timing, or authority?"
 
-### Redirect to Criteria
-- "What market data are you using?"
-- "What standards should we use to evaluate what's fair?"
+## Handle "Final Offer"
 
----
+Test the meaning without accusing:
 
-## When They Say "Final Offer"
+> "Help me understand what makes it final. Is the constraint authority, budget, timing, or something else?"
 
-**Scripts:**
-- "What would need to change for there to be flexibility?"
-- "Help me understand what's driving that constraint."
-- "If we could solve [their concern], would that create room?"
+If the proposal is genuinely final, compare it with the user's BATNA and reservation point. Do not keep negotiating merely to avoid saying no.
 
-Often "final" is a tactic, not reality.
+## Use Silence
 
----
+After a clear question or proposal, allow the other side time to answer. Do not fill silence by weakening the user's own proposal. In text channels, silence may reflect delay rather than strategy; account for the medium.
 
-## When They Go Silent
+## Trade Concessions
 
-**Scripts:**
-- "What would help you decide?"
-- "What questions do you have?"
-- "What information would be useful?"
+Make movement conditional and reciprocal:
 
-Don't fill the silence yourself. Wait.
+> "If you can commit to [X], I can consider [Y]."
 
----
+Before moving, ask:
 
-## When They Get Emotional
+- What is the user receiving in return?
+- How does this affect the complete package?
+- Is the concession within authority and above the reservation point?
+- Does it create a precedent or implementation risk?
 
-### Label the Emotion
-- "It seems like this is really important to you."
-- "It sounds like you're frustrated."
+Avoid unilateral, repeated concessions and avoid inventing fake deadlines or alternatives.
 
-### Offer a Break
-- "This is important. Can we take a break and come back to this?"
-- "I want to respond thoughtfully. Can I think about this?"
+## Address an Authority Claim
 
-### Show You're Listening
-- "I can see this matters to you. Help me understand."
+> "Who else needs to approve this, and what information would help them decide?"
 
----
+Do not assume the person lacks authority merely because they cite approval. Seek a process that includes the decision-maker or allows a conditional agreement.
 
-## When Closing
+## Respond to a Deadline
 
-### Summarize Agreement
-"Let me make sure I understand what we've agreed to..."
+> "What drives that deadline, and what changes if we respond by [alternative time]?"
 
-### Get Specific Commitment
-"So you'll send the revised offer by Friday?"
+If time is genuinely limited, narrow the decision, use a temporary arrangement, or pause rather than accept unreviewed material terms.
 
-### Confirm Next Steps
-"What happens next? Who does what by when?"
+## Repair Misunderstanding
+
+> "I may have explained that poorly. What I meant was [meaning]. What did you hear?"
+
+Use impact language rather than claiming intent:
+
+> "When the scope changed after the price was agreed, I became concerned that we were evaluating different packages."
+
+## Close
+
+Summarize without overstating agreement:
+
+> "I think we have agreement on [terms], while [items] remain open. Is that your understanding?"
+
+Then confirm owners, authority, dates, contingencies, documentation, and next steps.
